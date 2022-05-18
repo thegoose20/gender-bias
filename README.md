@@ -4,6 +4,12 @@ Gender bias classification collaboration
 
 Related repo: [annot-prep](https://github.com/thegoose20/annot-prep)
 
+### To Do
+* [Lucy] Define train/test split with sklearn - *will do Monday, May 23rd*
+* [Seraphina] Make baseline classifiers
+* [Lucy] Use ML classifier – possible resource constraints 
+* [Seraphina] Pick a couple combination functions for doc representation
+
 ### Classification Overview
 * Document classification - begin with TFIDF, experiment with 2ish combination functions for comparing document representations
 * Multi-label - 9 labels from annotation taxonomy (see below)

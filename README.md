@@ -5,7 +5,7 @@ Gender bias classification collaboration
 Related repo: [annot-prep](https://github.com/thegoose20/annot-prep)
 
 ### To Do
-* [Lucy] Define train/test split with sklearn - *will do Monday, May 23rd*
+* [Lucy] Define train/test split with sklearn - 60% train, 20% validation, 20% blind test
 * [Seraphina] Make baseline classifiers
 * [Lucy] Use ML classifier – possible resource constraints 
 * [Seraphina] Pick a couple combination functions for doc representation

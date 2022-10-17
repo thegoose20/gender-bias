@@ -4,3 +4,5 @@
 __pycache__/
 __pycache__/*
 __pycache__/*/*
+clf_data2/
+clf_data2/*

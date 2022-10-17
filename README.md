@@ -3,9 +3,10 @@
 Gender bias classification collaboration
 
 ### To Do
-- [x]  [Lucy] Define train/test split with sklearn
-- [ ] [Seraphina] Make baseline classifiers
-- [ ] [Lucy] Use ML classifier – possible resource constraints
+- [x] Define train/test split with sklearn
+- [X] Make baseline classifiers
+- [ ] Make ML classifier with feature engineering – possible resource constraints
+- [ ] Use DL classifier
 - [ ] [Seraphina] Pick a couple combination functions for doc representation
 
 ### Classification Overview
@@ -64,7 +65,13 @@ Gendered and Gender Biased Language
   * The `blindtest_` files contain 20% of the data, randomly selected after shuffling, for evaluating the final classification models
 
 * `SplitData.ipynb` - Splitting the aggregated annotated dataset into training, validation, and blind test sets
+* `DocumentClassifiers.ipynb` - Baseline document classification models using Multinomial Naive Bayes, Logistic Regression, and Random Forest algorithms
 
-## Related Repos
-* [annot-prep](https://github.com/thegoose20/annot-prep)
-* [annot](https://github.com/thegoose20/annot)
+## Related Resources
+* GitHub repos: 
+  * [annot-prep](https://github.com/thegoose20/annot-prep)
+  * [annot](https://github.com/thegoose20/annot)
+* Observable Notebooks: 
+  * [Confusion Matrices of Annotated Archival Metadata Descriptions](https://observablehq.com/@thegoose20/confusion-matrices)
+  * [Exploratory Analysis of Archival Metadata](https://observablehq.com/d/0091bad1ddecc57f)
+  * [Exploratory Analysis of Annotated Data](https://observablehq.com/d/b61080669b52aa93)

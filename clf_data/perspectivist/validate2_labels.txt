@@ -1,0 +1,1369 @@
+Unknown
+Gendered-Pronoun, Masculine, Unknown
+Gendered-Pronoun, Masculine, Unknown, Gendered-Role
+Masculine, Gendered-Role, Gendered-Pronoun
+Gendered-Pronoun, Masculine, Unknown, Gendered-Role
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Generalization, Feminine
+Gendered-Pronoun, Feminine
+Gendered-Role, Unknown, Feminine
+Gendered-Pronoun, Masculine, Feminine, Generalization
+Gendered-Pronoun, Masculine
+Unknown
+Gendered-Pronoun, Gendered-Role, Unknown, Feminine
+Gendered-Pronoun, Unknown, Masculine, Generalization, Gendered-Role
+Gendered-Pronoun, Unknown, Masculine, Generalization, Feminine
+Gendered-Pronoun, Masculine, Feminine, Gendered-Role
+Gendered-Pronoun, Masculine, Unknown
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Generalization, Feminine
+Gendered-Pronoun, Masculine, Unknown
+Gendered-Role, Unknown, Feminine
+Gendered-Pronoun, Masculine, Unknown
+Unknown
+Unknown
+Generalization, Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Masculine, Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Unknown
+Unknown
+Masculine, Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Gendered-Role, Unknown, Feminine
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Gendered-Pronoun
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Role, Unknown, Feminine
+Unknown
+Unknown
+Masculine, Unknown, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Role, Unknown
+Unknown
+Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Unknown, Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Generalization, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Unknown, Gendered-Role
+Generalization
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Gendered-Role, Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Feminine
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Feminine, Gendered-Role
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Pronoun, Masculine, Gendered-Role
+Gendered-Role
+Unknown
+Gendered-Role
+Unknown
+Gendered-Role
+Masculine, Gendered-Role, Unknown, Feminine
+Unknown
+Unknown
+Gendered-Pronoun, Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Feminine
+Unknown
+Unknown
+Masculine, Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Feminine
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Gendered-Pronoun
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Gendered-Pronoun, Gendered-Role, Feminine
+Masculine, Unknown, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Role, Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Role, Feminine
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Gendered-Pronoun, Unknown
+Masculine, Gendered-Role
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown, Feminine
+Gendered-Pronoun, Masculine
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Gendered-Pronoun
+Unknown
+Unknown
+Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Masculine, Unknown, Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Gendered-Role
+Masculine, Gendered-Role, Unknown
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Unknown
+Unknown
+Gendered-Pronoun
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Generalization, Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Masculine, Gendered-Role, Unknown, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Gendered-Role, Feminine
+Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Gendered-Role, Masculine
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Masculine, Gendered-Role, Unknown
+Unknown
+Gendered-Pronoun
+Gendered-Role, Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun
+Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Gendered-Role
+Unknown
+Generalization, Unknown
+Unknown
+Gendered-Role, Unknown
+Gendered-Role
+Gendered-Role
+Unknown
+Generalization
+Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Unknown
+Gendered-Role
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Masculine, Gendered-Role, Gendered-Pronoun
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Unknown, Feminine
+Gendered-Pronoun, Masculine, Unknown
+Unknown
+Gendered-Role
+Gendered-Role, Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Gendered-Pronoun, Gendered-Role
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Pronoun, Feminine
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Gendered-Pronoun, Unknown, Feminine
+Unknown
+Gendered-Role
+Unknown
+Gendered-Pronoun
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Role, Unknown, Feminine
+Unknown
+Unknown
+Generalization
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Masculine, Gendered-Role, Gendered-Pronoun
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Unknown, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Feminine, Gendered-Role
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Unknown, Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Gendered-Pronoun, Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Pronoun
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Feminine
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Masculine, Unknown, Gendered-Role
+Gendered-Pronoun, Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Gendered-Pronoun, Unknown
+Gendered-Role
+Unknown
+Masculine, Unknown, Gendered-Role
+Gendered-Role
+Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Gendered-Role
+Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Masculine, Gendered-Role, Gendered-Pronoun
+Unknown
+Unknown
+Gendered-Pronoun, Gendered-Role, Masculine, Feminine
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Gendered-Role, Unknown, Feminine
+Gendered-Pronoun, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Gendered-Pronoun, Gendered-Role, Feminine, Generalization
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Generalization, Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Gendered-Role, Unknown
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Feminine
+Gendered-Pronoun
+Unknown
+Gendered-Pronoun
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Masculine, Unknown, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Gendered-Pronoun, Masculine
+Gendered-Role, Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun
+Unknown
+Unknown
+Gendered-Role, Unknown, Feminine
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Gendered-Role
+Gendered-Pronoun, Masculine, Unknown
+Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Masculine, Unknown, Gendered-Role
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Gendered-Pronoun
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown

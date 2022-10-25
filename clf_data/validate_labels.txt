@@ -2347,4 +2347,2353 @@ Occupation, Unknown
 Occupation, Unknown
 Generalization, Unknown
 Unknown
+UnknownGendered-Pronoun, Unknown, Masculine, Generalization, Gendered-Role, Occupation
+Gendered-Pronoun, Stereotype, Unknown, Omission, Gendered-Role, Occupation, Feminine
+Gendered-Pronoun, Stereotype, Masculine, Generalization, Occupation
+Occupation, Masculine, Unknown, Generalization
+Gendered-Pronoun, Unknown, Masculine, Generalization, Occupation
+Gendered-Pronoun, Unknown, Feminine
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role, Occupation
+Masculine, Omission, Unknown
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Generalization, Occupation
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Occupation
+Masculine, Omission, Unknown, Generalization
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role, Occupation
+Masculine, Omission, Unknown, Generalization
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Gendered-Pronoun, Stereotype, Masculine, Generalization, Occupation
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation
+Masculine, Omission, Unknown, Generalization
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role, Generalization, Occupation, Feminine
+Occupation
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation
+Gendered-Pronoun, Occupation, Masculine, Unknown
+Masculine, Omission, Gendered-Pronoun
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role, Occupation
+Omission, Unknown
+Gendered-Pronoun, Masculine
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation
+Occupation, Masculine, Unknown
+Gendered-Pronoun, Feminine
+Masculine, Omission, Unknown
+Masculine, Unknown
+Masculine, Unknown
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation, Feminine
+Occupation, Unknown
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation, Feminine
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Generalization, Occupation
+Gendered-Pronoun, Masculine
+Occupation, Unknown, Generalization
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Generalization, Occupation, Feminine
+Masculine, Occupation, Omission, Unknown
+Unknown
+Gendered-Pronoun, Masculine, Unknown, Occupation
+Occupation, Unknown
+Occupation, Unknown
+Gendered-Pronoun, Stereotype, Masculine, Omission, Gendered-Role
+Occupation, Masculine, Gendered-Pronoun
+Unknown
+Masculine, Omission, Unknown, Occupation
+Gendered-Pronoun, Masculine
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Gendered-Role, Generalization, Occupation, Feminine
+Gendered-Pronoun, Masculine, Omission
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Generalization, Occupation
+Gendered-Pronoun, Stereotype, Masculine, Gendered-Role, Occupation, Feminine
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Generalization, Occupation
+Gendered-Pronoun, Unknown, Omission, Occupation, Feminine
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Generalization, Occupation
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role, Occupation, Feminine
+Gendered-Pronoun, Stereotype, Unknown, Omission, Masculine, Generalization, Occupation, Feminine
+Gendered-Pronoun, Stereotype, Masculine, Gendered-Role, Occupation
+Occupation, Masculine, Gendered-Pronoun, Unknown
+Occupation, Omission
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Masculine, Omission, Unknown
+Masculine, Omission, Unknown, Occupation
+Gendered-Pronoun, Unknown, Masculine, Occupation, Feminine
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Masculine, Omission, Unknown, Generalization
+Occupation, Masculine, Unknown
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Generalization, Occupation
+Gendered-Pronoun, Masculine, Occupation, Generalization
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Generalization, Occupation
+Gendered-Pronoun, Masculine, Unknown, Gendered-Role
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role, Generalization, Occupation
+Masculine, Omission, Unknown
+Gendered-Pronoun, Masculine, Omission, Gendered-Role, Occupation
+Gendered-Pronoun, Stereotype, Masculine, Occupation, Feminine
+Masculine, Occupation, Omission, Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation, Feminine
+Gendered-Pronoun, Stereotype, Unknown, Omission, Masculine, Gendered-Role, Generalization, Occupation, Feminine
+Masculine, Omission, Unknown, Gendered-Role
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role, Generalization, Occupation, Feminine
+Masculine, Omission, Gendered-Pronoun
+Masculine, Omission, Unknown
+Occupation, Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Gendered-Pronoun, Stereotype, Unknown, Omission, Masculine, Gendered-Role, Occupation
+Masculine, Generalization, Unknown, Occupation
+Unknown, Masculine, Omission, Gendered-Role, Generalization, Occupation
+Masculine, Omission, Unknown
+Gendered-Pronoun, Stereotype, Masculine, Generalization, Gendered-Role, Occupation, Feminine
+Masculine, Unknown
+Occupation, Omission
+Gendered-Pronoun, Stereotype, Masculine, Generalization, Gendered-Role, Occupation
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Gendered-Role, Generalization, Occupation, Feminine
+Gendered-Pronoun, Unknown, Masculine, Generalization, Occupation
+Occupation, Omission, Unknown
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Gendered-Role, Generalization, Occupation, Feminine
+Unknown
+Gendered-Pronoun, Masculine
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization, Occupation, Feminine
+Unknown
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role, Occupation
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Feminine
+Unknown, Masculine, Omission, Gendered-Role, Occupation
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role, Generalization, Occupation
+Masculine, Omission, Gendered-Pronoun, Unknown
+Omission, Unknown
+Gendered-Pronoun, Unknown, Masculine, Generalization, Occupation
+Stereotype, Unknown, Masculine, Omission, Gendered-Role, Occupation, Feminine
+Masculine, Omission, Gendered-Pronoun, Generalization
+Unknown, Masculine, Gendered-Pronoun, Omission
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role, Generalization, Occupation
+Omission, Unknown
+Masculine, Gendered-Role, Omission, Unknown
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role, Occupation
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Masculine, Unknown
+Unknown
+Masculine, Gendered-Role
+Masculine, Unknown
+Unknown
+Masculine, Stereotype, Omission, Unknown
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Masculine, Omission, Unknown
+Occupation
+Masculine
+Masculine, Omission, Unknown, Occupation
+Occupation, Omission
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun
+Generalization
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Stereotype, Generalization, Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Omission, Unknown
+Gendered-Role
+Omission, Gendered-Role, Masculine, Unknown
+Unknown
+Unknown
+Occupation, Omission, Generalization
+Unknown
+Unknown
+Unknown
+Masculine
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Masculine
+Unknown
+Unknown
+Feminine
+Unknown
+Unknown
+Occupation, Omission
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Stereotype, Generalization
+Unknown
+Omission, Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Generalization, Gendered-Role
+Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Stereotype, Generalization
+Unknown
+Occupation, Masculine, Unknown, Generalization
+Unknown
+Unknown
+Occupation, Unknown
+Masculine, Unknown
+Masculine, Omission, Unknown
+Stereotype, Gendered-Role, Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Generalization
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Gendered-Role
+Omission, Unknown
+Omission, Unknown
+Unknown
+Occupation
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Stereotype, Generalization
+Unknown
+Masculine, Unknown
+Omission, Unknown
+Unknown
+Omission, Unknown
+Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype
+Unknown
+Unknown
+Omission, Unknown, Generalization
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Generalization, Unknown
+Unknown
+Omission, Unknown
+Stereotype, Omission, Gendered-Role
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Occupation
+Unknown
+Unknown
+Stereotype, Generalization, Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Omission, Unknown
+Masculine, Omission, Unknown
+Stereotype, Generalization
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Gendered-Pronoun
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Occupation
+Masculine, Omission, Gendered-Pronoun
+Unknown
+Unknown
+Masculine, Unknown, Feminine
+Unknown
+Generalization, Unknown
+Masculine, Omission, Gendered-Pronoun
+Omission
+Unknown
+Gendered-Pronoun, Masculine, Unknown, Occupation
+Gendered-Role
+Unknown
+Unknown
+Gendered-Pronoun, Stereotype, Omission, Gendered-Role
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Generalization, Unknown
+Masculine, Stereotype, Omission, Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown, Masculine, Omission, Gendered-Role, Generalization
+Unknown
+Unknown
+Omission, Unknown
+Masculine, Gendered-Role, Unknown
+Unknown
+Masculine, Gendered-Role, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Stereotype, Gendered-Role
+Unknown, Feminine
+Masculine, Gendered-Role
+Unknown
+Occupation, Stereotype, Generalization, Unknown
+Masculine, Unknown
+Masculine, Unknown
+Omission, Unknown
+Generalization, Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Omission, Occupation
+Unknown
+Unknown
+Unknown
+Stereotype, Generalization, Unknown
+Omission, Unknown
+Masculine, Unknown
+Masculine, Generalization, Unknown
+Gendered-Role, Unknown, Feminine
+Generalization, Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Generalization
+Occupation, Unknown
+Stereotype, Generalization
+Unknown
+Unknown
+Unknown
+Gendered-Role, Omission, Feminine
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role, Unknown, Feminine
+Masculine, Unknown
+Unknown
+Occupation, Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission
+Stereotype, Omission, Gendered-Role
+Masculine, Gendered-Role, Omission
+Unknown
+Unknown
+Stereotype, Generalization, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Masculine, Unknown
+Occupation, Omission
+Unknown
+Unknown
+Omission
+Unknown
+Unknown
+Gendered-Role
+Occupation, Unknown
+Unknown
+Masculine, Omission, Unknown
+Omission, Unknown
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Masculine, Generalization, Unknown
+Stereotype, Generalization
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Generalization, Omission, Feminine
+Unknown
+Omission, Gendered-Role, Unknown, Feminine
+Unknown
+Masculine, Gendered-Role, Omission, Occupation
+Unknown
+Stereotype, Gendered-Role, Unknown
+Unknown
+Unknown
+Occupation, Omission
+Occupation
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Generalization, Unknown
+Unknown, Occupation, Omission
+Unknown
+Omission, Unknown
+Gendered-Pronoun
+Omission, Unknown
+Omission, Unknown
+Masculine, Gendered-Role, Omission, Unknown
+Occupation, Unknown, Generalization
+Stereotype
+Unknown
+Generalization
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Stereotype, Unknown
+Unknown
+Unknown
+Omission, Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Omission
+Omission, Unknown
+Unknown
+Unknown
+Gendered-Role
+Occupation, Omission
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation
+Masculine, Omission, Unknown
+Unknown
+Generalization
+Masculine, Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Unknown
+Unknown
+Occupation
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Masculine, Omission, Unknown, Generalization
+Unknown
+Masculine, Unknown, Gendered-Role
+Unknown
+Occupation
+Gendered-Role
+Unknown
+Masculine, Unknown
+Omission
+Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Unknown
+Occupation
+Unknown
+Occupation
+Unknown
+Masculine, Unknown
+Unknown
+Gendered-Role
+Omission
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Omission, Unknown
+Gendered-Role
+Stereotype, Generalization, Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown, Gendered-Role, Omission, Feminine
+Unknown
+Masculine, Unknown
+Omission, Unknown
+Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun
+Omission, Feminine, Gendered-Role
+Gendered-Pronoun, Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Stereotype, Gendered-Role
+Occupation, Unknown
+Unknown
+Generalization, Unknown
+Occupation, Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Unknown
+Unknown
+Occupation
+Omission, Feminine, Gendered-Role
+Masculine, Omission, Unknown
+Omission, Unknown
+Unknown
+Omission, Unknown
+Omission, Unknown
+Occupation, Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Gendered-Role
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Omission, Feminine, Gendered-Role
+Stereotype, Masculine, Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown, Omission, Gendered-Role, Generalization, Feminine
+Unknown
+Occupation, Unknown
+Stereotype, Generalization
+Stereotype, Generalization, Unknown
+Gendered-Pronoun, Masculine, Unknown, Occupation
+Unknown
+Unknown
+Stereotype, Generalization
+Gendered-Pronoun, Masculine, Omission, Unknown
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Stereotype, Gendered-Role, Unknown
+Gendered-Role
+Unknown
+Stereotype, Omission, Gendered-Role
+Generalization
+Omission, Unknown, Feminine, Gendered-Role
+Unknown
+Masculine, Omission, Unknown
+Occupation, Unknown
+Gendered-Pronoun, Omission, Masculine, Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Masculine, Gendered-Role, Omission
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Generalization
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Gendered-Role, Omission
+Stereotype
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Unknown
+Unknown, Masculine, Omission, Gendered-Role, Occupation
+Unknown
+Unknown
+Omission, Unknown
+Unknown, Feminine
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role
+Unknown
+Occupation, Unknown
+Occupation
+Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Masculine, Unknown
+Occupation
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Generalization
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown, Masculine, Omission, Generalization, Occupation
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Generalization
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Stereotype, Generalization, Unknown
+Occupation, Omission
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Generalization, Feminine
+Unknown
+Stereotype, Omission, Gendered-Role
+Omission, Unknown
+Unknown
+Unknown
+Omission, Unknown
+Generalization, Unknown
+Unknown, Generalization, Gendered-Role, Occupation, Feminine
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Masculine, Unknown
+Unknown
+Masculine, Omission, Unknown, Gendered-Role
+Unknown
+Masculine, Generalization, Unknown
+Stereotype
+Unknown
+Occupation
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Omission, Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Omission, Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Omission, Gendered-Role
+Unknown
+Gendered-Role, Unknown, Feminine
+Masculine, Unknown
+Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Gendered-Pronoun, Masculine, Unknown
+Unknown
+Omission
+Occupation, Unknown
+Omission
+Occupation
+Generalization, Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Occupation
+Occupation, Masculine, Unknown, Gendered-Role
+Unknown
+Omission, Unknown, Gendered-Role
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role, Occupation, Feminine
+Unknown
+Unknown
+Masculine, Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Occupation
+Masculine, Unknown
+Omission
+Occupation, Unknown
+Unknown
+Occupation, Gendered-Role, Unknown, Feminine
+Unknown
+Unknown
+Unknown
+Occupation
+Masculine, Stereotype, Gendered-Role
+Masculine, Omission, Unknown
+Masculine, Generalization, Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Occupation
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Unknown
+Stereotype, Generalization, Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Masculine, Omission, Unknown
+Gendered-Role, Unknown
+Unknown
+Stereotype, Generalization
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Stereotype, Generalization
+Masculine, Gendered-Role
+Unknown
+Generalization
+Unknown
+Unknown
+Unknown
+Occupation, Masculine, Unknown, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Omission, Unknown
+Omission
+Unknown
+Masculine, Unknown
+Unknown
+Occupation
+Masculine, Unknown
+Masculine, Omission, Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Unknown, Gendered-Role, Generalization, Occupation, Feminine
+Unknown
+Masculine
+Omission, Gendered-Role
+Generalization
+Stereotype, Generalization
+Unknown
+Stereotype, Generalization, Unknown
+Masculine, Omission, Unknown
+Omission
+Unknown
+Occupation
+Stereotype, Gendered-Role, Omission
+Unknown
+Stereotype, Generalization
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Omission, Unknown
+Unknown
+Masculine, Gendered-Role, Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Generalization, Gendered-Role
+Unknown
+Occupation, Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Stereotype, Masculine, Unknown, Gendered-Role
+Masculine, Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Omission, Unknown
+Omission, Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Gendered-Pronoun, Masculine, Omission, Gendered-Role
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Occupation, Stereotype, Omission, Generalization
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Generalization, Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun
+Unknown
+Unknown
+Occupation
+Unknown
+Unknown
+Unknown
+Occupation
+Occupation, Generalization
+Unknown
+Stereotype, Generalization, Unknown
+Occupation, Omission
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Occupation
+Unknown
+Unknown
+Stereotype, Generalization, Unknown
+Unknown
+Occupation
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Omission, Unknown
+Unknown
+Unknown
+Gendered-Role, Omission, Feminine
+Occupation, Unknown
+Stereotype, Masculine, Unknown, Gendered-Role
+Unknown
+Masculine, Gendered-Role
+Masculine, Generalization, Gendered-Role
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Omission
+Occupation, Unknown
+Omission
+Gendered-Pronoun
+Masculine, Omission, Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Masculine, Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Stereotype, Omission, Generalization
+Masculine, Omission, Unknown
+Unknown
+Omission, Masculine, Unknown
+Unknown
+Unknown
+Unknown, Feminine
+Stereotype, Occupation, Gendered-Role
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Omission, Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Omission, Unknown
+Stereotype
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Masculine, Unknown, Gendered-Role
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization
+Unknown
+Omission, Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Masculine, Unknown
+Unknown, Feminine
+Masculine, Gendered-Role, Feminine, Generalization
+Unknown
+Omission, Unknown
+Gendered-Role
+Stereotype, Gendered-Role
+Unknown
+Occupation
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Masculine, Omission, Unknown
+Stereotype, Generalization, Unknown
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Stereotype, Generalization
+Stereotype, Masculine, Unknown, Feminine
+Masculine, Omission, Unknown
+Stereotype, Gendered-Role, Omission
+Unknown
+Gendered-Pronoun, Generalization, Masculine, Gendered-Role
+Occupation, Omission
+Occupation, Omission
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Omission, Generalization
+Occupation, Masculine, Unknown
+Unknown
+Unknown
+Omission, Gendered-Role
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Occupation
+Unknown
+Stereotype, Generalization, Unknown
+Omission, Unknown
+Unknown
+Masculine, Omission, Unknown, Generalization
+Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Occupation
+Gendered-Role
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Omission
+Unknown
+Omission
+Unknown
+Omission, Unknown
+Stereotype, Generalization, Unknown
+Gendered-Role
+Unknown
+Masculine, Gendered-Role, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Stereotype, Generalization
+Unknown
+Unknown
+Unknown
+Masculine, Unknown
+Occupation, Unknown
+Unknown
+Gendered-Pronoun, Unknown
+Masculine, Omission, Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization
+Omission, Masculine, Unknown
+Unknown, Generalization, Omission
+Unknown
+Unknown
+Omission, Unknown
+Stereotype, Omission, Generalization, Gendered-Role
+Unknown
+Unknown
+Occupation, Omission
+Unknown
+Masculine, Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization
+Gendered-Role, Generalization
+Unknown
+Occupation
+Unknown, Masculine, Omission, Gendered-Role, Feminine
+Unknown
+Stereotype, Generalization
+Unknown, Omission, Masculine, Gendered-Role, Feminine
+Gendered-Pronoun, Masculine
+Gendered-Pronoun, Omission, Masculine, Occupation
+Unknown
+Gendered-Pronoun, Masculine
+Unknown, Masculine, Omission, Gendered-Role
+Unknown
+Stereotype, Gendered-Role, Feminine
+Masculine, Gendered-Role
+Masculine, Omission, Unknown, Occupation
+Gendered-Pronoun, Masculine
+Masculine, Gendered-Role
+Gendered-Pronoun, Stereotype, Masculine, Unknown
+Unknown
+Stereotype, Omission, Generalization
+Stereotype, Omission, Generalization
+Unknown
+Stereotype, Unknown, Masculine, Generalization, Gendered-Role
+Masculine, Unknown, Gendered-Role
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Omission
+Omission, Unknown
+Unknown
+Stereotype, Omission, Generalization
+Stereotype, Omission, Generalization, Gendered-Role, Occupation
+Stereotype, Omission, Gendered-Role
+Gendered-Role
+Stereotype
+Omission, Unknown
+Gendered-Role, Unknown
+Omission
+Stereotype, Omission, Gendered-Role
+Stereotype, Omission, Generalization
+Stereotype, Unknown, Masculine, Omission, Generalization, Gendered-Role
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization
+Omission
+Omission, Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Generalization, Unknown
+Unknown
+Omission
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role, Generalization, Occupation, Feminine
+Unknown
+Occupation, Stereotype, Omission, Generalization
+Gendered-Role, Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Masculine, Unknown, Generalization, Gendered-Role
+Masculine, Gendered-Role, Omission
+Omission
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization, Gendered-Role
+Omission, Unknown
+Unknown
+Stereotype, Omission, Generalization
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Generalization, Gendered-Role, Occupation
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown, Generalization
+Gendered-Role
+Unknown
+Unknown
+Omission, Unknown, Gendered-Role
+Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Occupation, Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Stereotype, Unknown, Feminine
+Occupation
+Unknown
+Occupation, Unknown, Generalization
+Unknown
+Unknown
+Stereotype, Unknown, Omission, Masculine, Generalization, Gendered-Role
+Omission, Unknown, Feminine, Gendered-Role
+Omission, Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Gendered-Role, Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Omission, Occupation, Unknown, Gendered-Role
+Occupation
+Unknown
+Omission, Unknown
+Occupation, Gendered-Role, Omission, Feminine
+Gendered-Pronoun, Stereotype, Omission, Generalization
+Omission, Unknown
+Masculine, Omission, Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun, Occupation
+Unknown
+Masculine, Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Gendered-Pronoun, Occupation
+Omission, Unknown, Feminine, Gendered-Role
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission
+Omission
+Gendered-Pronoun, Stereotype, Masculine, Gendered-Role
+Gendered-Role, Unknown, Feminine
+Unknown
+Unknown
+Occupation, Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Unknown
+Stereotype, Unknown, Omission, Generalization, Gendered-Role
+Unknown
+Unknown
+Occupation
+Unknown
+Gendered-Role
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Gendered-Role
+Occupation
+Unknown
+Masculine, Omission, Unknown, Occupation
+Masculine, Omission, Unknown
+Gendered-Role, Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Occupation, Omission
+Unknown
+Unknown
+Masculine, Unknown
+Occupation
+Stereotype, Omission, Generalization
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization
+Omission
+Stereotype, Omission, Gendered-Role
+Unknown
+Generalization, Unknown
+Occupation, Omission, Unknown
+Generalization, Unknown
+Omission
+Gendered-Role, Unknown, Feminine
+Gendered-Pronoun, Masculine, Omission, Generalization, Occupation
+Omission
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role
+Unknown
+Masculine, Unknown
+Omission, Unknown
+Gendered-Role
+Generalization
+Masculine, Omission, Unknown
+Omission, Gendered-Role
+Masculine, Occupation, Unknown
+Omission, Gendered-Role, Unknown, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Omission
+Unknown
+Unknown
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role, Occupation
+Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation, Feminine
+Unknown, Masculine, Omission, Gendered-Role, Occupation
+Unknown
+Stereotype, Omission, Generalization
+Gendered-Pronoun, Stereotype, Omission, Generalization
+Masculine, Unknown
+Stereotype, Omission, Gendered-Role
+Masculine, Gendered-Role
+Masculine, Gendered-Role, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Stereotype, Omission, Generalization
+Unknown
+Gendered-Pronoun, Unknown
+Occupation, Omission
+Stereotype, Omission
+Gendered-Role, Omission, Feminine
+Masculine, Gendered-Role
+Occupation, Generalization, Unknown
+Masculine, Omission, Unknown
+Stereotype, Omission, Generalization, Gendered-Role
+Omission, Unknown, Feminine, Gendered-Role
+Omission, Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Occupation, Masculine, Unknown
+Unknown
+Gendered-Role, Unknown
+Stereotype, Omission, Generalization
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role, Generalization, Occupation, Feminine
+Gendered-Pronoun, Masculine
+Stereotype, Omission, Gendered-Role
+Masculine, Omission, Gendered-Pronoun
+Unknown
+Unknown
+Gendered-Pronoun, Gendered-Role, Masculine, Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Omission, Unknown
+Masculine, Gendered-Role
+Stereotype, Omission, Generalization
+Unknown
+Stereotype, Omission, Generalization
+Unknown
+Omission
+Unknown
+Masculine, Occupation, Unknown, Gendered-Role
+Masculine, Omission, Gendered-Role, Unknown
+Stereotype, Omission, Generalization
+Omission, Unknown
+Stereotype, Omission, Unknown, Generalization
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Stereotype, Omission, Generalization
+Unknown
+Gendered-Role
+Gendered-Role, Unknown, Feminine
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Omission, Unknown
+Gendered-Pronoun, Stereotype, Gendered-Role, Generalization, Feminine
+Omission
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization, Gendered-Role
+Occupation
+Masculine, Omission, Gendered-Pronoun, Occupation
+Unknown
+Unknown
+Masculine, Omission, Unknown, Occupation
+Occupation
+Unknown
+Unknown
+Omission
+Unknown
+Stereotype, Unknown, Masculine, Gendered-Role, Generalization
+Masculine, Unknown
+Gendered-Pronoun, Unknown
+Omission, Masculine, Unknown
+Unknown
+Stereotype, Omission, Generalization
+Masculine, Omission, Unknown
+Unknown
+Gendered-Pronoun, Masculine, Omission, Gendered-Role, Feminine
+Unknown
+Stereotype, Unknown, Masculine, Omission, Gendered-Role, Occupation, Feminine
+Gendered-Pronoun, Unknown
+Omission, Unknown
+Unknown
+Omission
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Gendered-Pronoun, Stereotype, Unknown, Omission, Masculine, Gendered-Role, Feminine
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation
+Occupation
+Omission, Unknown
+Occupation
+Occupation, Omission
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Omission
+Omission, Unknown
+Unknown
+Unknown
+Stereotype, Omission, Generalization
+Occupation, Omission, Unknown
+Occupation, Stereotype, Omission, Gendered-Pronoun
+Unknown
+Masculine, Gendered-Role
+Unknown
+Masculine, Gendered-Role, Omission
+Unknown
+Masculine, Gendered-Role
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Generalization
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Occupation
+Stereotype, Occupation, Omission, Gendered-Role
+Unknown
+Unknown
+Masculine, Unknown
+Omission, Unknown
+Unknown
+Masculine, Stereotype, Omission, Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Stereotype, Unknown, Omission, Gendered-Role, Occupation
+Unknown
+Omission
+Omission, Unknown
+Omission
+Occupation
+Masculine, Omission, Gendered-Pronoun, Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Omission, Unknown
+Stereotype, Omission, Gendered-Role
+Gendered-Pronoun, Stereotype, Masculine, Omission, Gendered-Role, Generalization
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role, Feminine
+Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun
+Occupation
+Unknown
+Unknown
+Occupation, Generalization, Unknown, Gendered-Role
+Unknown
+Stereotype, Omission, Generalization, Gendered-Role
+Unknown
+Gendered-Pronoun, Gendered-Role, Masculine
+Stereotype, Omission, Generalization
+Unknown
+Occupation
+Stereotype, Omission, Generalization
+Occupation, Omission
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role, Occupation
+Omission
+Omission
+Omission
+Stereotype, Omission, Generalization
+Unknown
+Stereotype, Omission, Gendered-Role
+Omission, Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Generalization
+Gendered-Pronoun, Masculine, Unknown, Feminine
+Masculine, Unknown, Gendered-Role
+Unknown
+Stereotype, Omission, Generalization
+Unknown, Feminine
+Unknown
+Unknown
+Omission, Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Occupation
+Unknown
+Gendered-Pronoun, Unknown
+Masculine, Omission, Unknown, Gendered-Role
+Omission
+Stereotype, Omission, Gendered-Role
+Gendered-Role
+Omission, Unknown
+Unknown
+Stereotype, Masculine, Unknown, Feminine
+Stereotype, Occupation, Omission, Gendered-Role
+Unknown
+Occupation, Unknown
+Unknown
+Omission, Unknown
+Omission
+Stereotype, Omission, Gendered-Role
+Omission, Unknown
+Unknown
+Omission, Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun, Occupation
+Occupation
+Gendered-Pronoun, Occupation, Feminine, Gendered-Role
+Unknown
+Stereotype, Unknown, Omission, Masculine, Generalization, Gendered-Role
+Masculine, Omission, Gendered-Pronoun, Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Stereotype, Omission, Gendered-Role
+Stereotype, Omission, Gendered-Role
+Omission
+Omission
+Omission, Unknown
+Occupation
+Stereotype, Omission, Generalization
+Masculine, Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Occupation
+Omission, Masculine, Unknown, Occupation
+Generalization, Omission
+Unknown
+Unknown
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Occupation
+Omission
+Unknown
+Masculine, Gendered-Role, Omission, Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Masculine, Gendered-Role
+Omission
+Omission
+Occupation, Omission
+Masculine, Unknown
+Stereotype, Masculine, Unknown
+Unknown
+Masculine, Gendered-Role
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Unknown
+Omission
+Unknown
+Unknown
+Stereotype, Occupation, Omission, Generalization
+Unknown
+Unknown
+Masculine, Omission, Unknown, Occupation
+Unknown
+Unknown
+Unknown, Masculine, Omission, Gendered-Role, Feminine
+Occupation, Unknown
+Unknown
+Stereotype, Omission, Generalization
+Occupation, Omission
+Unknown
+Gendered-Pronoun, Masculine, Omission, Gendered-Role, Generalization
+Masculine, Gendered-Role
+Unknown
+Omission
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Occupation
+Unknown
+Omission, Occupation, Unknown
+Unknown
+Omission, Unknown
+Masculine, Unknown
+Unknown
+Omission
+Unknown, Omission, Gendered-Role, Occupation, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission
+Occupation, Masculine, Gendered-Pronoun, Generalization
+Gendered-Role, Unknown
+Gendered-Pronoun, Gendered-Role, Omission, Feminine
+Occupation
+Masculine, Unknown
+Omission, Unknown, Feminine, Gendered-Role
+Gendered-Pronoun, Gendered-Role
+Gendered-Role
+Gendered-Pronoun, Gendered-Role, Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Masculine, Omission, Unknown
+Omission, Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Stereotype, Omission, Generalization, Gendered-Role
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Omission, Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Omission, Gendered-Role
+Unknown, Masculine, Generalization, Gendered-Role, Occupation
+Stereotype, Omission, Generalization
+Masculine, Unknown
+Unknown, Generalization, Masculine, Omission
+Gendered-Pronoun, Stereotype, Masculine, Omission, Gendered-Role, Generalization
+Unknown
+Occupation, Stereotype, Omission, Generalization
+Unknown
+Unknown
+Unknown, Omission, Gendered-Role, Occupation, Feminine
+Omission, Unknown
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Feminine
+Unknown
+Omission, Gendered-Role
+Stereotype, Omission, Unknown, Generalization
+Masculine
+Unknown
+Omission, Unknown
+Masculine, Omission, Unknown
+Masculine, Unknown, Feminine
+Occupation, Omission, Gendered-Pronoun
+Masculine, Omission, Unknown
+Unknown
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role
+Occupation, Masculine, Unknown, Gendered-Role
+Unknown
+Gendered-Role, Unknown
+Unknown
+Occupation
+Omission, Unknown
+Omission
+Unknown, Occupation, Omission
+Unknown
+Omission, Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Stereotype, Omission, Gendered-Role
+Unknown
+Omission
+Unknown
+Unknown, Feminine
+Unknown
+Unknown
+Masculine, Omission, Unknown, Generalization
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Feminine
+Unknown
+Stereotype, Omission, Generalization
+Unknown
+Occupation
+Unknown
+Omission
+Unknown
+Stereotype, Omission, Generalization
+Gendered-Pronoun, Unknown, Omission, Masculine, Generalization
+Unknown
+Unknown
+Unknown
+Omission, Unknown
+Masculine, Omission, Unknown
+Masculine, Omission, Unknown
+Unknown
+Gendered-Pronoun, Unknown, Omission, Masculine, Feminine
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Omission, Generalization, Gendered-Role, Occupation
+Unknown
+Masculine, Stereotype, Generalization, Gendered-Role
+Occupation, Generalization
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Unknown
+Omission, Unknown
+Unknown
+Omission, Unknown
+Unknown
+Gendered-Pronoun, Gendered-Role, Masculine
+Unknown
+Occupation, Stereotype, Omission, Generalization
+Masculine, Gendered-Role, Omission
+Unknown
+Unknown, Feminine
+Unknown
+Unknown
+Occupation
+Unknown
+Unknown
+Stereotype, Omission, Generalization
+Unknown
+Occupation
+Unknown
+Omission, Masculine, Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Occupation, Masculine, Unknown, Generalization
+Omission, Unknown
+Stereotype, Omission, Generalization, Gendered-Role
+Unknown
+Occupation
+Masculine, Unknown
+Stereotype, Gendered-Role
+Unknown, Omission, Masculine, Generalization, Gendered-Role, Occupation
+Unknown
+Omission, Unknown
+Gendered-Pronoun, Omission, Masculine, Feminine
+Omission, Gendered-Role, Masculine, Unknown
+Unknown
+Occupation
+Unknown
+Unknown
+Masculine, Omission, Unknown, Occupation
+Stereotype, Omission, Generalization
+Stereotype, Masculine, Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Feminine
+Omission, Unknown
+Gendered-Pronoun, Gendered-Role, Unknown, Feminine
+Gendered-Pronoun, Masculine, Omission, Gendered-Role, Occupation
+Masculine, Omission, Unknown
+Gendered-Role, Unknown
+Omission
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Gendered-Pronoun, Occupation, Omission, Unknown
+Masculine, Omission, Unknown
+Unknown
+Omission
+Stereotype, Omission, Generalization
+Omission
+Stereotype, Gendered-Role
+Unknown
+Unknown
+Unknown
+Occupation
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization, Gendered-Role, Occupation, Feminine
+Masculine, Omission, Gendered-Role
+Masculine, Unknown
+Occupation
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Omission, Unknown
+Unknown, Omission, Gendered-Role, Occupation, Feminine
+Masculine, Omission, Gendered-Pronoun, Unknown
+Stereotype, Omission, Generalization
+Omission
+Occupation, Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Masculine
+Unknown
+Unknown
+Stereotype, Unknown, Omission, Generalization, Gendered-Role, Occupation
+Unknown
+Omission, Unknown
+Omission
+Stereotype, Omission, Gendered-Role
+Gendered-Pronoun, Stereotype, Masculine, Omission, Generalization, Gendered-Role, Occupation
+Unknown
+Unknown
+Stereotype
+Omission, Unknown
+Stereotype, Omission, Generalization
+Unknown
+Gendered-Pronoun
+Unknown
+Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Omission, Unknown
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Omission, Occupation
+Unknown, Masculine, Omission, Gendered-Role, Feminine
+Unknown
+Unknown
+Omission, Unknown, Feminine, Gendered-Role
+Omission
+Unknown
+Stereotype, Omission, Generalization
+Omission, Generalization, Masculine, Unknown
+Unknown
+Stereotype, Omission, Unknown, Generalization
+Omission
+Stereotype, Omission, Gendered-Role
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Occupation, Feminine
+Unknown
+Gendered-Pronoun
+Masculine, Omission, Unknown, Occupation
+Gendered-Pronoun, Stereotype, Masculine, Gendered-Role, Feminine
+Unknown
+Occupation, Masculine, Gendered-Pronoun
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Gendered-Pronoun, Masculine, Unknown, Feminine
+Unknown
+Stereotype, Omission, Gendered-Role
+Stereotype, Omission, Gendered-Role
+Omission
+Occupation, Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Occupation, Omission
+Unknown
+Occupation
+Unknown
+Stereotype
+Omission, Masculine, Unknown
+Unknown
+Unknown
+Masculine, Unknown, Feminine
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Masculine, Omission, Gendered-Role, Generalization
+Stereotype, Unknown, Masculine, Omission, Generalization, Gendered-Role
+Stereotype, Omission, Gendered-Role
+Omission
+Omission
+Occupation, Unknown
+Gendered-Role, Unknown, Generalization
+Stereotype, Omission, Gendered-Role
+Masculine, Unknown
+Unknown
+Stereotype, Omission, Generalization
+Omission
+Gendered-Pronoun, Unknown, Masculine, Omission, Feminine
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Occupation
+Occupation, Unknown
+Masculine, Omission, Gendered-Pronoun
+Masculine, Unknown
+Unknown
+Masculine, Unknown
+Unknown
+Occupation, Unknown, Gendered-Role
+Unknown
+Masculine, Gendered-Role, Occupation
+Unknown
+Omission, Masculine, Unknown, Feminine
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Omission, Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Occupation
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Omission
+Stereotype, Omission, Generalization
+Unknown
+Gendered-Pronoun
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Stereotype, Omission, Gendered-Role
+Occupation, Omission
+Unknown
+Stereotype, Generalization, Omission, Gendered-Role
+Omission
+Unknown
+Omission, Unknown
+Unknown
+Omission
+Omission, Unknown
+Unknown
+Unknown
+Occupation, Omission
+Unknown
+Masculine, Gendered-Role, Gendered-Pronoun, Omission
+Gendered-Role, Unknown
+Generalization, Unknown
+Omission, Unknown
+Stereotype, Unknown, Gendered-Role, Occupation, Feminine
+Masculine, Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Unknown
+Omission
+Unknown
+Masculine, Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Feminine
+Stereotype, Omission, Generalization
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Stereotype, Generalization
+Unknown, Feminine
+Unknown
+Omission
+Unknown, Masculine, Omission, Generalization, Occupation
+Stereotype
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Omission
+Unknown
+Occupation
+Gendered-Pronoun, Masculine, Unknown
+Masculine, Gendered-Role, Omission, Unknown
+Unknown
+Unknown
+Occupation
+Gendered-Pronoun, Omission, Unknown, Gendered-Role
+Omission
+Masculine, Gendered-Role
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Omission
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Stereotype, Omission, Generalization
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization
+Stereotype, Omission, Generalization
+Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Occupation, Gendered-Role
+Stereotype, Generalization, Unknown
+Gendered-Pronoun, Omission, Masculine, Unknown
+Unknown
+Gendered-Role, Feminine
+Unknown
+Stereotype, Omission, Generalization
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Unknown
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Gendered-Role
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Omission, Unknown
+Unknown
+Masculine, Omission, Unknown, Gendered-Role
+Stereotype, Unknown, Generalization, Gendered-Role, Occupation
+Unknown
+Unknown
+Omission, Unknown
+Unknown
+Omission, Unknown
+Omission
+Gendered-Role
+Omission
+Unknown
+Unknown
+Stereotype, Omission
+Stereotype, Omission, Generalization, Gendered-Role, Occupation
+Gendered-Pronoun, Occupation, Generalization, Gendered-Role
+Masculine, Omission, Gendered-Pronoun
+Occupation, Masculine, Unknown
+Gendered-Pronoun, Masculine, Occupation, Gendered-Role
+Unknown
+Unknown
+Occupation
+Masculine, Omission, Unknown, Gendered-Role
+Unknown, Masculine, Omission, Gendered-Role, Occupation
+Occupation, Feminine, Generalization
+Omission
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Masculine, Gendered-Role, Omission
+Masculine, Occupation
+Unknown, Omission, Masculine, Generalization, Gendered-Role, Occupation
+Masculine, Omission, Unknown
+Unknown
+Unknown
+Unknown
+Masculine, Omission, Unknown
+Occupation, Omission, Unknown
+Masculine, Gendered-Role, Occupation, Generalization
+Unknown
+Gendered-Role
+Unknown
+Omission, Unknown
+Omission, Unknown
+Masculine, Omission, Gendered-Role, Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Masculine, Unknown
+Unknown
+Masculine, Unknown
+Masculine, Omission, Gendered-Pronoun
+Masculine, Omission, Gendered-Pronoun
+Masculine, Gendered-Role, Gendered-Pronoun, Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization
+Occupation, Unknown
+Gendered-Pronoun, Masculine, Omission, Gendered-Role, Occupation
+Unknown
+Omission, Unknown
+Occupation, Omission
+Masculine, Unknown, Gendered-Role
+Stereotype, Omission, Gendered-Role
+Unknown
+Omission
+Unknown
+Unknown
+Omission
+Gendered-Pronoun, Omission, Unknown, Feminine
+Unknown
+Stereotype, Generalization
+Unknown
+Stereotype, Unknown, Omission, Masculine, Gendered-Role, Feminine
+Unknown
+Unknown
+Omission
+Gendered-Pronoun, Stereotype, Omission, Generalization, Gendered-Role
+Unknown
+Stereotype, Omission, Generalization, Gendered-Role, Occupation
+Masculine, Omission, Unknown, Gendered-Role
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Masculine
+Masculine, Omission, Unknown
+Omission
+Masculine, Unknown
+Unknown
+Unknown
+Omission, Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Occupation
+Masculine, Omission, Unknown
+Omission, Unknown
+Masculine, Stereotype, Generalization
+Gendered-Pronoun, Stereotype, Masculine, Omission, Gendered-Role, Generalization, Occupation
+Masculine, Omission, Unknown
+Gendered-Pronoun, Masculine, Omission, Gendered-Role, Generalization, Occupation, Feminine
+Masculine, Omission, Gendered-Pronoun
+Masculine, Omission, Gendered-Pronoun, Unknown
+Unknown
+Unknown, Feminine
+Stereotype, Omission, Gendered-Role
+Unknown
+Stereotype, Omission, Unknown, Gendered-Role
+Occupation
+Unknown
+Omission
+Stereotype, Omission, Gendered-Role
+Masculine, Omission, Gendered-Pronoun, Unknown
+Masculine, Omission, Unknown
+Omission
+Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role
+Gendered-Pronoun, Stereotype, Unknown, Masculine, Gendered-Role, Occupation, Feminine
+Gendered-Pronoun, Occupation, Masculine, Gendered-Role
+Unknown
+Unknown
+Omission
+Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Masculine, Gendered-Role
+Unknown
+Unknown
+Gendered-Pronoun, Masculine, Occupation
+Unknown
+Occupation
+Unknown
+Gendered-Pronoun, Masculine, Omission
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Gendered-Pronoun, Stereotype, Omission, Generalization
+Unknown
+Unknown
+Unknown, Omission, Masculine, Gendered-Role, Occupation
+Occupation
+Unknown
+Omission
+Stereotype, Omission, Gendered-Role
+Masculine, Omission, Unknown, Feminine
+Unknown
+Gendered-Pronoun, Masculine
+Occupation, Masculine, Unknown, Gendered-Role
+Unknown
+Unknown, Feminine
+Omission
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Omission
+Occupation, Omission, Unknown, Gendered-Role
+Occupation
+Occupation, Unknown
+Unknown
+Masculine, Unknown
+Masculine, Gendered-Role
+Unknown
+Omission
+Unknown
+Unknown
+Unknown
+Masculine, Gendered-Role, Omission
+Masculine, Omission, Unknown
+Stereotype, Omission, Gendered-Role
+Masculine, Gendered-Role, Omission
+Unknown
+Unknown
+Gendered-Pronoun, Unknown, Omission, Masculine, Gendered-Role
+Occupation
+Stereotype, Omission
+Unknown
+Omission, Unknown, Feminine, Gendered-Role
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Masculine, Unknown
+Stereotype, Omission, Generalization
+Stereotype, Omission, Generalization
+Omission, Unknown
+Omission, Unknown
+Occupation, Unknown
+Stereotype, Omission, Generalization
+Omission, Unknown
+Occupation
+Unknown
+Omission
+Unknown
+Masculine, Unknown
+Occupation
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Feminine
+Omission
+Omission
+Unknown
+Unknown
+Unknown
+Unknown
+Gendered-Pronoun, Unknown
+Unknown
+Unknown
+Stereotype, Gendered-Role
+Occupation
+Omission, Unknown
+Masculine, Omission, Unknown, Gendered-Role
+Unknown
+Gendered-Pronoun, Masculine, Gendered-Role
+Gendered-Pronoun, Unknown, Masculine, Omission, Generalization
+Occupation
+Unknown
+Unknown
+Unknown
+Unknown
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Omission, Unknown
+Occupation, Omission, Unknown
+Masculine, Generalization, Unknown, Gendered-Role
+Stereotype, Masculine
+Omission, Unknown
+Occupation, Unknown
+Omission, Unknown
+Occupation, Unknown
+Unknown
+Gendered-Pronoun, Omission, Feminine, Gendered-Role
+Omission, Unknown
+Gendered-Pronoun, Unknown, Masculine, Gendered-Role, Occupation
+Stereotype, Omission, Generalization, Gendered-Role
+Occupation, Omission
+Unknown
+Masculine, Unknown
+Stereotype, Omission, Gendered-Role
+Stereotype, Omission, Gendered-Role
+Unknown
+Unknown
+Stereotype, Omission
+Omission, Unknown
+Omission, Unknown
+Occupation
+Unknown
+Occupation
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Masculine, Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Masculine, Unknown, Gendered-Role
+Masculine, Unknown
+Masculine, Omission, Gendered-Pronoun, Unknown
+Omission, Unknown
+Gendered-Pronoun, Unknown, Masculine, Omission, Gendered-Role, Occupation
+Unknown
+Stereotype, Omission, Gendered-Role
+Unknown
+Gendered-Pronoun, Occupation
+Stereotype, Omission, Gendered-Role
+Generalization, Unknown
+Unknown
+Occupation
+Stereotype, Omission, Generalization
+Unknown
+Unknown
+Omission, Generalization, Unknown
+Gendered-Pronoun, Stereotype, Unknown, Omission, Masculine, Gendered-Role, Feminine
+Unknown
+Unknown
+Gendered-Pronoun, Stereotype, Omission, Generalization
+Occupation, Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Masculine, Omission, Occupation, Unknown
+Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Generalization, Unknown
+Occupation, Unknown
+Occupation, Unknown
+Unknown
+Occupation, Unknown
+Occupation, Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Unknown
+Occupation, Unknown
+Occupation, Unknown
+Occupation, Unknown
+Generalization, Unknown
+Unknown
 Unknown

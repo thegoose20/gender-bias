@@ -1,6 +1,6 @@
 # gender-bias
 
-Gender bias classification collaboration
+Gender bias classification models
 
 ### To Do
 - [x] Define train/test split with sklearn
@@ -56,13 +56,6 @@ Gendered and Gender Biased Language
   * The `train_` files contain 60% of the data *from each type of metadata field*, randomly selected (`random_state=7`), for training classification models
   * The `validate_` files contain 20% of the data *from each type of metadata field*, randomly selected (`random_state=7`), for developing classification models
   * The `blindtest_` files contain 20% of the data *from each type of metadata field*, randomly selected (`random_state=7`), for evaluating the final classification models
-
-* `clf_data2/`
-  * The `_docs.txt` files contain documents (individual metadata descriptions) separated by one newline, one pipe, and one newline: `"\n|\n"`
-  * The `_labels.txt` files contain comma-separated labels for each document, separated by one newline: `"\n"`
-  * The `training_` files contain 60% of the data, randomly selected after shuffling, for training classification models
-  * The `validation_` files contain 20% of the data, randomly selected after shuffling, for developing classification models
-  * The `blindtest_` files contain 20% of the data, randomly selected after shuffling, for evaluating the final classification models
 
 * `SplitData.ipynb` - Splitting the aggregated annotated dataset into training, validation, and blind test sets
 * `DocumentClassifiers.ipynb` - Baseline document classification models using Multinomial Naive Bayes, Logistic Regression, and Random Forest algorithms

@@ -104,8 +104,8 @@ def concatBySubset(df_list, subset):
         df_all = pd.concat([df_all, df_subset], axis=0)
     return df_all
 
-
-def getShuffledSplitData(df):
+metadata_fields = ['Biographical / Historical', 'Title', 'Scope and Contents', 'Processing Information']
+def getShuffledSplitData(df, field_names=metadata_fields):
     df_bh = df.loc[df.field == field_names[0]]
     df_t = df.loc[df.field == field_names[1]]
     df_sc = df.loc[df.field == field_names[2]]

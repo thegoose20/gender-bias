@@ -1,4 +1,4 @@
-name: gender-bias
+name: base
 channels:
   - conda-forge
   - defaults
@@ -6,3 +6,4 @@ dependencies:
   - conda
   - python=3.9
   - huggingface_hub
+prefix: /afs/inf.ed.ac.uk/user/s15/s1545703/miniconda3

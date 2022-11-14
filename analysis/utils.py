@@ -5,6 +5,46 @@ import pandas as pd
 import re
 from thefuzz import fuzz, process
 
+
+# ---------------------------------------------------------------------------------------------
+# Analysis_GenderedPronounsRoles
+# ---------------------------------------------------------------------------------------------
+def addMatch(ismatch, matches):
+    if ismatch != None:
+        matched_word = ismatch[0]
+        if matched_word in matches.keys():
+            matches[matched_word] += 1
+        else:
+            matches[matched_word] = 1
+    return matches
+
+def checkForMatch(text, matches, patterns):
+    for pattern in patterns:
+        ismatch = pattern.match(text)
+        matches = addMatch(ismatch, matches) 
+    return matches
+
+def countMatches(descs,patterns):
+    matches = dict()
+    for desc in descs:
+        if type(desc) == list:
+            for word in desc:
+                if len(word) > 1:
+                    word_uncapitalized = word[0].lower() + word[1:]
+                else:
+                    word_uncapitalized = word.lower()
+                matches = checkForMatch(word_uncapitalized, matches, patterns)                
+        elif type(desc) == str:
+            desc = desc.lower()
+            matches = checkForMatch(desc, matches, patterns)
+        else:
+            raise ValueError
+    return matches 
+
+
+# ---------------------------------------------------------------------------------------------
+# Analysis_NamedPeople
+# ---------------------------------------------------------------------------------------------
 fem_patterns = ["wom.n", "girl", "^gal", "female", "lady", "ladies", "wi[fv]e", "her", "she"]
 mas_patterns = ["^man", "^men", "boy", "male", "lad$", "lads", "laddie", "husband", "his", "him", "he"]
 def addAssociatedGenders(df, fem=fem_patterns,mas=mas_patterns):
@@ -43,6 +83,7 @@ def addAssociatedGenders(df, fem=fem_patterns,mas=mas_patterns):
             
     df.insert(len(df.columns), "associated_genders", genders)
     return df
+
 
 # Compare each manually annotated person name to all spaCy-labeled person names
 def getAnnotFuzzyMatches(score_method, min_score):
@@ -97,3 +138,20 @@ def makeDescribeDf(field, desc_df):
     df_stats = df_stats.rename(columns={"count":"total_descriptions", "index":"by"})
     df_stats = df_stats.set_index(["metadata_field", "by"])
     return df_stats
+
+# ---------------------------------------------------------------------------------------------
+# Analysis_CommonlyAnnotatedText
+# ---------------------------------------------------------------------------------------------
+def getFieldRatios(df_field_values):
+    total = sum(df_field_values)
+    ratios = []
+    for v in df_field_values:
+        ratios += [v/total]
+    return ratios
+
+def getValueCountsDataFrame(label_series, label_name):
+    df = pd.DataFrame(label_series)
+    df = df.reset_index()
+    df = df.rename(columns={"index":"text", "text":"occurrence"})
+    df.insert(len(df.columns), "label", [label_name]*df.shape[0])
+    return df

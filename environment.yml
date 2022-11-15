@@ -1,9 +1,15 @@
 name: base
 channels:
-  - conda-forge
   - defaults
 dependencies:
   - conda
   - python=3.9
+  - python.app
+  - jupyterlab
   - huggingface_hub
-prefix: /afs/inf.ed.ac.uk/user/s15/s1545703/miniconda3
+  - pandas
+  - scikit-learn
+  - intervaltree
+  - nltk
+  - thefuzz
+prefix: /Users/lucy/opt/miniconda3

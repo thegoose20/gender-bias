@@ -9,3 +9,6 @@ clf_data2/*
 data/
 data/*
 data/*/*
+env/
+env/*
+env/*/*

@@ -112,35 +112,35 @@ def getShuffledSplitData(df, field_names=metadata_fields):
     df_pi = df.loc[df.field == field_names[3]]
     
     # Shuffle the DataFrames for each metadata field type
-    df_bh_shuffled = utils.shuffleDataFrame(df_bh)
-    df_t_shuffled = utils.shuffleDataFrame(df_t)
-    df_sc_shuffled = utils.shuffleDataFrame(df_sc)
-    df_pi_shuffled = utils.shuffleDataFrame(df_pi)
+    df_bh_shuffled = shuffleDataFrame(df_bh)
+    df_t_shuffled = shuffleDataFrame(df_t)
+    df_sc_shuffled = shuffleDataFrame(df_sc)
+    df_pi_shuffled = shuffleDataFrame(df_pi)
     
     # Get the indeces of rows to assign to train, dev, and test
-    train_bh, validate_bh, test_bh = utils.getTrainValTestSizes(df_bh_shuffled)
+    train_bh, validate_bh, test_bh = getTrainValTestSizes(df_bh_shuffled)
     assert train_bh+validate_bh+test_bh == df_bh_shuffled.shape[0]
-    train_t, validate_t, test_t = utils.getTrainValTestSizes(df_t_shuffled)
+    train_t, validate_t, test_t = getTrainValTestSizes(df_t_shuffled)
     assert train_t+validate_t+test_t == df_t_shuffled.shape[0]
-    train_sc, validate_sc, test_sc = utils.getTrainValTestSizes(df_sc_shuffled)
+    train_sc, validate_sc, test_sc = getTrainValTestSizes(df_sc_shuffled)
     assert train_sc+validate_sc+test_sc == df_sc_shuffled.shape[0]
-    train_pi, validate_pi, test_pi = utils.getTrainValTestSizes(df_pi_shuffled)
+    train_pi, validate_pi, test_pi = getTrainValTestSizes(df_pi_shuffled)
     assert train_pi+validate_pi+test_pi == df_pi_shuffled.shape[0]
     
-    df_bh = utils.assignSubsets(df_bh_shuffled, train_bh, validate_bh, test_bh)
-    df_t = utils.assignSubsets(df_t_shuffled, train_t, validate_t, test_t)
-    df_sc = utils.assignSubsets(df_sc_shuffled, train_sc, validate_sc, test_sc)
-    df_pi = utils.assignSubsets(df_pi_shuffled, train_pi, validate_pi, test_pi)
+    df_bh = assignSubsets(df_bh_shuffled, train_bh, validate_bh, test_bh)
+    df_t = assignSubsets(df_t_shuffled, train_t, validate_t, test_t)
+    df_sc = assignSubsets(df_sc_shuffled, train_sc, validate_sc, test_sc)
+    df_pi = assignSubsets(df_pi_shuffled, train_pi, validate_pi, test_pi)
     dfs = [df_bh, df_t, df_sc, df_pi]
     
     # Concatenate the rows assigned to each subset to create one DataFrame each for training, validation, and testing: 
-    train = utils.concatBySubset(dfs, "train")
+    train = concatBySubset(dfs, "train")
     assert train.subset.unique()[0] == "train"
 
-    validate = utils.concatBySubset(dfs, "dev")
+    validate = concatBySubset(dfs, "dev")
     assert validate.subset.unique()[0] == "dev"
 
-    test = utils.concatBySubset(dfs, "test")
+    test = concatBySubset(dfs, "test")
     assert test.subset.unique()[0] == "test"
 
     return train, validate, test

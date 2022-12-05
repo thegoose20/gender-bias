@@ -68,3 +68,4 @@ Gendered and Gender Biased Language
   * [Confusion Matrices of Annotated Archival Metadata Descriptions](https://observablehq.com/@thegoose20/confusion-matrices)
   * [Exploratory Analysis of Archival Metadata](https://observablehq.com/d/0091bad1ddecc57f)
   * [Exploratory Analysis of Annotated Data](https://observablehq.com/d/b61080669b52aa93)
+  * [Document Classification Error Analysis](https://observablehq.com/@thegoose20/lr-doc-classification-error-analysis)

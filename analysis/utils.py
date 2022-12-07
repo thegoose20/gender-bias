@@ -155,3 +155,22 @@ def getValueCountsDataFrame(label_series, label_name):
     df = df.rename(columns={"index":"text", "text":"occurrence"})
     df.insert(len(df.columns), "label", [label_name]*df.shape[0])
     return df
+
+# ---------------------------------------------------------------------------------------------
+# Analysis_LengthsAndOffsets
+# ---------------------------------------------------------------------------------------------
+# Write each string to a txt file named with the string's ID
+def strToTxt(ids, strs, filename_prefix, dir_path):
+    Path(dir_path).mkdir(parents=True, exist_ok=True)
+    zero_padding = len(str(ids[-1]))
+    i, maxI = 0, len(ids)
+    while i < maxI:
+        d_id = str(ids[i])
+        padding = zero_padding - len(d_id)  # pad with zeros so file order aligns with DataFrame order
+        id_str = ("0"*padding) + d_id
+        filename = filename_prefix+id_str+".txt"
+        f = open((dir_path+filename), "w", encoding="utf8")
+        f.write(strs[i])
+        f.close()
+        i += 1
+    return "Files written to "+dir_path+"!"

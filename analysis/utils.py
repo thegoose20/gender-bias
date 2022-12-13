@@ -174,3 +174,51 @@ def strToTxt(ids, strs, filename_prefix, dir_path):
         f.close()
         i += 1
     return "Files written to "+dir_path+"!"
+
+
+# INPUT: list of strings, list of ids for those strings, list of start offsets for those strings, 
+#        list of end offsets for those strings (offsets in the brat rapid annotation tool's standoff format)
+# OUTPUT: two dictionaries, both with ids as keys, and one with lists of tokens as values and the other 
+#         with lists of those tokens' offsets as values
+def getTokensAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_offsets, list_of_end_offsets):
+    tokens_dict = dict.fromkeys(list_of_ids)
+    offsets_dict = dict.fromkeys(list_of_ids)
+    j, maxJ = 0, len(list_of_strings)
+    
+    while j < maxJ:
+
+        # Get the string's ID
+        s_id = list_of_ids[j]
+        
+        # Get the start and end offsets of the description
+        s_start_offset = list_of_start_offsets[j]
+        
+        # Get the description string and its tokens
+        s = list_of_strings[j]
+        s_tokens = word_tokenize(s)
+        
+        # Get the start and end offsets of the first token
+        first_t = s_tokens[0]
+        t_start_offset = s_start_offset
+        t_end_offset = s_start_offset + len(first_t)
+        tokens_dict[s_id] = [first_t]
+        offsets_dict[s_id] = [tuple((t_start_offset, t_end_offset))]
+        prev_positions = len(first_t)
+        sub_s = s[(t_end_offset-s_start_offset):]
+        sub_tokens = word_tokenize(sub_s)
+        
+        # Get the start and end offsets of the remaining tokens
+        for t in sub_tokens:
+            i = sub_s.index(t)
+            t_start_offset = i + s_start_offset + prev_positions
+            t_end_offset = t_start_offset + len(t)
+            tokens_dict[s_id] += [t]
+            offsets_dict[s_id] += [tuple((t_start_offset, t_end_offset))]
+            sub_s = sub_s[i+len(t):]
+            prev_positions += len(t)+i
+            
+        assert t_end_offset <= list_of_end_offsets[j], "The last token's end offset should not be beyond the string's end offset"
+            
+        j += 1
+    
+    return tokens_dict, offsets_dict

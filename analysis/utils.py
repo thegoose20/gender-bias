@@ -192,10 +192,13 @@ def getTokensAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_o
         
         # Get the start and end offsets of the description
         s_start_offset = list_of_start_offsets[j]
-        
+
         # Get the description string and its tokens
         s = list_of_strings[j]
-        s_tokens = word_tokenize(s)
+        try:
+            s_tokens = word_tokenize(s)
+        except TypeError:
+            print(s)
         
         # Get the start and end offsets of the first token
         first_t = s_tokens[0]
@@ -209,16 +212,39 @@ def getTokensAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_o
         
         # Get the start and end offsets of the remaining tokens
         for t in sub_tokens:
-            i = sub_s.index(t)
+            old_t = t
+            if (t == "''") or (t == "``"):
+                t_A = '"'
+                t_B = "''"
+                if (t_A in sub_s) and (t_B in sub_s):
+                    i_A = sub_s.index(t_A)
+                    i_B = sub_s.index(t_B)
+                    if i_A < i_B:
+                        t = t_A
+                    else:
+                        t = t_B
+                elif (t_A in sub_s) and (not t_B in sub_s):
+                    t = t_A
+                elif (not t_A in sub_s) and (t_B in sub_s):
+                    t = t_B
+                else:
+                    print("t:",t, "\n sub_s:",sub_s)
+            try:
+                i = sub_s.index(t)
+            except ValueError:
+                print("old_t:",t)
+                
             t_start_offset = i + s_start_offset + prev_positions
             t_end_offset = t_start_offset + len(t)
+    
+            assert t_end_offset <= list_of_end_offsets[j], "The last token's ({}) end offset ({}) should not be beyond the string's end offset ({}):{}, {}".format(t, t_end_offset, list_of_end_offsets[j], s_id, s)
+            
             tokens_dict[s_id] += [t]
             offsets_dict[s_id] += [tuple((t_start_offset, t_end_offset))]
             sub_s = sub_s[i+len(t):]
             prev_positions += len(t)+i
             
-        assert t_end_offset <= list_of_end_offsets[j], "The last token's end offset should not be beyond the string's end offset"
-            
+                        
         j += 1
     
     return tokens_dict, offsets_dict

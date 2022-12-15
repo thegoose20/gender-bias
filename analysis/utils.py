@@ -159,6 +159,34 @@ def getValueCountsDataFrame(label_series, label_name):
 # ---------------------------------------------------------------------------------------------
 # Analysis_LengthsAndOffsets
 # ---------------------------------------------------------------------------------------------
+metadata_field_names = ["Title", "Scope and Contents", "Biographical / Historical", "Processing Information"]   
+# INPUT: file path to a document of metadata descriptions (str)
+# OUTPUT: a dictionary of metadata description ids and the associated 
+#         description text, field name and offsets contained in the input file
+def getDescriptionsInFiles(dirpath, file_list, fieldnames=metadata_field_names):
+    desc_dict = dict()
+    did = 0
+    for filename in file_list:
+
+        # Get a string of the input file's text (metadata descriptions)
+        f_string = open(os.path.join(dirpath+filename),'r').read()
+        
+        for fieldname in fieldnames:
+            pattern = "(?<={}:\n).+".format(fieldname)
+            match_list = re.findall(pattern, f_string)
+            if len(match_list) > 0:
+                for match in match_list:
+                    desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
+                    desc_dict[did]["description"] = match
+                    desc_dict[did]["field"] = fieldname
+                    desc_dict[did]["file"] = filename
+                    desc_dict[did]["start_offset"] = f_string.find(match)
+                    desc_dict[did]["end_offset"] = f_string.find(match) + len(match) + 1
+                    did += 1
+                    
+    return desc_dict
+
+
 # Write each string to a txt file named with the string's ID
 def strToTxt(ids, strs, filename_prefix, dir_path):
     Path(dir_path).mkdir(parents=True, exist_ok=True)

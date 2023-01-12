@@ -2,7 +2,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 import pandas as pd
-import re
+import re, os
 from thefuzz import fuzz, process
 
 
@@ -276,3 +276,25 @@ def getTokensAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_o
         j += 1
     
     return tokens_dict, offsets_dict
+
+# Do the opposite of DataFrame.explode(), creating one row with for each
+# value in the cols_to_groupby (list of one or more items) and lists of 
+# values in the other columns, and setting the cols_to_groupby as the Index
+# or MultiIndex in the resulting DataFrame
+def implodeDataFrame(df, cols_to_groupby):
+    cols_to_agg = list(df.columns)
+    for col in cols_to_groupby:
+        cols_to_agg.remove(col)
+    agg_dict = dict.fromkeys(cols_to_agg, lambda x: x.tolist())
+    return df.groupby(cols_to_groupby).agg(agg_dict).reset_index().set_index(cols_to_groupby)
+
+def turnStrTuplesToIntTuples(list_of_tuples):
+    new_list = []
+    for t in list_of_tuples:
+        if ", " in t:
+            t = t[1:-1].split(", ")
+        elif "," in t:
+            t = t[1:-1].split(",")
+        new_t = tuple((int(t[0]), int(t[1])))
+        new_list += [new_t]
+    return new_list

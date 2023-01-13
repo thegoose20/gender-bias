@@ -127,9 +127,9 @@ def getWordsSents(corpus_list):
 
 def makeDescribeDf(field, desc_df):
     if field != "All":
-        sub_df = (desc_df.loc[desc_df.field == field]).drop(columns=["eadid", "desc_id", "field", "description"])
+        sub_df = (desc_df.loc[desc_df.field == field]).drop(columns=["description_id", "field", "description", "start_offset", "end_offset"])
     else:
-        sub_df = desc_df.drop(columns=["eadid", "desc_id", "field", "description"])
+        sub_df = desc_df.drop(columns=["description_id", "field", "description", "start_offset", "end_offset"])
     df_stats = sub_df.describe()
     df_stats = df_stats.drop(labels=["25%", "50%", "75%"], axis=0)  # remove the quartile calculations
     df_stats = df_stats.T
@@ -159,33 +159,93 @@ def getValueCountsDataFrame(label_series, label_name):
 # ---------------------------------------------------------------------------------------------
 # Analysis_LengthsAndOffsets
 # ---------------------------------------------------------------------------------------------
-metadata_field_names = ["Title", "Scope and Contents", "Biographical / Historical", "Processing Information"]   
-# INPUT: file path to a document of metadata descriptions (str)
+# INPUT: file path to a document of metadata descriptions (str) and a sorted (alphabetically, A-Z) list of file names
 # OUTPUT: a dictionary of metadata description ids and the associated 
 #         description text, field name and offsets contained in the input file
-def getDescriptionsInFiles(dirpath, file_list, fieldnames=metadata_field_names):
+
+
+fields = ["Title", "Scope and Contents", "Biographical / Historical", "Processing Information"]
+
+def getFieldDescriptions(desc_dict, f_string, field, other_fields, did, filename):
+    # Find the input field's descriptions
+    if field in f_string:
+        start_index = f_string.index(field)
+        f_substring = f_string[start_index:]
+        if other_fields[0] in f_substring:
+            f_substring = f_substring[:f_substring.index(other_fields[0])]
+        elif other_fields[1] in f_substring:
+            f_substring = f_substring[:f_substring.index(other_fields[1])]
+        elif other_fields[2] in f_substring:
+            f_substring = f_substring[:f_substring.index(other_fields[2])]
+        field_list = f_substring.split(field+":")
+        for desc in field_list:
+            if desc != "":
+                desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
+                desc_dict[did]["description"] = desc.strip() # remove leading and trailing whitespace
+                desc_dict[did]["field"] = field
+                desc_dict[did]["file"] = filename
+                desc_dict[did]["start_offset"] = f_string.find(desc)
+                desc_dict[did]["end_offset"] = f_string.find(desc) + len(desc) + 1
+                did += 1
+    
+    # Check for split fieldnames/descriptions across files
+    field_for_next_file = False
+    field_length = len(field+":\n")
+    # If the file ends with a fieldname...
+    if (f_string[(-1*field_length):]) == (field+":\n"):
+        # ...the next file will start with a description that should have that ending fieldname
+        field_for_next_file = field
+    
+    return desc_dict, did, field_for_next_file
+
+def getDescFromNextFile(desc_dict, f_string, field_from_prev, fields, did, filename):
+        # Find the index of the next metadata field in the file
+        min_i = 99999999999999999        # Start with a minimum index that's definitely larger than any indeces in the files
+        for field in fields:
+            if field in f_string:
+                field_i = f_string.index(field)
+                if field_i < min_i:
+                    min_i = field_i
+        desc = f_string[:min_i]
+        
+        # Make the description's dictionary
+        desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
+        desc_dict[did]["description"] = desc
+        desc_dict[did]["field"] = field_from_prev
+        desc_dict[did]["file"] = filename
+        desc_dict[did]["start_offset"] = f_string.find(desc)
+        desc_dict[did]["end_offset"] = f_string.find(desc) + len(desc) + 1
+        did += 1
+        
+        return desc_dict
+
+
+def getDescriptionsInFiles(dirpath, file_list, fieldnames=fields):
     desc_dict = dict()
     did = 0
-    for filename in file_list:
+    for file_i in range(len(file_list)):
+        filename = file_list[file_i]
 
         # Get a string of the input file's text (metadata descriptions)
-        f_string = open(os.path.join(dirpath+filename),'r').read()
+        f_string = open(os.path.join(dirpath,filename),'r').read()
+        # Get the Titles
+        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Title", ["Scope and Contents", "Biographical / Historical", "Processing Information"], did, filename)
+        if field_for_next_file != False:
+            desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
+        # Get the Scope and Contents
+        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Scope and Contents", ["Biographical / Historical", "Processing Information", "Title"], did, filename)
+        if field_for_next_file != False:
+            desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
+        # Get the Biographical / Historical
+        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Biographical / Historical", ["Processing Information", "Title", "Scope and Contents"], did, filename)
+        if field_for_next_file != False:
+            desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
+        # Get the Processing Information
+        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Processing Information", ["Title", "Scope and Contents", "Biographical / Historical"], did, filename)
+        if field_for_next_file != False:
+            desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
         
-        for fieldname in fieldnames:
-            pattern = "(?<={}:\n).+".format(fieldname)
-            match_list = re.findall(pattern, f_string)
-            if len(match_list) > 0:
-                for match in match_list:
-                    desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
-                    desc_dict[did]["description"] = match
-                    desc_dict[did]["field"] = fieldname
-                    desc_dict[did]["file"] = filename
-                    desc_dict[did]["start_offset"] = f_string.find(match)
-                    desc_dict[did]["end_offset"] = f_string.find(match) + len(match) + 1
-                    did += 1
-                    
     return desc_dict
-
 
 # Write each string to a txt file named with the string's ID
 def strToTxt(ids, strs, filename_prefix, dir_path):
@@ -277,6 +337,7 @@ def getTokensAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_o
     
     return tokens_dict, offsets_dict
 
+
 # Do the opposite of DataFrame.explode(), creating one row with for each
 # value in the cols_to_groupby (list of one or more items) and lists of 
 # values in the other columns, and setting the cols_to_groupby as the Index
@@ -287,6 +348,7 @@ def implodeDataFrame(df, cols_to_groupby):
         cols_to_agg.remove(col)
     agg_dict = dict.fromkeys(cols_to_agg, lambda x: x.tolist())
     return df.groupby(cols_to_groupby).agg(agg_dict).reset_index().set_index(cols_to_groupby)
+
 
 def turnStrTuplesToIntTuples(list_of_tuples):
     new_list = []

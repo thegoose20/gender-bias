@@ -4,9 +4,9 @@
 __pycache__/
 __pycache__/*
 __pycache__/*/*
-data/
-data/*
-data/*/*
+data/annotator_data/*
+data/crc_metadata/descriptions_brat/*
+data/crc_metadata/descriptions_annotated/*
 env/
 env/*
 env/*/*

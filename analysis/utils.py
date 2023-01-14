@@ -179,9 +179,10 @@ def getFieldDescriptions(desc_dict, f_string, field, other_fields, did, filename
             f_substring = f_substring[:f_substring.index(other_fields[2])]
         field_list = f_substring.split(field+":")
         for desc in field_list:
+            desc = desc.strip() # remove leading and trailing whitespace
             if desc != "":
                 desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
-                desc_dict[did]["description"] = desc.strip() # remove leading and trailing whitespace
+                desc_dict[did]["description"] = desc
                 desc_dict[did]["field"] = field
                 desc_dict[did]["file"] = filename
                 desc_dict[did]["start_offset"] = f_string.find(desc)
@@ -208,14 +209,16 @@ def getDescFromNextFile(desc_dict, f_string, field_from_prev, fields, did, filen
                     min_i = field_i
         desc = f_string[:min_i]
         
-        # Make the description's dictionary
-        desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
-        desc_dict[did]["description"] = desc
-        desc_dict[did]["field"] = field_from_prev
-        desc_dict[did]["file"] = filename
-        desc_dict[did]["start_offset"] = f_string.find(desc)
-        desc_dict[did]["end_offset"] = f_string.find(desc) + len(desc) + 1
-        did += 1
+        desc = desc.strip() # remove leading and trailing whitespace
+        if desc != "":
+            # Make the description's dictionary
+            desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
+            desc_dict[did]["description"] = desc
+            desc_dict[did]["field"] = field_from_prev
+            desc_dict[did]["file"] = filename
+            desc_dict[did]["start_offset"] = f_string.find(desc)
+            desc_dict[did]["end_offset"] = f_string.find(desc) + len(desc) + 1
+            did += 1
         
         return desc_dict
 

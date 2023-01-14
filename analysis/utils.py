@@ -171,12 +171,16 @@ def getFieldDescriptions(desc_dict, f_string, field, other_fields, did, filename
     if field in f_string:
         start_index = f_string.index(field)
         f_substring = f_string[start_index:]
-        if other_fields[0] in f_substring:
-            f_substring = f_substring[:f_substring.index(other_fields[0])]
-        elif other_fields[1] in f_substring:
-            f_substring = f_substring[:f_substring.index(other_fields[1])]
-        elif other_fields[2] in f_substring:
-            f_substring = f_substring[:f_substring.index(other_fields[2])]
+        
+        # Check if other fields are in f_substring, and if so get the first occurring index and cut off f_substring there
+        next_field_index = len(f_string)
+        for other_field in other_fields:
+            if other_field in f_substring:
+                other_field_index = f_substring.index(other_field)
+                if other_field_index < next_field_index:
+                    next_field_index = other_field_index
+        f_substring = f_substring[:next_field_index]
+        
         field_list = f_substring.split(field+":")
         for desc in field_list:
             desc = desc.strip() # remove leading and trailing whitespace
@@ -236,15 +240,15 @@ def getDescriptionsInFiles(dirpath, file_list, fieldnames=fields):
         if field_for_next_file != False:
             desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
         # Get the Scope and Contents
-        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Scope and Contents", ["Biographical / Historical", "Processing Information", "Title"], did, filename)
+        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Scope and Contents", ["Biographical / Historical", "Processing Information"], did, filename)
         if field_for_next_file != False:
             desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
         # Get the Biographical / Historical
-        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Biographical / Historical", ["Processing Information", "Title", "Scope and Contents"], did, filename)
+        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Biographical / Historical", ["Processing Information"], did, filename)
         if field_for_next_file != False:
             desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
         # Get the Processing Information
-        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Processing Information", ["Title", "Scope and Contents", "Biographical / Historical"], did, filename)
+        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Processing Information", [], did, filename)
         if field_for_next_file != False:
             desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
         

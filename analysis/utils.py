@@ -162,97 +162,37 @@ def getValueCountsDataFrame(label_series, label_name):
 # INPUT: file path to a document of metadata descriptions (str) and a sorted (alphabetically, A-Z) list of file names
 # OUTPUT: a dictionary of metadata description ids and the associated 
 #         description text, field name and offsets contained in the input file
+fields = ["Identifier", "Title", "Scope and Contents", "Biographical / Historical", "Processing Information"]
 
-
-fields = ["Title", "Scope and Contents", "Biographical / Historical", "Processing Information"]
-
-def getFieldDescriptions(desc_dict, f_string, field, other_fields, did, filename):
-    # Find the input field's descriptions
-    if field in f_string:
-        start_index = f_string.index(field)
-        f_substring = f_string[start_index:]
-        
-        # Check if other fields are in f_substring, and if so get the first occurring index and cut off f_substring there
-        next_field_index = len(f_string)
-        for other_field in other_fields:
-            if other_field in f_substring:
-                other_field_index = f_substring.index(other_field)
-                if other_field_index < next_field_index:
-                    next_field_index = other_field_index
-        f_substring = f_substring[:next_field_index]
-        
-        field_list = f_substring.split(field+":")
-        for desc in field_list:
-            desc = desc.strip() # remove leading and trailing whitespace
-            if desc != "":
-                desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
-                desc_dict[did]["description"] = desc
-                desc_dict[did]["field"] = field
-                desc_dict[did]["file"] = filename
-                desc_dict[did]["start_offset"] = f_string.find(desc)
-                desc_dict[did]["end_offset"] = f_string.find(desc) + len(desc) + 1
-                did += 1
+def updateDescDict(sub_f_string, d, f, desc_dict, did, last_end_offset):
+    start_offset = sub_f_string.index(d) + last_end_offset
+    end_offset = start_offset + len(d) + 1
     
-    # Check for split fieldnames/descriptions across files
-    field_for_next_file = False
-    field_length = len(field+":\n")
-    # If the file ends with a fieldname...
-    if (f_string[(-1*field_length):]) == (field+":\n"):
-        # ...the next file will start with a description that should have that ending fieldname
-        field_for_next_file = field
+    desc_dict[did] = dict.fromkeys(["description", "file", "start_offset", "end_offset"])
     
-    return desc_dict, did, field_for_next_file
+    desc_dict[did]["description"] = d 
+    desc_dict[did]["file"] = f
+    desc_dict[did]["start_offset"] = start_offset
+    desc_dict[did]["end_offset"] = end_offset
 
-def getDescFromNextFile(desc_dict, f_string, field_from_prev, fields, did, filename):
-        # Find the index of the next metadata field in the file
-        min_i = 99999999999999999        # Start with a minimum index that's definitely larger than any indeces in the files
-        for field in fields:
-            if field in f_string:
-                field_i = f_string.index(field)
-                if field_i < min_i:
-                    min_i = field_i
-        desc = f_string[:min_i]
-        
-        desc = desc.strip() # remove leading and trailing whitespace
-        if desc != "":
-            # Make the description's dictionary
-            desc_dict[did] = dict.fromkeys(["description", "field", "file", "start_offset", "end_offset"])
-            desc_dict[did]["description"] = desc
-            desc_dict[did]["field"] = field_from_prev
-            desc_dict[did]["file"] = filename
-            desc_dict[did]["start_offset"] = f_string.find(desc)
-            desc_dict[did]["end_offset"] = f_string.find(desc) + len(desc) + 1
-            did += 1
-        
-        return desc_dict
+    did += 1
+    
+    return desc_dict, did, end_offset
 
-
-def getDescriptionsInFiles(dirpath, file_list, fieldnames=fields):
+def getDescriptionsInFiles(dirpath, file_list):
     desc_dict = dict()
     did = 0
-    for file_i in range(len(file_list)):
-        filename = file_list[file_i]
-
+    for f in file_list:
         # Get a string of the input file's text (metadata descriptions)
-        f_string = open(os.path.join(dirpath,filename),'r').read()
-        # Get the Titles
-        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Title", ["Scope and Contents", "Biographical / Historical", "Processing Information"], did, filename)
-        if field_for_next_file != False:
-            desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
-        # Get the Scope and Contents
-        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Scope and Contents", ["Biographical / Historical", "Processing Information"], did, filename)
-        if field_for_next_file != False:
-            desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
-        # Get the Biographical / Historical
-        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Biographical / Historical", ["Processing Information"], did, filename)
-        if field_for_next_file != False:
-            desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
-        # Get the Processing Information
-        desc_dict, did, field_for_next_file = getFieldDescriptions(desc_dict, f_string, "Processing Information", [], did, filename)
-        if field_for_next_file != False:
-            desc_dict = getDescFromNextFile(desc_dict, f_string, field_for_next_file, fields, did, file_list[file_i+1])
-        
+        f_string = open(os.path.join(dirpath,f),'r').read()
+        descs = f_string.split("\n\n")
+        last_end_offset = 0
+        for d in descs:
+            sub_f_string = f_string[last_end_offset:]
+            if d != "":
+                desc_dict, did, last_end_offset = updateDescDict(sub_f_string, d, f, desc_dict, did, last_end_offset)                
     return desc_dict
+
 
 # Write each string to a txt file named with the string's ID
 def strToTxt(ids, strs, filename_prefix, dir_path):

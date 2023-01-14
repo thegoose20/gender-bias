@@ -1,12 +1,12 @@
 Index of Files
 ---------------
 
-descriptions_annotated/ - Directory of Plaintext files of descriptions that were manually annotated in brat, with one file per description named as zero-padded description IDs (26,875 files)
+descriptions_annotated/ - Directory of Plaintext files of descriptions that were manually annotated in brat, with one file per description named as zero-padded description IDs (27,908 files)
 
-descriptions_brat/ - Directory of Plaintext files of descriptions that were uploaded to brat for manual annotation, with multiple descriptions per file and files named as EADIDs (collection, or fonds, ID) and zero-padded numbers indicating the order of the files for each EADID (3,649 files)
+descriptions_brat/ - Directory of Plaintext files of descriptions that were uploaded to brat for manual annotation, with multiple descriptions per file and files named as EADIDs (collection, or fonds, ID) and zero-padded numbers indicating the order of the files for each EADID (3,649 files; 1,112 of which were atually manually annotated)
 
-annot_descs - CSV file with one row per annotated description and columns for descriptions' IDs, the descriptions text, the file in descriptions_brat/ in which the description appears, descriptions' start and end offsets, descriptions' word counts, and descriptions' sentence counts (26,875 rows, 8 columns)
+annot_descs - CSV file with one row per annotated description and columns for descriptions' IDs, the descriptions text, the file in descriptions_brat/ in which the description appears, descriptions' start and end offsets, descriptions' word counts, and descriptions' sentence counts (27,908 rows, 8 columns)
 
 CRC_units-grouped-by-fonds_clean - CSV file of metadata fields from for the fonds whose descriptions were manually annotated, with columns for unit (fonds, sub-fonds, series, sub-series, item) titles, date of material, language of material, geography of material, and EADID (collection, or fonds, ID); there is metadata for 245 fonds total (1,080 rows, 6 columns)
 
-descid_token_offsets - CSV file with a row for every token in the annotated descriptions, with columns for the ID of the description in which the token appears and for the offsets of the token within that description's file from the descriptions_brat/ directory (655,977 rows, 3 columns)
+descid_token_offsets - CSV file with a row for every token in the annotated descriptions, with columns for the ID of the description in which the token appears and for the offsets of the token within that description's file from the descriptions_brat/ directory (753,911 rows, 3 columns)

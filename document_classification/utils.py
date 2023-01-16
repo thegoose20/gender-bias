@@ -20,7 +20,7 @@ def readData(filepath, seperator):
 
 
 labels = {
-    "Unknown": 0, "Non-binary": 1, "Feminine": 2, "Masculine": 3,
+    "Unknown": 0, "Nonbinary": 1, "Feminine": 2, "Masculine": 3,
     "Generalization": 4, "Gendered-Pronoun": 5, "Gendered-Role": 6,
     "Occupation": 7, "Omission":8, "Stereotype": 9, "Empowering": 10
          }
@@ -28,12 +28,16 @@ labels = {
 def getNumericLabels(target_data, labels_dict=labels):
     numeric_target_data = []
     for target_str in target_data:
-        target_list = target_str.split(", ")
-        numeric_target = []
-        for target in target_list:
-            numeric_target += [labels_dict[target]]
-        numeric_tuple = tuple(numeric_target)
-        numeric_target_data += [numeric_tuple]
+        # If there aren't any labels, add an empty tuple
+        if target_str == "":
+            numeric_target_data += [tuple(())]
+        else:
+            target_list = target_str.split(", ")
+            numeric_target = []
+            for target in target_list:
+                numeric_target += [labels_dict[target]]
+            numeric_tuple = tuple((numeric_target))
+            numeric_target_data += [numeric_tuple]
     return numeric_target_data
 
 

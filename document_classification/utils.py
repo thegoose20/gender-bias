@@ -63,6 +63,16 @@ def getPerformanceMetrics(y_test_binarized, predicted, matrix, classes, original
 # Functions for SplitData_DocumentClassification.ipynb
 ###############################################################
 
+# Do the opposite of DataFrame.explode(), creating one row with for each
+# value in the cols_to_groupby (list of one or more items) and lists of 
+# values in the other columns, and setting the cols_to_groupby as the Index
+# or MultiIndex in the resulting DataFrame
+def implodeDataFrame(df, cols_to_groupby):
+    cols_to_agg = list(df.columns)
+    for col in cols_to_groupby:
+        cols_to_agg.remove(col)
+    agg_dict = dict.fromkeys(cols_to_agg, lambda x: x.tolist())
+    return df.groupby(cols_to_groupby).agg(agg_dict).reset_index().set_index(cols_to_groupby)
 
 
 # INPUT:  DataFrame, fraction of DF to shuffle, and random_state of shuffle

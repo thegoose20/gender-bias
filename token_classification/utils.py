@@ -1,4 +1,8 @@
 import pandas as pd
+# For preprocessing the text
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.tokenize import sent_tokenize
 
 # Do the opposite of DataFrame.explode(), creating one row with for each
 # value in the cols_to_groupby (list of one or more items) and lists of 

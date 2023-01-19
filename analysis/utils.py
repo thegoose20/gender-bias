@@ -219,33 +219,28 @@ def getTokensAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_o
     tokens_dict = dict.fromkeys(list_of_ids)
     offsets_dict = dict.fromkeys(list_of_ids)
     j, maxJ = 0, len(list_of_strings)
-    
     while j < maxJ:
-
         # Get the string's ID
         s_id = list_of_ids[j]
-        
-        # Get the start and end offsets of the description
+        # Get the start and end offsets of the sentence
         s_start_offset = list_of_start_offsets[j]
-
-        # Get the description string and its tokens
+        # Get the sentence string and its tokens
         s = list_of_strings[j]
         try:
             s_tokens = word_tokenize(s)
         except TypeError:
             print(s)
-        
-        # Get the start and end offsets of the first token
+        # Get the start and end offsets of the first token in the sentence
         first_t = s_tokens[0]
         t_start_offset = s_start_offset
         t_end_offset = s_start_offset + len(first_t)
-        tokens_dict[s_id] = [first_t]
-        offsets_dict[s_id] = [tuple((t_start_offset, t_end_offset))]
+        sent_tokens_list = [first_t] #tokens_dict[s_id] = 
+        sent_tokens_offsets_list = [tuple((t_start_offset, t_end_offset))] #offsets_dict[s_id] = 
         prev_positions = len(first_t)
         sub_s = s[(t_end_offset-s_start_offset):]
         sub_tokens = word_tokenize(sub_s)
-        
-        # Get the start and end offsets of the remaining tokens
+        # Get the start and end offsets of the remaining tokens in the sentence,
+        # accounting for punctuation changes that occur after tokenization function applied
         for t in sub_tokens:
             old_t = t
             if (t == "''") or (t == "``"):
@@ -274,12 +269,15 @@ def getTokensAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_o
     
             assert t_end_offset <= list_of_end_offsets[j], "The last token's ({}) end offset ({}) should not be beyond the string's end offset ({}):{}, {}".format(t, t_end_offset, list_of_end_offsets[j], s_id, s)
             
-            tokens_dict[s_id] += [t]
-            offsets_dict[s_id] += [tuple((t_start_offset, t_end_offset))]
+            sent_tokens_list += [t]
+            sent_tokens_offsets_list += [tuple((t_start_offset, t_end_offset))]
             sub_s = sub_s[i+len(t):]
             prev_positions += len(t)+i
-            
-                        
+        
+        # Associate the list of tokens and their offsets to the corresponding sentence ID 
+        tokens_dict[s_id] = sent_tokens_list
+        offsets_dict[s_id] = sent_tokens_offsets_list
+        
         j += 1
     
     return tokens_dict, offsets_dict
@@ -329,7 +327,8 @@ def getSentsAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_of
         # Get the offsets of every sentence
         offsets = []
         for sent in sents:
-            start_offset = desc.index(sent)
+            # Begin the sentence offsets from the description's start offset
+            start_offset = desc.index(sent) + desc_start_offset
             end_offset = start_offset + len(sent) + 1
             assert end_offset <= desc_end_offset
             offsets += [tuple((start_offset, end_offset))]

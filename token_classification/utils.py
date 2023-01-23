@@ -5,17 +5,6 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 
-# Do the opposite of DataFrame.explode(), creating one row with for each
-# value in the cols_to_groupby (list of one or more items) and lists of 
-# values in the other columns, and setting the cols_to_groupby as the Index
-# or MultiIndex in the resulting DataFrame
-def implodeDataFrame(df, cols_to_groupby):
-    cols_to_agg = list(df.columns)
-    for col in cols_to_groupby:
-        cols_to_agg.remove(col)
-    agg_dict = dict.fromkeys(cols_to_agg, lambda x: x.tolist())
-    return df.groupby(cols_to_groupby).agg(agg_dict).reset_index().set_index(cols_to_groupby)
-
 
 # INPUT: list of strings (descriptions), list of ids for those strings, list of start offsets for those strings, 
 #        list of end offsets for those strings (offsets in the brat rapid annotation tool's standoff format)
@@ -47,6 +36,19 @@ def getSentsAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_of
         j += 1
     
     return sents_dict, offsets_dict
+
+
+# Do the opposite of DataFrame.explode(), creating one row with for each
+# value in the cols_to_groupby (list of one or more items) and lists of 
+# values in the other columns, and setting the cols_to_groupby as the Index
+# or MultiIndex in the resulting DataFrame
+def implodeDataFrame(df, cols_to_groupby):
+    cols_to_agg = list(df.columns)
+    for col in cols_to_groupby:
+        cols_to_agg.remove(col)
+    agg_dict = dict.fromkeys(cols_to_agg, lambda x: x.tolist())
+    return df.groupby(cols_to_groupby).agg(agg_dict).reset_index().set_index(cols_to_groupby)
+
 
 # INPUT:  DataFrame, fraction of DF to shuffle, and random_state of shuffle
 #         Note 1 - fraction defaults to 1 to shuffle the entire DataFrame; 

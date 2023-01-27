@@ -6,6 +6,10 @@ from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 
 
+#################################################################
+# Split Data for Token Classification
+#################################################################
+
 # INPUT: list of strings (descriptions), list of ids for those strings, list of start offsets for those strings, 
 #        list of end offsets for those strings (offsets in the brat rapid annotation tool's standoff format)
 # OUTPUT: two dictionaries, both with ids as keys, and one with lists of sentences as values and the other 
@@ -129,3 +133,27 @@ def getShuffledSplitData(df, field_names=metadata_fields):
     assert test.subset.unique()[0] == "test"
 
     return train, validate, test
+
+#################################################################
+# Baseline Token Classifiers
+#################################################################
+labels = {
+    "Unknown": 0, "Nonbinary": 1, "Feminine": 2, "Masculine": 3,
+    "Generalization": 4, "Gendered-Pronoun": 5, "Gendered-Role": 6,
+    "Occupation": 7, "Omission":8, "Stereotype": 9, "Empowering": 10
+         }
+
+def getNumericLabels(target_data, labels_dict=labels):
+    numeric_target_data = []
+    for target_str in target_data:
+        # If there aren't any labels, add an empty tuple
+        if target_str == "":
+            numeric_target_data += [tuple(())]
+        else:
+            target_list = target_str.split(", ")
+            numeric_target = []
+            for target in target_list:
+                numeric_target += [labels_dict[target]]
+            numeric_tuple = tuple((numeric_target))
+            numeric_target_data += [numeric_tuple]
+    return numeric_target_data

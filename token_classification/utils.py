@@ -4,6 +4,10 @@ import numpy as np
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
+from sklearn.metrics import classification_report
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import confusion_matrix, multilabel_confusion_matrix, plot_confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import precision_recall_fscore_support, f1_score
 
 
 #################################################################

@@ -12,3 +12,5 @@ data/crc_metadata/descriptions_annotated/*
 env/
 env/*
 env/*/*
+document_classification/config.py
+token_classification/config.py

@@ -18,14 +18,7 @@ def readData(filepath, seperator):
     data_split = text.split(seperator)
     return np.array(data_split)
 
-
-labels = {
-    "Unknown": 0, "Nonbinary": 1, "Feminine": 2, "Masculine": 3,
-    "Generalization": 4, "Gendered-Pronoun": 5, "Gendered-Role": 6,
-    "Occupation": 7, "Omission":8, "Stereotype": 9, "Empowering": 10
-         }
-
-def getNumericLabels(target_data, labels_dict=labels):
+def getNumericLabels(target_data, labels_dict):
     numeric_target_data = []
     for target_str in target_data:
         # If there aren't any labels, add an empty tuple
@@ -41,12 +34,12 @@ def getNumericLabels(target_data, labels_dict=labels):
     return numeric_target_data
 
 
-def getPerformanceMetrics(y_test_binarized, predicted, matrix, classes, original_classes, labels_dict=labels):
+def getPerformanceMetrics(y_test_binarized, predicted, matrix, classes, original_classes, labels_dict):
     tn = matrix[:, 0, 0]
     fn = matrix[:, 1, 0]
     tp = matrix[:, 1, 1]
     fp = matrix[:, 0, 1]
-    class_to_name = dict(zip(list(labels.values()), list(labels.keys())))
+    class_to_name = dict(zip(list(labels_dict.values()), list(labels_dict.keys())))
     class_names = [class_to_name[c] for c in original_classes]
     
     [precision, recall, f_1, support] = precision_recall_fscore_support(

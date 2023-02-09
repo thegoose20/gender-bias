@@ -6,6 +6,10 @@ from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 
 
+#################################################################
+# Split Data for Token Classification
+#################################################################
+
 # INPUT: list of strings (descriptions), list of ids for those strings, list of start offsets for those strings, 
 #        list of end offsets for those strings (offsets in the brat rapid annotation tool's standoff format)
 # OUTPUT: two dictionaries, both with ids as keys, and one with lists of sentences as values and the other 
@@ -129,3 +133,47 @@ def getShuffledSplitData(df, field_names=metadata_fields):
     assert test.subset.unique()[0] == "test"
 
     return train, validate, test
+
+#################################################################
+# Baseline Token Classifiers
+#################################################################
+labels = {
+    "Unknown": 0, "Nonbinary": 1, "Feminine": 2, "Masculine": 3,
+    "Generalization": 4, "Gendered-Pronoun": 5, "Gendered-Role": 6,
+    "Occupation": 7, "Omission":8, "Stereotype": 9, "Empowering": 10
+         }
+
+def getNumericLabels(target_data, labels_dict=labels):
+    numeric_target_data = []
+    for target_str in target_data:
+        # If there aren't any labels, add an empty tuple
+        if target_str == "":
+            numeric_target_data += [tuple(())]
+        else:
+            target_list = target_str.split(", ")
+            numeric_target = []
+            for target in target_list:
+                numeric_target += [labels_dict[target]]
+            numeric_tuple = tuple((numeric_target))
+            numeric_target_data += [numeric_tuple]
+    return numeric_target_data
+
+
+def getPerformanceMetrics(y_test_binarized, predicted, matrix, classes, original_classes, no_to_label_dict):
+    tn = matrix[:, 0, 0]  # True negatives
+    fn = matrix[:, 1, 0]  # False negatives
+    tp = matrix[:, 1, 1]  # True positives
+    fp = matrix[:, 0, 1]  # False positives
+    class_names = [no_to_label_dict[c] for c in original_classes]
+    
+    [precision, recall, f_1, suport] = precision_recall_fscore_support(
+        y_test_binarized, predicted, beta=1.0, zero_division=0, labels=classes
+    )
+    
+    df = pd.DataFrame({
+        "labels":class_names, "true_neg":tn, "false_neg":fn, "true_pos":tp, "false_pos":fp,
+        "precision":precision, "recall":recall, "f_1":f_1
+    })
+    
+    return df
+

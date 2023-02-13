@@ -1,7 +1,10 @@
+import config
 import pandas as pd
 import numpy as np
+import re
 # For preprocessing the text
 import nltk
+from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 from sklearn.metrics import classification_report
@@ -181,3 +184,48 @@ def getPerformanceMetrics(y_test_binarized, predicted, matrix, classes, original
     
     return df
 
+def getGloveEmbeddings(dimensions):
+    glove_path = config.inf_data_path+"glove.6B/glove.6B.{}d.txt".format(dimensions)
+    glove = dict()
+    with open(glove_path, "r") as f:
+        for line in f:
+            values = line.split()
+            word = values[0]
+            vector = np.asarray(values[1:], "float32")
+            glove[word] = vector
+    return glove
+
+def getEmbeddingsForTokens(embedding_dict, tokens):
+    embedding_list = []
+    for token in tokens:
+        token = token.lower()
+        word_list = re.findall("[a-z]+", token)
+        if len(word_list) == 1:
+            try:
+                embedding = embedding_dict[word_list[0]]
+            except KeyError:
+                embedding = np.array([])
+            embedding_list += [embedding]
+        else:
+            embedding_list += [np.array([])]
+    return embedding_list
+
+
+#################################################################
+# Word Embeddings
+#################################################################
+
+def createEmbeddingDataFrame(df, embedding_dict, embedding_col_name):
+    tokens = list(df.token)
+    embedding_list = []
+    for token in tokens:
+        token = token.lower()
+        word_list = re.findall("[a-z]+", token)
+        if len(word_list) == 1:
+            embedding = embedding_dict[word_list[0]]
+            embedding_list += [embedding]
+        else:
+            embedding_list += [[]]
+    new_df = df[["token_id", "token"]]
+    new_df.insert(len(new_df.columns)-1, embedding_col_name, embedding_list)
+    return new_df

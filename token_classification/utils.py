@@ -184,6 +184,7 @@ def getPerformanceMetrics(y_test_binarized, predicted, matrix, classes, original
     
     return df
 
+
 def getGloveEmbeddings(dimensions):
     glove_path = config.inf_data_path+"glove.6B/glove.6B.{}d.txt".format(dimensions)
     glove = dict()
@@ -194,6 +195,7 @@ def getGloveEmbeddings(dimensions):
             vector = np.asarray(values[1:], "float32")
             glove[word] = vector
     return glove
+
 
 def getEmbeddingsForTokens(embedding_dict, tokens):
     embedding_list = []
@@ -209,6 +211,26 @@ def getEmbeddingsForTokens(embedding_dict, tokens):
         else:
             embedding_list += [np.array([])]
     return embedding_list
+
+
+label_to_cat = {
+    "Unknown":"Person-Name", "Nonbinary":"Person-Name", "Feminine":"Person-Name", "Masculine":"Person-Name",
+    "Gendered-Pronoun":"Linguistic", "Gendered-Role":"Linguistic", "Generalization":"Linguistic", 
+    "Empowering":"Contextual", "Occupation":"Contextual", "Stereotype":"Contextual", "Omission":"Contextual"
+}
+def addCategoryTagColumn(df, cat_dict=label_to_cat):
+    label_tags = list(df.tag)
+    category_tags = []
+    for label_tag in label_tags:
+        if label_tag == "O":
+            category_tags += ["O"]
+        else:
+            label = label_tag[2:]
+            category = cat_dict[label]
+            category_tag = label_tag[:2]+category
+            category_tags += [category_tag]
+    df.insert(len(df.columns), "tag_cat", category_tags)
+    return df
 
 
 #################################################################

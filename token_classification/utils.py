@@ -233,6 +233,39 @@ def addCategoryTagColumn(df, cat_dict=label_to_cat):
     return df
 
 
+# INPUT:  list of sentences, where each sentence is a list of tokens (strings)
+# OUTPUT: the length of the longest sentence
+def getMaxSentenceLength(sentences):
+    sent_lengths = [len(s) for s in sentences]
+    return np.max(sent_lengths)
+
+# INPUT:  list of sentences, where each sentence is a list of tokens (strings)
+# OUTPUT: list of sentences that are all the same length, with the special token 
+#         'PAD' added repeatedly to the end of sentences shorter than the 
+#         longest sentence
+def padSentences(sentences, max_length, pad_token="PAD"):
+    new_sentences = []
+    for s in sentences:
+        pad_count = max_length - len(s)
+        padding = [pad_token]*pad_count
+        new_s = s + padding
+        new_sentences += [new_s]
+    return new_sentences
+
+# Replace the input DataFrame's sentence column with padded sentences
+def addPaddedSentenceColumn(df, col_name="sentence"):
+    sentences = list(df.sentence)
+    max_length = getMaxSentenceLength(sentences)
+    
+    padded_sentences = padSentences(sentences, max_length)
+    
+    sent_col_i = (list(df.columns)).index(col_name)
+    df = df.drop(columns=[col_name])
+    df.insert(sent_col_i-1, "sentence", padded_sentences)
+    
+    return df
+
+
 #################################################################
 # Word Embeddings
 #################################################################

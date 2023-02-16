@@ -230,6 +230,7 @@ def addCategoryTagColumn(df, cat_dict=label_to_cat):
             category_tag = label_tag[:2]+category
             category_tags += [category_tag]
     df.insert(len(df.columns), "tag_cat", category_tags)
+    df = df.drop_duplicates()
     return df
 
 
@@ -264,6 +265,18 @@ def addPaddedSentenceColumn(df, col_name="sentence"):
     df.insert(sent_col_i-1, "sentence", padded_sentences)
     
     return df
+
+
+# # INPUT:  DataFrame, column name of target, and list of target values
+# # OUTPUT: DataFrame with col_name that contains values only in target_names or 'O' 
+# def selectTarget(df, col_name, target_names):
+#     new_df = df.copy()
+#     col_values = (new_df[col_name].unique())
+#     values_to_keep = target_names + ['O']
+#     other_values = [value for value in col_values if not value in values_to_keep]
+#     new_df[col_name] = new_df[col_name].replace(other_values, 'O')
+#     new_df = new_df.drop_duplicates()
+#     return new_df
 
 
 #################################################################

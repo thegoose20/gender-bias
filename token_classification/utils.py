@@ -266,17 +266,15 @@ def addPaddedSentenceColumn(df, col_name="sentence"):
     
     return df
 
-
-# # INPUT:  DataFrame, column name of target, and list of target values
-# # OUTPUT: DataFrame with col_name that contains values only in target_names or 'O' 
-# def selectTarget(df, col_name, target_names):
-#     new_df = df.copy()
-#     col_values = (new_df[col_name].unique())
-#     values_to_keep = target_names + ['O']
-#     other_values = [value for value in col_values if not value in values_to_keep]
-#     new_df[col_name] = new_df[col_name].replace(other_values, 'O')
-#     new_df = new_df.drop_duplicates()
-#     return new_df
+# INPUT:  a DataFrame and the name of the target column
+# OUTPUT: a list of sentences, where each sentence item is a tuple of three items:
+#         a token, the token's part-of-speech tag, and the token's target tag
+def zipFeaturesAndTarget(df, target_col):
+    sent_list = list(df.sentence)
+    pos_list = list(df.pos)
+    tag_list = list(df[target_col])
+    length = len(sent_list)
+    return [[tuple((sent_list[i][j], pos_list[i][j], tag_list[i][j])) for j in range(len(sent_list[i]))] for i in range(len(sent_list))]
 
 
 #################################################################

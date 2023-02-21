@@ -93,10 +93,12 @@ dependencies:
   - murmurhash=1.0.9=py39h5a03fae_1
   - ncurses=6.3=h27087fc_1
   - nest-asyncio=1.5.6=pyhd8ed1ab_0
+  - nltk=3.8.1=pyhd8ed1ab_0
   - numba=0.56.4=py39h61ddf18_0
   - numpy=1.23.5=py39h3d75532_0
   - openssl=3.0.8=h0b41bf4_0
   - packaging=21.3=pyhd8ed1ab_0
+  - pandas=1.5.3=py39h2ad29b5_0
   - parso=0.8.3=pyhd8ed1ab_0
   - pathy=0.10.1=py39h06a4308_0
   - pexpect=4.8.0=pyh1a96a4e_2
@@ -119,20 +121,24 @@ dependencies:
   - pyparsing=3.0.9=pyhd8ed1ab_0
   - pysocks=1.7.1=pyha2e5f31_6
   - python=3.9.13=h2660328_0_cpython
+  - python-crfsuite=0.9.9=py39h4b4f3f3_0
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.9=2_cp39
+  - pytz=2022.7.1=pyhd8ed1ab_0
   - pyyaml=6.0=py39hb9d737c_5
   - pyzmq=25.0.0=py39h0be026e_0
   - readline=8.2=h5eee18b_0
+  - regex=2022.10.31=py39hb9d737c_0
   - requests=2.28.1=pyhd8ed1ab_1
   - rich=12.6.0=pyhd8ed1ab_0
   - ruamel_yaml=0.15.100=py39h27cfd23_0
-  - scikit-learn=1.2.0=py39h86b2a18_0
+  - scikit-learn=1.2.1=py39h86b2a18_0
   - scipy=1.10.0=py39h7360e5f_0
   - sense2vec=2.0.0=py39he80948d_0
   - setuptools=65.5.0=pyhd8ed1ab_0
   - shellingham=1.5.0.post1=pyhd8ed1ab_0
   - six=1.16.0=pyh6c4a22f_0
+  - sklearn-crfsuite=0.3.6=pyh9f0ad1d_0
   - smart_open=6.3.0=pyhd8ed1ab_1
   - spacy=3.5.0=py39h0354152_0
   - spacy-legacy=3.0.12=pyhd8ed1ab_0
@@ -140,6 +146,7 @@ dependencies:
   - sqlite=3.39.4=h4ff8645_0
   - srsly=2.4.5=py39h5a03fae_1
   - stack_data=0.6.2=pyhd8ed1ab_0
+  - tabulate=0.9.0=pyhd8ed1ab_1
   - tbb=2021.7.0=h924138e_1
   - thinc=8.1.7=py39h0354152_0
   - threadpoolctl=3.1.0=pyh8a188c0_0
@@ -171,7 +178,6 @@ dependencies:
       - nvidia-cuda-nvrtc-cu11==11.7.99
       - nvidia-cuda-runtime-cu11==11.7.99
       - nvidia-cudnn-cu11==8.5.0.96
-      - regex==2022.10.31
       - spacy-alignments==0.9.0
       - spacy-transformers==1.2.1
       - tokenizers==0.13.2

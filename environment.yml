@@ -45,6 +45,7 @@ dependencies:
   - idna=3.4=pyhd8ed1ab_0
   - importlib-metadata=5.0.0=pyha770c72_1
   - importlib_metadata=5.0.0=hd8ed1ab_1
+  - intervaltree=3.1.0=pyhd3eb1b0_0
   - ipykernel=6.21.2=pyh210e3f2_0
   - ipython=8.10.0=pyh41d4057_0
   - jedi=0.18.2=pyhd8ed1ab_0
@@ -140,6 +141,7 @@ dependencies:
   - six=1.16.0=pyh6c4a22f_0
   - sklearn-crfsuite=0.3.6=pyh9f0ad1d_0
   - smart_open=6.3.0=pyhd8ed1ab_1
+  - sortedcontainers=2.4.0=pyhd8ed1ab_0
   - spacy=3.5.0=py39h0354152_0
   - spacy-legacy=3.0.12=pyhd8ed1ab_0
   - spacy-loggers=1.0.4=pyhd8ed1ab_0

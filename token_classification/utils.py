@@ -142,7 +142,7 @@ def getShuffledSplitData(df, field_names=metadata_fields):
     return train, validate, test
 
 #################################################################
-# Baseline Token Classifiers
+# Seuqnce & Token Classifiers
 #################################################################
 labels = {
     "Unknown": 0, "Nonbinary": 1, "Feminine": 2, "Masculine": 3,
@@ -266,6 +266,7 @@ def addPaddedSentenceColumn(df, col_name="sentence"):
     
     return df
 
+
 # INPUT:  a DataFrame and the name of the target column
 # OUTPUT: a list of sentences, where each sentence item is a tuple of three items:
 #         a token, the token's part-of-speech tag, and the token's target tag
@@ -275,6 +276,38 @@ def zipFeaturesAndTarget(df, target_col):
     tag_list = list(df[target_col])
     length = len(sent_list)
     return [[tuple((sent_list[i][j], pos_list[i][j], tag_list[i][j])) for j in range(len(sent_list[i]))] for i in range(len(sent_list))]
+
+# Create an interval tree from the token offsets of the input DataFrame, columns, and tag names
+def createIntervalTree(df, offsets_col, tag_col, tag_names):
+    subdf = df.loc[df[tag_col].isin(tag_names)]
+    offsets_list = list(subdf[offsets_col])
+    return IntervalTree.from_tuples(offsets_list)
+
+# Get counts of true positives, false positives, and false negatives 
+# for exactly matching, overlapping, and enveloping annotations 
+def looseAgreement(tree_exp, tree_pred):
+    tp_count, fp_count, fn_count = 0, 0, 0
+    # Note: TP will actually be TN when evaluating for 'O' tags 
+    for annotation in tree_exp:
+        tp_count += len(tree_pred.overlap(annotation))
+    fn_count = len(tree_exp.difference(tree_pred))
+    fp_count = len(tree_pred.difference(tree_exp))
+    return tp_count, fp_count, fn_count
+    
+# Calculate precision, recall, and F1 scores, returning
+# 1 in the case of zero division
+def precisionRecallF1(tp_count, fp_count, fn_count):
+    if tp_count+fp_count == 0:
+        precision = 1
+    else:
+        precision = (tp_count/(tp_count+fp_count))
+    if tp_count+fn_count == 0:
+        recall = 1
+    else:
+        recall = (tp_count/(tp_count+fn_count))
+    f_1 = (2*precision*recall)/(precision+recall)
+    return precision, recall, f_1
+
 
 
 #################################################################

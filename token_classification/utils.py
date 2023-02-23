@@ -309,6 +309,50 @@ def precisionRecallF1(tp_count, fp_count, fn_count):
     return precision, recall, f_1
 
 
+# INPUT:  Prediction DataFrame for a particular tag category, the category name, 
+#         agreement type to record, match type to record, expected tag, & predicted tag
+# OUTPUT: Input prediction DataFrame with additional columns for 'strict_agreement' 
+#         and 'match_type' 
+def recordCatAgreementAndMatchType(subdf_pred, category, agmt_type, match_type, exp_value, pred_value):
+    subdf_pred_type = subdf_pred.loc[(subdf_pred["tag_cat_{}_expected".format(category)] == exp_value)]
+    subdf_pred_type = subdf_pred_type.loc[(subdf_pred_type["tag_cat_{}_predicted".format(category)] == pred_value)]
+    strict_agmt_col = [agmt_type]*subdf_pred_type.shape[0]
+    match_type_col = [match_type]*subdf_pred_type.shape[0]
+    subdf_pred_type.insert(len(subdf_pred_type.columns), "strict_agreement", strict_agmt_col)
+    subdf_pred_type.insert(len(subdf_pred_type.columns), "match_type", match_type_col)
+    return subdf_pred_type
+
+def addCatAgreementAndMatchTypeCols(df_dev_exploded, category, tags):
+    # Get relevant subset of input DataFrame
+    subdf_pred = df_dev_exploded[["sentence_id", "token_id", "token", "tag_cat_{}_expected".format(category), "tag_cat_{}_predicted".format(category)]]
+    
+    # False negatives
+    subdf_pred_tn = recordCatAgreementAndMatchType(subdf_pred, category, "TN", "exact_match", "O", "O")
+    # True positives
+    subdf_pred_tp_b = recordCatAgreementAndMatchType(subdf_pred, category, "TP", "exact_match", tags[0], tags[0])
+    subdf_pred_tp_i = recordCatAgreementAndMatchType(subdf_pred, category, "TP", "exact_match", tags[1], tags[1])
+    # False positives
+    subdf_pred_fp_bi = recordCatAgreementAndMatchType(subdf_pred, category, "FP", "category_match", tags[0], tags[1])
+    subdf_pred_fp_ib = recordCatAgreementAndMatchType(subdf_pred, category, "FP", "category_match", tags[1], tags[0])
+    subdf_pred_fp_oi = recordCatAgreementAndMatchType(subdf_pred, category, "FP", "mismatch", "O", tags[1])
+    subdf_pred_fp_ob = recordCatAgreementAndMatchType(subdf_pred, category, "FP", "mismatch", "O", tags[0])
+    # False negatives
+    subdf_pred_fn_io = recordCatAgreementAndMatchType(subdf_pred, category, "FN", "mismatch", tags[1], "O")
+    subdf_pred_fn_bo = recordCatAgreementAndMatchType(subdf_pred, category, "FN", "mismatch", tags[0], "O")
+    
+    # Make new a DataFrame
+    subdf_pred_new = pd.concat([
+        subdf_pred_tn, 
+        subdf_pred_tp_b, subdf_pred_tp_i, 
+        subdf_pred_fp_bi, subdf_pred_fp_ib, subdf_pred_fp_oi, subdf_pred_fp_ob,
+        subdf_pred_fn_io, subdf_pred_fn_bo
+    ])
+    assert subdf_pred.shape[0] == subdf_pred_new.shape[0]
+    subdf_pred_new[subdf_pred_new.match_type == "category_match"]
+    subdf_pred_new = subdf_pred_new.sort_values(by=["token_id"])
+    
+    return subdf_pred_new
+
 
 #################################################################
 # Word Embeddings

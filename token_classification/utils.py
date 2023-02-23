@@ -1,10 +1,17 @@
+import config
 import pandas as pd
 import numpy as np
+import re
 # For preprocessing the text
 import nltk
+from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
-
+from sklearn.metrics import classification_report
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import confusion_matrix, multilabel_confusion_matrix, ConfusionMatrixDisplay#, plot_confusion_matrix 
+from sklearn.metrics import precision_recall_fscore_support, f1_score
+from intervaltree import Interval, IntervalTree
 
 #################################################################
 # Split Data for Token Classification
@@ -135,7 +142,7 @@ def getShuffledSplitData(df, field_names=metadata_fields):
     return train, validate, test
 
 #################################################################
-# Baseline Token Classifiers
+# Seuqnce & Token Classifiers
 #################################################################
 labels = {
     "Unknown": 0, "Nonbinary": 1, "Feminine": 2, "Masculine": 3,
@@ -177,3 +184,191 @@ def getPerformanceMetrics(y_test_binarized, predicted, matrix, classes, original
     
     return df
 
+
+def getGloveEmbeddings(dimensions):
+    glove_path = config.inf_data_path+"glove.6B/glove.6B.{}d.txt".format(dimensions)
+    glove = dict()
+    with open(glove_path, "r") as f:
+        for line in f:
+            values = line.split()
+            word = values[0]
+            vector = np.asarray(values[1:], "float32")
+            glove[word] = vector
+    return glove
+
+
+def getEmbeddingsForTokens(embedding_dict, tokens):
+    embedding_list = []
+    for token in tokens:
+        token = token.lower()
+        word_list = re.findall("[a-z]+", token)
+        if len(word_list) == 1:
+            try:
+                embedding = embedding_dict[word_list[0]]
+            except KeyError:
+                embedding = np.array([])
+            embedding_list += [embedding]
+        else:
+            embedding_list += [np.array([])]
+    return embedding_list
+
+
+label_to_cat = {
+    "Unknown":"Person-Name", "Nonbinary":"Person-Name", "Feminine":"Person-Name", "Masculine":"Person-Name",
+    "Gendered-Pronoun":"Linguistic", "Gendered-Role":"Linguistic", "Generalization":"Linguistic", 
+    "Empowering":"Contextual", "Occupation":"Contextual", "Stereotype":"Contextual", "Omission":"Contextual"
+}
+def addCategoryTagColumn(df, cat_dict=label_to_cat):
+    label_tags = list(df.tag)
+    category_tags = []
+    for label_tag in label_tags:
+        if label_tag == "O":
+            category_tags += ["O"]
+        else:
+            label = label_tag[2:]
+            category = cat_dict[label]
+            category_tag = label_tag[:2]+category
+            category_tags += [category_tag]
+    df.insert(len(df.columns), "tag_cat", category_tags)
+    df = df.drop_duplicates()
+    return df
+
+
+# INPUT:  list of sentences, where each sentence is a list of tokens (strings)
+# OUTPUT: the length of the longest sentence
+def getMaxSentenceLength(sentences):
+    sent_lengths = [len(s) for s in sentences]
+    return np.max(sent_lengths)
+
+# INPUT:  list of sentences, where each sentence is a list of tokens (strings)
+# OUTPUT: list of sentences that are all the same length, with the special token 
+#         'PAD' added repeatedly to the end of sentences shorter than the 
+#         longest sentence
+def padSentences(sentences, max_length, pad_token="PAD"):
+    new_sentences = []
+    for s in sentences:
+        pad_count = max_length - len(s)
+        padding = [pad_token]*pad_count
+        new_s = s + padding
+        new_sentences += [new_s]
+    return new_sentences
+
+# Replace the input DataFrame's sentence column with padded sentences
+def addPaddedSentenceColumn(df, col_name="sentence"):
+    sentences = list(df.sentence)
+    max_length = getMaxSentenceLength(sentences)
+    
+    padded_sentences = padSentences(sentences, max_length)
+    
+    sent_col_i = (list(df.columns)).index(col_name)
+    df = df.drop(columns=[col_name])
+    df.insert(sent_col_i-1, "sentence", padded_sentences)
+    
+    return df
+
+
+# INPUT:  a DataFrame and the name of the target column
+# OUTPUT: a list of sentences, where each sentence item is a tuple of three items:
+#         a token, the token's part-of-speech tag, and the token's target tag
+def zipFeaturesAndTarget(df, target_col):
+    sent_list = list(df.sentence)
+    pos_list = list(df.pos)
+    tag_list = list(df[target_col])
+    length = len(sent_list)
+    return [[tuple((sent_list[i][j], pos_list[i][j], tag_list[i][j])) for j in range(len(sent_list[i]))] for i in range(len(sent_list))]
+
+# Create an interval tree from the token offsets of the input DataFrame, columns, and tag names
+def createIntervalTree(df, offsets_col, tag_col, tag_names):
+    subdf = df.loc[df[tag_col].isin(tag_names)]
+    offsets_list = list(subdf[offsets_col])
+    return IntervalTree.from_tuples(offsets_list)
+
+# Get counts of true positives, false positives, and false negatives 
+# for exactly matching, overlapping, and enveloping annotations 
+def looseAgreement(tree_exp, tree_pred):
+    tp_count, fp_count, fn_count = 0, 0, 0
+    # Note: TP will actually be TN when evaluating for 'O' tags 
+    for annotation in tree_exp:
+        tp_count += len(tree_pred.overlap(annotation))
+    fn_count = len(tree_exp.difference(tree_pred))
+    fp_count = len(tree_pred.difference(tree_exp))
+    return tp_count, fp_count, fn_count
+    
+# Calculate precision, recall, and F1 scores, returning
+# 1 in the case of zero division
+def precisionRecallF1(tp_count, fp_count, fn_count):
+    if tp_count+fp_count == 0:
+        precision = 1
+    else:
+        precision = (tp_count/(tp_count+fp_count))
+    if tp_count+fn_count == 0:
+        recall = 1
+    else:
+        recall = (tp_count/(tp_count+fn_count))
+    f_1 = (2*precision*recall)/(precision+recall)
+    return precision, recall, f_1
+
+
+# INPUT:  Prediction DataFrame for a particular tag category, the category name, 
+#         agreement type to record, match type to record, expected tag, & predicted tag
+# OUTPUT: Input prediction DataFrame with additional columns for 'strict_agreement' 
+#         and 'match_type' 
+def recordCatAgreementAndMatchType(subdf_pred, category, agmt_type, match_type, exp_value, pred_value):
+    subdf_pred_type = subdf_pred.loc[(subdf_pred["tag_cat_{}_expected".format(category)] == exp_value)]
+    subdf_pred_type = subdf_pred_type.loc[(subdf_pred_type["tag_cat_{}_predicted".format(category)] == pred_value)]
+    strict_agmt_col = [agmt_type]*subdf_pred_type.shape[0]
+    match_type_col = [match_type]*subdf_pred_type.shape[0]
+    subdf_pred_type.insert(len(subdf_pred_type.columns), "strict_agreement", strict_agmt_col)
+    subdf_pred_type.insert(len(subdf_pred_type.columns), "match_type", match_type_col)
+    return subdf_pred_type
+
+def addCatAgreementAndMatchTypeCols(df_dev_exploded, category, tags):
+    # Get relevant subset of input DataFrame
+    subdf_pred = df_dev_exploded[["sentence_id", "token_id", "token", "tag_cat_{}_expected".format(category), "tag_cat_{}_predicted".format(category)]]
+    
+    # False negatives
+    subdf_pred_tn = recordCatAgreementAndMatchType(subdf_pred, category, "TN", "exact_match", "O", "O")
+    # True positives
+    subdf_pred_tp_b = recordCatAgreementAndMatchType(subdf_pred, category, "TP", "exact_match", tags[0], tags[0])
+    subdf_pred_tp_i = recordCatAgreementAndMatchType(subdf_pred, category, "TP", "exact_match", tags[1], tags[1])
+    # False positives
+    subdf_pred_fp_bi = recordCatAgreementAndMatchType(subdf_pred, category, "FP", "category_match", tags[0], tags[1])
+    subdf_pred_fp_ib = recordCatAgreementAndMatchType(subdf_pred, category, "FP", "category_match", tags[1], tags[0])
+    subdf_pred_fp_oi = recordCatAgreementAndMatchType(subdf_pred, category, "FP", "mismatch", "O", tags[1])
+    subdf_pred_fp_ob = recordCatAgreementAndMatchType(subdf_pred, category, "FP", "mismatch", "O", tags[0])
+    # False negatives
+    subdf_pred_fn_io = recordCatAgreementAndMatchType(subdf_pred, category, "FN", "mismatch", tags[1], "O")
+    subdf_pred_fn_bo = recordCatAgreementAndMatchType(subdf_pred, category, "FN", "mismatch", tags[0], "O")
+    
+    # Make new a DataFrame
+    subdf_pred_new = pd.concat([
+        subdf_pred_tn, 
+        subdf_pred_tp_b, subdf_pred_tp_i, 
+        subdf_pred_fp_bi, subdf_pred_fp_ib, subdf_pred_fp_oi, subdf_pred_fp_ob,
+        subdf_pred_fn_io, subdf_pred_fn_bo
+    ])
+    assert subdf_pred.shape[0] == subdf_pred_new.shape[0]
+    subdf_pred_new[subdf_pred_new.match_type == "category_match"]
+    subdf_pred_new = subdf_pred_new.sort_values(by=["token_id"])
+    
+    return subdf_pred_new
+
+
+#################################################################
+# Word Embeddings
+#################################################################
+
+def createEmbeddingDataFrame(df, embedding_dict, embedding_col_name):
+    tokens = list(df.token)
+    embedding_list = []
+    for token in tokens:
+        token = token.lower()
+        word_list = re.findall("[a-z]+", token)
+        if len(word_list) == 1:
+            embedding = embedding_dict[word_list[0]]
+            embedding_list += [embedding]
+        else:
+            embedding_list += [[]]
+    new_df = df[["token_id", "token"]]
+    new_df.insert(len(new_df.columns)-1, embedding_col_name, embedding_list)
+    return new_df

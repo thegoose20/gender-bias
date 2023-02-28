@@ -326,7 +326,7 @@ def addCatAgreementAndMatchTypeCols(df_dev_exploded, category, tags):
     # Get relevant subset of input DataFrame
     subdf_pred = df_dev_exploded[["sentence_id", "token_id", "token", "tag_cat_{}_expected".format(category), "tag_cat_{}_predicted".format(category)]]
     
-    # False negatives
+    # True negatives
     subdf_pred_tn = recordCatAgreementAndMatchType(subdf_pred, category, "TN", "exact_match", "O", "O")
     # True positives
     subdf_pred_tp_b = recordCatAgreementAndMatchType(subdf_pred, category, "TP", "exact_match", tags[0], tags[0])

@@ -147,6 +147,12 @@ def getShuffledSplitData(df, field_names=metadata_fields):
 #################################################################
 # Seuqnce & Token Classifiers
 #################################################################
+def getColumnValuesAsLists(df, col_name):
+    col_values = list(df[col_name])
+    col_list_values = [value[2:-2].split("', '") for value in col_values]
+    df[col_name] = col_list_values
+    return df
+
 labels = {
     "Unknown": 0, "Nonbinary": 1, "Feminine": 2, "Masculine": 3,
     "Generalization": 4, "Gendered-Pronoun": 5, "Gendered-Role": 6,
@@ -287,6 +293,7 @@ def createIntervalTree(df, offsets_col, tag_col, tag_names):
     offsets_list = list(subdf[offsets_col])
     return IntervalTree.from_tuples(offsets_list)
 
+
 # Get counts of true positives, false positives, and false negatives 
 # for exactly matching, overlapping, and enveloping annotations 
 def looseAgreement(tree_exp, tree_pred):
@@ -298,18 +305,25 @@ def looseAgreement(tree_exp, tree_pred):
     fp_count = len(tree_pred.difference(tree_exp))
     return tp_count, fp_count, fn_count
     
+    
 # Calculate precision, recall, and F1 scores, returning
 # 1 in the case of zero division
 def precisionRecallF1(tp_count, fp_count, fn_count):
+    # Precision Score: ability of classifier not to label a sample that should be negative as positive; best possible = 1, worst possible = 0
     if tp_count+fp_count == 0:
-        precision = 1
+        precision = 0
     else:
         precision = (tp_count/(tp_count+fp_count))
+    # Recall Score: ability of classifier to find all positive samples; best possible = 1, worst possible = 0
     if tp_count+fn_count == 0:
-        recall = 1
+        recall = 0
     else:
         recall = (tp_count/(tp_count+fn_count))
-    f_1 = (2*precision*recall)/(precision+recall)
+    # F1 Score: harmonic mean of precision and recall; best possible = 1, worst possible = 0
+    if (precision+recall == 0):
+        f_1 = 0
+    else:
+        f_1 = (2*precision*recall)/(precision+recall)
     return precision, recall, f_1
 
 
@@ -356,6 +370,65 @@ def addCatAgreementAndMatchTypeCols(df_dev_exploded, category, tags):
     subdf_pred_new = subdf_pred_new.sort_values(by=["token_id"])
     
     return subdf_pred_new
+
+
+
+# Since multiple tags are possibly correct for certain tokens, record a prediction as 
+# correct if one of the expected tags matches the predicted tag
+def isPredictedInExpected(df, exp_col, pred_col, agmt_col_name, no_tag_value):
+    expected_labels = list(df[exp_col])
+    predicted_labels = list(df[pred_col])
+    rows = df.shape[0]
+    _merge = []
+    for i in range(rows):
+        exp, pred = expected_labels[i], predicted_labels[i]
+        if (no_tag_value in exp) and (pred == no_tag_value):
+            _merge += ["true negative"]
+        elif pred in exp:
+            _merge += ["true positive"]
+        else: # if (not pred in exp):
+            if (pred == no_tag_value):
+                _merge += ["false negative"]
+            else:
+                _merge += ["false positive"]            
+    assert len(_merge) == rows, "There should be one agreement type per row."
+    df.insert(len(df.columns), agmt_col_name, _merge)
+    return df
+
+
+def getScoresByCatTags(df, eval_col, tag, exp_col, pred_col, id_col):
+    # Filter out the true negatives (rows with "O" tag as expected and predicted values)
+    subdf = df.loc[df[eval_col] != "true negative"]
+    
+    # Find true positives and false positives
+    positives = subdf.loc[subdf[pred_col] == tag]
+    positives_dict = positives[eval_col].value_counts().to_dict()
+    if "true positive" in positives_dict:
+        tp = positives_dict["true positive"]
+    else:
+        tp = 0
+    if "false positive" in positives_dict:
+        fp = positives_dict["false positive"]
+    else:
+        fp = 0
+    
+    # Find false negatives
+    negatives = subdf.loc[subdf[pred_col] == "O"]
+    exp_tag_lists = list(negatives[exp_col])
+    fn = 0
+    for tag_list in exp_tag_lists:
+        if (not ("O" in tag_list)):
+            if (tag in tag_list):
+                fn += 1
+    
+    # Calculate precision, recall, and f1 score (in case of zero division, return 0)
+    prec, rec, f1 = precisionRecallF1(tp, fp, fn)
+    
+    return pd.DataFrame.from_dict({
+        "tag(s)":[tag], "false negative":[fn], "false positive":[fp], 
+         "true positive":[tp], "precision":[prec], "recall":[rec], "f1":[f1]
+    })
+
 
 
 def makePredictionDF(predictions, dev_data, exp_col_name, pred_col_name, no_tag_value):

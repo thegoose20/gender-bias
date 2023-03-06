@@ -9,10 +9,11 @@ from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 # For classification
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import MultiLabelBinarizer
 # For classifier evaluation
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix, multilabel_confusion_matrix, ConfusionMatrixDisplay#, plot_confusion_matrix 
-from sklearn.metrics import precision_recall_fscore_support, f1_score
+from sklearn.metrics import precision_recall_fscore_support, f1_score, precision_score, recall_score#, accuracy_score, jaccard_score
 from intervaltree import Interval, IntervalTree
 
 #################################################################
@@ -279,6 +280,7 @@ def zipFeaturesAndTarget(df, target_col):
     length = len(sent_list)
     return [[tuple((sent_list[i][j], pos_list[i][j], tag_list[i][j])) for j in range(len(sent_list[i]))] for i in range(len(sent_list))]
 
+
 # Create an interval tree from the token offsets of the input DataFrame, columns, and tag names
 def createIntervalTree(df, offsets_col, tag_col, tag_names):
     subdf = df.loc[df[tag_col].isin(tag_names)]
@@ -354,6 +356,109 @@ def addCatAgreementAndMatchTypeCols(df_dev_exploded, category, tags):
     subdf_pred_new = subdf_pred_new.sort_values(by=["token_id"])
     
     return subdf_pred_new
+
+
+def makePredictionDF(predictions, dev_data, exp_col_name, pred_col_name, no_tag_value):
+    pred_labels = mlb.inverse_transform(predictions)
+    pred_df = dev_data.drop(columns=[exp_col_name])
+    pred_df.insert(len(pred_df.columns), pred_col_name, pred_labels)
+    pred_df = pred_df.explode([pred_col_name])
+    pred_df[pred_col_name] = pred_df[pred_col_name].fillna(no_tag_value)
+    return pred_df
+
+
+def makeEvaluationDataFrame(exp_df, pred_df, left_on_cols, right_on_cols, final_cols, exp_col, pred_col, id_col, no_tag_value):
+    # Add the predicted tags to the DataFrame with expected tags
+    exp_pred_df = pd.merge(
+        left=exp_df, right=pred_df, how="outer",
+        left_on=left_on_cols,
+        right_on=right_on_cols,
+        suffixes=["", "_pred"],
+        indicator=True
+    )
+    exp_pred_df = exp_pred_df[final_cols]
+    # Find true negatives based on the expected and predicted tags
+    sub_exp_pred_df = exp_pred_df.loc[exp_pred_df[exp_col] == no_tag_value]
+    sub_exp_pred_df = sub_exp_pred_df.loc[sub_exp_pred_df[pred_col] == no_tag_value]
+    sub_exp_pred_df.replace(to_replace="both", value="true negative", inplace=True)
+    tn_tokens = list(sub_exp_pred_df["token_id"])
+    # Record false negatives, false positives, and true positives based on the merge values
+    sub_exp_pred_df2 = exp_pred_df.loc[~exp_pred_df["token_id"].isin(tn_tokens)]
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="left_only", value="false negative")
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="right_only", value="false positive")
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="both", value="true positive")
+    # Combine the DataFrames to include all agreement types and sort the DataFrame
+    eval_df = pd.concat([sub_exp_pred_df,sub_exp_pred_df2])
+    eval_df = eval_df.sort_index()
+    return eval_df
+
+
+def getScoresByTags(df, eval_col, tags, exp_col="expected_tag", pred_col="predicted_tag"):
+    subdf1 = df.loc[df[pred_col].isin(tags)]
+    subdf2 = df.loc[df[exp_col].isin(tags)]
+    subdf = pd.concat([subdf1, subdf2])
+    tp = subdf.loc[subdf[eval_col] == "true positive"].shape[0]
+    tn = subdf.loc[subdf[eval_col] == "true negative"].shape[0]
+    fp = subdf.loc[subdf[eval_col] == "false positive"].shape[0]
+    fn = subdf.loc[subdf[eval_col] == "false negative"].shape[0]
+    # Precision Score: ability of classifier not to label a sample that should be negative as positive; best possible = 1, worst possible = 0
+    if (tp+fp) > 0:
+        prec = tp/(tp+fp)
+    else:
+        prec = 0
+    # Recall Score: ability of classifier to find all positive samples; best possible = 1, worst possible = 0
+    if (tp+fn) > 0:
+        rec = tp/(tp+fn)
+    else:
+        rec = 0
+    # F1 Score: harmonic mean of precision and recall; best possible = 1, worst possible = 0
+    if (prec+rec) > 0:
+        f1 = (2*(prec*rec))/(prec+rec)
+    else:
+        f1 = 0
+    if len(tags) > 1:
+        tags = ", ".join(tags)
+    return pd.DataFrame.from_dict({
+        "tag(s)":tags, "false negative":[fn], "false positive":[fp], "true negative":[tn], 
+         "true positive":tp, "precision":[prec], "recall":[rec], "f1":[f1]
+    })
+
+
+def compareExpectedPredicted(loose_eval_df, agmt_col_name, no_tag_value):
+    expected_labels = list(loose_eval_df.expected_tag)
+    predicted_labels = list(loose_eval_df.predicted_tag)
+    rows = loose_eval_df.shape[0]
+    _merge = []
+    for i in range(rows):
+        exp, pred = expected_labels[i], predicted_labels[i]
+        if (exp == no_tag_value) and (pred == no_tag_value):
+            _merge += ["true negative"]
+        elif exp == pred:
+            _merge += ["true positive"]
+        elif (exp == no_tag_value) and (pred != no_tag_value):
+            _merge += ["false_positive"]
+        elif (exp != no_tag_value) and (pred == no_tag_value):
+            _merge += ["false negative"]
+    assert len(_merge) == rows, "There should be one agreement type per row."
+    loose_eval_df.insert(len(loose_eval_df.columns), agmt_col_name, _merge)
+    return loose_eval_df
+
+
+def getAgreementStatsForAllTags(eval_df, agmt_col, id_col, tag_col, y_dev, predictions):
+    agmt_stats = eval_df[[agmt_col, id_col]].groupby(agmt_col).count().reset_index()
+    agmt_stats = agmt_stats.rename(columns={agmt_col:tag_col, id_col:"all"})
+    agmt_stats = agmt_stats.set_index(tag_col)
+    agmt_stats = agmt_stats.T
+    precision = metrics.precision_score(y_dev, predictions, average="macro", zero_division=0)
+    recall = metrics.recall_score(y_dev, predictions, average="macro", zero_division=0)
+    f1 = metrics.f1_score(y_dev, predictions, average="macro", zero_division=0)
+    # jaccard = metrics.jaccard_score(y_dev, predictions, average="macro", zero_division=0)
+    metrics_df = pd.DataFrame.from_dict({tag_col: "all", "precision": [precision], "recall": [recall], "f1": [f1]}) #, "jaccard":[jaccard]})
+    metrics_df = metrics_df.set_index(tag_col)
+    agmt_stats = agmt_stats.join(metrics_df)
+    agmt_stats = agmt_stats.reset_index()
+    agmt_stats = agmt_stats.rename(columns={"index":tag_col})
+    return agmt_stats
 
 
 #################################################################

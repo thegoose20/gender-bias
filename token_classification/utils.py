@@ -9,8 +9,8 @@ from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 # For classification
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import MultiLabelBinarizer
 # For classifier evaluation
+import sklearn.metrics as metrics
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix, multilabel_confusion_matrix, ConfusionMatrixDisplay#, plot_confusion_matrix 
 from sklearn.metrics import precision_recall_fscore_support, f1_score, precision_score, recall_score#, accuracy_score, jaccard_score
@@ -431,7 +431,7 @@ def getScoresByCatTags(df, eval_col, tag, exp_col, pred_col, id_col):
 
 
 
-def makePredictionDF(predictions, dev_data, exp_col_name, pred_col_name, no_tag_value):
+def makePredictionDF(predictions, dev_data, exp_col_name, pred_col_name, no_tag_value, mlb):
     pred_labels = mlb.inverse_transform(predictions)
     pred_df = dev_data.drop(columns=[exp_col_name])
     pred_df.insert(len(pred_df.columns), pred_col_name, pred_labels)

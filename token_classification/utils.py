@@ -16,8 +16,13 @@ from sklearn.metrics import confusion_matrix, multilabel_confusion_matrix, Confu
 from sklearn.metrics import precision_recall_fscore_support, f1_score, precision_score, recall_score#, accuracy_score, jaccard_score
 from intervaltree import Interval, IntervalTree
 
+
+#################################################################
+#################################################################
 #################################################################
 # Split Data for Token Classification
+#################################################################
+#################################################################
 #################################################################
 
 # INPUT: list of strings (descriptions), list of ids for those strings, list of start offsets for those strings, 
@@ -144,14 +149,45 @@ def getShuffledSplitData(df, field_names=metadata_fields):
 
     return train, validate, test
 
+
 #################################################################
-# Seuqnce & Token Classifiers
 #################################################################
+#################################################################
+# Sequence & Token Classifiers
+#################################################################
+#################################################################
+#################################################################
+
 def getColumnValuesAsLists(df, col_name):
     col_values = list(df[col_name])
     col_list_values = [value[2:-2].split("', '") for value in col_values]
     df[col_name] = col_list_values
     return df
+
+
+# INPUT:  Train and dev DataFrames of annotations with one row per token-BIO tag pair, 
+#         column name, and list of BIO-tags or labels
+# OUTPUT: DataFrames of annotations with only labels or BIO tags for input label list (all 
+#         other values in that column (`col`) replaced with "O")
+def selectDataForLabels(df_train, df_dev, col, label_list):
+    df_train_l = df_train.loc[df_train[col].isin(label_list)]
+
+    df_train_o = df_train.loc[~df_train[col].isin(label_list)]
+    df_train_o = df_train_o.drop(columns=[col])
+    df_train_o.insert(len(df_train_o.columns), col, (["O"]*(df_train_o.shape[0])))
+
+    df_dev_l= df_dev.loc[df_dev.tag.isin(label_list)]
+
+    df_dev_o = df_dev.loc[~df_dev.tag.isin(label_list)]
+    df_dev_o = df_dev_o.drop(columns=[col])
+    df_dev_o.insert(len(df_dev_o.columns), col, (["O"]*(df_dev_o.shape[0])))
+
+    df_train = pd.concat([df_train_l, df_train_o])
+    df_train = df_train.sort_values(by="token_id")
+    df_dev = pd.concat([df_dev_l, df_dev_o])
+    df_dev = df_dev.sort_values(by="token_id")
+    return df_train, df_dev
+
 
 labels = {
     "Unknown": 0, "Nonbinary": 1, "Feminine": 2, "Masculine": 3,
@@ -534,18 +570,91 @@ def getAgreementStatsForAllTags(eval_df, agmt_col, id_col, tag_col, y_dev, predi
     return agmt_stats
 
 
+
+def getAnnotationAgreement(df, pred_col, exp_col):
+    agmt_types = []  # TP, FP, TN, FN
+    exps, preds = list(df[exp_col]), list(df[pred_col])
+    rows = df.shape[0]
+    for i in range(rows):
+        agmt = ""
+        exp, pred = exps[i], preds[i]
+        # Remove duplicates from the expected and predicted values
+        exp = list(set(exp))
+        pred = list(set(pred))
+        # If there's only one expected value and one predicted value, compare them
+        if (len(exp) == 1) and (len(pred) == 1):
+            if (exp[0] == "O"): 
+                if (pred[0] == "O"):
+                    agmt = "true negative"
+                else:
+                    agmt = "false positive"
+            elif (pred[0] == "O"):
+                agmt = "false negative"
+            elif (exp[0] == pred[0]):
+                agmt = "true positive"
+            else:
+                agmt = "false positive"
+        else:
+            # If there is more than one value in expected and predicted lists, compare
+            # all their values excluding any "O" values
+            if "O" in exp:
+                exp.remove("O")
+            if "O" in pred:
+                pred.remove("O")
+            for p in pred:
+                # If any of the remaining predicted values match an expceted value, 
+                # record true positive agreement
+                if p in exp:
+                    agmt = "true positive"
+                    break
+            # In any other cases of label mismatches, record false positive agreement
+            if len(agmt) == 0:
+                agmt = "false positive"
+        
+        assert len(agmt) > 0, "An agreement type should be recorded for every row."
+        
+        agmt_types += [agmt]
+
+    assert len(agmt_types) == df.shape[0], "There should be one agreement type per row."
+    
+    return agmt_types
+
+
+def getAnnotationAgreementMetrics(df, category):
+    ann_agmts = dict(df["annotation_agreement"].value_counts())
+    prec, rec, f1 = utils.precisionRecallF1(
+        ann_agmts["true positive"], 
+        ann_agmts["false positive"], 
+        ann_agmts["false negative"]
+    )
+    metrics = pd.DataFrame({
+        "labels":[category], 
+        "true negative":[ann_agmts["true negative"]], "false negative":[ann_agmts["false negative"]], 
+        "true positive":[ann_agmts["true positive"]], "false positive":[ann_agmts["false positive"]],
+        "precision":[prec], "recall":[rec], "f_1":[f1]
+    })
+    return metrics
+
+
+#################################################################
+#################################################################
 #################################################################
 # Word Embeddings
 #################################################################
+#################################################################
+#################################################################
 
-def createEmbeddingDataFrame(df, embedding_dict, embedding_col_name):
+def createEmbeddingDataFrame(df, embedding_dict, embedding_col_name, d):
     tokens = list(df.token)
     embedding_list = []
     for token in tokens:
         token = token.lower()
         word_list = re.findall("[a-z]+", token)
         if len(word_list) == 1:
-            embedding = embedding_dict[word_list[0]]
+            try:
+                embedding = embedding_dict[word_list[0]]
+            except KeyError:
+                embedding = np.zeros((d,))
             embedding_list += [embedding]
         else:
             embedding_list += [[]]

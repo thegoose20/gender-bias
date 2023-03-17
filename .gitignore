@@ -15,3 +15,4 @@ env/*/*
 document_classification/config.py
 token_classification/config.py
 token_classification/OLDBaselineTokenClassifiers_withPOS.ipynb
+nohup.out

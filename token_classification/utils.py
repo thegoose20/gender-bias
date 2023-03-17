@@ -622,7 +622,7 @@ def getAnnotationAgreement(df, pred_col, exp_col):
 
 def getAnnotationAgreementMetrics(df, category):
     ann_agmts = dict(df["annotation_agreement"].value_counts())
-    prec, rec, f1 = utils.precisionRecallF1(
+    prec, rec, f1 = precisionRecallF1(
         ann_agmts["true positive"], 
         ann_agmts["false positive"], 
         ann_agmts["false negative"]

@@ -42,15 +42,13 @@ def preprocess(data_path):
     # Remove Non-binary labels as these were mistaken labels identified early on that were meant to be excluded, 
     # and because only one token has this label, it prevents the data from being input into the models with cross-validation
     df = df.loc[df.tag != "B-Nonbinary"]
+    df = df.loc[df.tag != "I-Nonbinary"]
     df = df.drop(columns=["description_id", "field", "subset", "token_offsets"])
     df = implodeDataFrame(df, ["sentence_id", "token_id", "token", "pos"])
     return df.reset_index()
 
 
-'''
-Functions for GloVe Embeddings
-'''
-
+# Retrieve pre-trained GloVe embeddings of input dimensions
 def getGloveEmbeddings(dimensions):
     glove_path = config.inf_data_path+"glove.6B/glove.6B.{}d.txt".format(dimensions)
     glove = dict()

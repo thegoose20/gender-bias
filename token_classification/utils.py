@@ -81,12 +81,12 @@ def shuffleDataFrame(df, fraction=1, random_state_value=7):
 # INPUT:  A shuffled DataFrame for a particular metadata field
 # OUTPUT: The number of rows from the DataFrame to assign to train, validate (dev), 
 #         and (blind) test sets of data f
-def getTrainValTestSizes(df):
+def getTrainValTestSizes(df, train_frac=0.6, val_frac=0.2):
     indeces = list(df.index)
     
-    train = indeces[ : int(df.shape[0]*0.6) ]
-    validate = indeces[ int(df.shape[0]*0.6) : (int(df.shape[0]*0.6) + round(df.shape[0]*0.2)) ]
-    test = indeces[ (int(df.shape[0]*0.6) + round(df.shape[0]*0.2)) : ]
+    train = indeces[ : int(df.shape[0]*train_frac) ]
+    validate = indeces[ int(df.shape[0]*train_frac) : (int(df.shape[0]*train_frac) + round(df.shape[0]*val_frac)) ]
+    test = indeces[ (int(df.shape[0]*train_frac) + round(df.shape[0]*val_frac)) : ]
 
     return len(train), len(validate), len(test)
 

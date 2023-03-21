@@ -476,6 +476,7 @@ def makePredictionDF(predictions, dev_data, exp_col_name, pred_col_name, no_tag_
     return pred_df
 
 
+# Input pred_df excluding its rows with "O" tags!
 def makeEvaluationDataFrame(exp_df, pred_df, left_on_cols, right_on_cols, final_cols, exp_col, pred_col, id_col, no_tag_value):
     # Add the predicted tags to the DataFrame with expected tags
     exp_pred_df = pd.merge(
@@ -488,16 +489,13 @@ def makeEvaluationDataFrame(exp_df, pred_df, left_on_cols, right_on_cols, final_
     exp_pred_df = exp_pred_df[final_cols]
     # Find true negatives based on the expected and predicted tags
     sub_exp_pred_df = exp_pred_df.loc[exp_pred_df[exp_col] == no_tag_value]
-    sub_exp_pred_df = sub_exp_pred_df.loc[sub_exp_pred_df[pred_col] == no_tag_value]
-    sub_exp_pred_df.replace(to_replace="both", value="true negative", inplace=True)
+    sub_exp_pred_df = sub_exp_pred_df.loc[sub_exp_pred_df[pred_col].isna()]
     tn_tokens = list(sub_exp_pred_df["token_id"])
     # Record false negatives, false positives, and true positives based on the merge values
-    sub_exp_pred_df2 = exp_pred_df.loc[~exp_pred_df["token_id"].isin(tn_tokens)]
-    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="left_only", value="false negative")
-    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="right_only", value="false positive")
-    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="both", value="true positive")
-    # Combine the DataFrames to include all agreement types and sort the DataFrame
-    eval_df = pd.concat([sub_exp_pred_df,sub_exp_pred_df2])
+    eval_df = exp_pred_df.loc[~exp_pred_df["token_id"].isin(tn_tokens)]
+    eval_df = eval_df.replace(to_replace="left_only", value="false negative")
+    eval_df = eval_df.replace(to_replace="right_only", value="false positive")
+    eval_df = eval_df.replace(to_replace="both", value="true positive")
     eval_df = eval_df.sort_index()
     return eval_df
 
@@ -507,7 +505,7 @@ def getScoresByTags(df, eval_col, tags, exp_col="expected_tag", pred_col="predic
     subdf2 = df.loc[df[exp_col].isin(tags)]
     subdf = pd.concat([subdf1, subdf2])
     tp = subdf.loc[subdf[eval_col] == "true positive"].shape[0]
-    tn = subdf.loc[subdf[eval_col] == "true negative"].shape[0]
+#     tn = subdf.loc[subdf[eval_col] == "true negative"].shape[0]
     fp = subdf.loc[subdf[eval_col] == "false positive"].shape[0]
     fn = subdf.loc[subdf[eval_col] == "false negative"].shape[0]
     # Precision Score: ability of classifier not to label a sample that should be negative as positive; best possible = 1, worst possible = 0
@@ -528,7 +526,7 @@ def getScoresByTags(df, eval_col, tags, exp_col="expected_tag", pred_col="predic
     if len(tags) > 1:
         tags = ", ".join(tags)
     return pd.DataFrame.from_dict({
-        "tag(s)":tags, "false negative":[fn], "false positive":[fp], "true negative":[tn], 
+        "tag(s)":tags, "false negative":[fn], "false positive":[fp], #"true negative":[tn], 
          "true positive":tp, "precision":[prec], "recall":[rec], "f1":[f1]
     })
 
@@ -608,8 +606,13 @@ def getAnnotationAgreement(df, pred_col, exp_col):
                     agmt = "true positive"
                     break
             # In any other cases of label mismatches, record false positive agreement
-            if len(agmt) == 0:
-                agmt = "false positive"
+            if len(pred) > 0:
+                    agmt = "false positive"
+                    label = pred[0]
+            # If there was no other value besides "O" in pred, record false negative agreement
+            else:
+                agmt = "false negative"
+                label = exp[0]
         
         assert len(agmt) > 0, "An agreement type should be recorded for every row."
         
@@ -628,8 +631,7 @@ def getAnnotationAgreementMetrics(df, category):
         ann_agmts["false negative"]
     )
     metrics = pd.DataFrame({
-        "labels":[category], 
-        "true negative":[ann_agmts["true negative"]], "false negative":[ann_agmts["false negative"]], 
+        "labels":[category], "false negative":[ann_agmts["false negative"]], 
         "true positive":[ann_agmts["true positive"]], "false positive":[ann_agmts["false positive"]],
         "precision":[prec], "recall":[rec], "f_1":[f1]
     })

@@ -14,3 +14,8 @@ env/*
 env/*/*
 document_classification/config.py
 token_classification/config.py
+token_classification/OLDBaselineTokenClassifiers_withPOS.ipynb
+word_embeddings/GloVe/*
+word_embeddings/fastText/*
+nohup.out
+.__afs20B4

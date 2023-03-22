@@ -24,6 +24,20 @@ def extractFastTextEmbedding(token, fasttext_model=embedding_model):
     embedding = fasttext_model.wv[token]
     return embedding
 
+# INPUT:  Train and dev DataFrames of annotations with one row per token-BIO tag pair, 
+#         column name, and list of BIO-tags or labels
+# OUTPUT: DataFrames of annotations with only labels or BIO tags for input label list (all 
+#         other values in that column (`col`) replaced with "O")
+def selectDataForLabels(df, col, label_list):
+    df_l = df.loc[df[col].isin(label_list)]
+
+    df_o = df.loc[~df[col].isin(label_list)]
+    df_o = df_o.drop(columns=[col])
+    df_o.insert(len(df_o.columns), col, (["O"]*(df_o.shape[0])))
+
+    df = pd.concat([df_l, df_o])
+    df = df.sort_values(by="token_id")
+    return df
 
 
 # Preprocessing for Model 1 (Multilabel Classifier for Linguistic Labels)

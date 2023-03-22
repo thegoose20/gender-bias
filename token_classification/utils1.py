@@ -39,6 +39,12 @@ def selectDataForLabels(df, col, label_list):
     df = df.sort_values(by="token_id")
     return df
 
+def getColumnValuesAsLists(df, col_name):
+    col_values = list(df[col_name])
+    col_list_values = [value[1:-1].split(", ") for value in col_values]
+    df[col_name] = col_list_values
+    return df
+
 
 # Preprocessing for Model 1 (Multilabel Classifier for Linguistic Labels)
 # --------------------------------------------------------------------------
@@ -214,3 +220,25 @@ def getAnnotationAgreementMetrics(df, category):
         "precision":[prec], "recall":[rec], "f_1":[f1]
     })
     return metrics
+# --------------------------------------------------------------------------
+
+
+# Preprocessing for Model 3 (Document Classifier for Stereotype + Omission Labels)
+# --------------------------------------------------------------------------
+
+def flattenFeatureCol(grouped, feature_col):
+    doc_feature = []
+    col_list = list(grouped[feature_col])
+    for row in col_list:
+        unique_values = []
+        for item in row:
+            if type(item) == str:
+                unique_values = row
+            else:
+                for subitem in item:
+                    if type(subitem) == str:
+                        unique_values += [subitem]
+        unique_values = list(set(unique_values))
+        unique_values.remove("O")
+        doc_feature += [unique_values]
+    return doc_feature

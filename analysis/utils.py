@@ -4,7 +4,7 @@ from nltk.tokenize import sent_tokenize
 import pandas as pd
 import numpy as np
 import re, os
-from thefuzz import fuzz, process
+# from thefuzz import fuzz, process
 
 
 # ---------------------------------------------------------------------------------------------
@@ -340,5 +340,14 @@ def getSentsAndOffsetsFromStrings(list_of_strings, list_of_ids, list_of_start_of
     
     return sents_dict, offsets_dict
     
-    
-    
+
+
+# ---------------------------------------------------------------------------------------------
+# Analysis_Output_Exp1
+# ---------------------------------------------------------------------------------------------
+def getColumnValuesAsLists(df, col_name):
+    col_values = list(df[col_name])
+    col_list_values = [value[2:-2].split(",") for value in col_values]
+    col_list_values = [[v.replace("'","").strip() for v in value] for value in col_list_values]
+    df[col_name] = col_list_values
+    return df

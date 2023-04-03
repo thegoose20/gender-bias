@@ -239,6 +239,7 @@ def flattenFeatureCol(grouped, feature_col):
                     if type(subitem) == str:
                         unique_values += [subitem]
         unique_values = list(set(unique_values))
-        unique_values.remove("O")
+        if "O" in unique_values:
+            unique_values.remove("O")
         doc_feature += [unique_values]
     return doc_feature

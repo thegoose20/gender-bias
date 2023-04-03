@@ -9,5 +9,6 @@ fasttext_path = "../word_embeddings/fastText/"
 
 experiment_input_path = tokc_path+"experiment_input/"
 
-experiment1_output_path = tokc_path+"experiment1/output/"
-experiment1_agmt_path = tokc_path+"experiment1/agreement/"
+experiment1_path = tokc_path+"experiment1/"
+experiment2_path = tokc_path+"experiment2/"
+experiment3_path = tokc_path+"experiment3/"

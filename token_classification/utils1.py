@@ -53,7 +53,7 @@ def getColumnValuesAsLists(df, col_name):
 # Load data
 # ------------------------
 def loadData(df):
-    df = df.drop(columns=["ann_id"])
+#     df = df.drop(columns=["ann_id"])
     df = df.drop_duplicates()
     # Remove Non-binary labels as these were mistaken labels identified early on that were meant to be excluded, 
     # and because only one token has this label, it prevents the data from being input into the models with cross-validation
@@ -102,7 +102,7 @@ def zip2FeaturesAndTarget(df, target_col, feature_col1="sentence", feature_col2=
     return [[tuple((feature1_list[i][j], feature2_list[i][j], tag_list[i][j])) for j in range(len(feature1_list[i]))] for i in range(len(feature1_list))]
 
 def zip1FeatureAndTarget(df, target_col, feature_col1="sentence"):
-    feature1_list = list(df[feature_col1])  # sentence
+    feature1_list = list(df[feature_col1])
     tag_list = list(df[target_col])
     length = len(feature1_list)
     return [[tuple((feature1_list[i][j], tag_list[i][j])) for j in range(len(feature1_list[i]))] for i in range(len(feature1_list))]
@@ -137,6 +137,7 @@ def extractTokenFeatures(sentence, i):
 def extractSentenceFeatures(sentence):
     return [extractTokenFeatures(sentence, i) for i in range(len(sentence))]
 
+# If multiple tags, only extract the first
 def extractSentenceTargets(sentence):
     return [s[-1][0] for s in sentence]
 

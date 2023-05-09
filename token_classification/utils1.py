@@ -58,8 +58,8 @@ def loadData(df):
     # Remove Non-binary labels as these were mistaken labels identified early on that were meant to be excluded, 
     # and because only one token has this label, it prevents the data from being input into the models with cross-validation
     df = df.loc[~df.tag.isin(["B-Nonbinary", "I-Nonbinary"])]
-    df = df.drop(columns=["description_id", "field", "subset", "token_offsets"])
-    df = utils.implodeDataFrame(df, ["sentence_id", "token_id", "token", "pos"])
+    df = df.drop(columns=["field", "subset", "token_offsets"])
+    df = utils.implodeDataFrame(df, ["description_id", "sentence_id", "token_id", "token", "pos"])
     return df.reset_index()
 
 # Zip tokens & feature columns into a list of tuples: [(token_id, token), ... ]

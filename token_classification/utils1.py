@@ -58,8 +58,8 @@ def loadData(df):
     # Remove Non-binary labels as these were mistaken labels identified early on that were meant to be excluded, 
     # and because only one token has this label, it prevents the data from being input into the models with cross-validation
     df = df.loc[~df.tag.isin(["B-Nonbinary", "I-Nonbinary"])]
-    df = df.drop(columns=["description_id", "field", "subset", "token_offsets"])
-    df = utils.implodeDataFrame(df, ["sentence_id", "token_id", "token", "pos"])
+    df = df.drop(columns=["field", "subset", "token_offsets"])
+    df = utils.implodeDataFrame(df, ["description_id", "sentence_id", "token_id", "token", "pos"])
     return df.reset_index()
 
 # Zip tokens & feature columns into a list of tuples: [(token_id, token), ... ]
@@ -96,10 +96,10 @@ def binarizeDevTargets(mlb, dev_data, target_col="tag"):
 
 def zip2FeaturesAndTarget(df, target_col, feature_col1="sentence", feature_col2="pred_ling_tag"):
     feature1_list = list(df[feature_col1])  # sentence
-    feature2_list = list(df[feature_col2])  # linguistic label
+    feature2_list = list(df[feature_col2])  # linguistic labels (which are grouped into one string, so all lists are at most 1 item long)
     tag_list = list(df[target_col])
     length = len(feature1_list)
-    return [[tuple((feature1_list[i][j], feature2_list[i][j], tag_list[i][j])) for j in range(len(feature1_list[i]))] for i in range(len(feature1_list))]
+    return [[tuple((feature1_list[i][j], feature2_list[i], tag_list[i][j])) for j in range(len(feature1_list[i]))] for i in range(len(feature1_list))]
 
 def zip1FeatureAndTarget(df, target_col, feature_col1="sentence"):
     feature1_list = list(df[feature_col1])

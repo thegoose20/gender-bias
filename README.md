@@ -2,21 +2,15 @@
 
 Gender bias classification models
 
-### To Do
-- [x] Define train/test split with sklearn
-- [X] Make baseline classifiers
-- [ ] Make ML classifier with feature engineering – possible resource constraints
-- [ ] Use DL classifier
-- [ ] [Seraphina] Pick a couple combination functions for doc representation
-
 ### Classification Overview
-* Document classification - begin with TFIDF, experiment with 2ish combination functions for comparing document representations
-* Multi-label - 9 labels from annotation taxonomy (see below)
+* Token Classifiers: multilabel task for Linguistic labels in Taxonomy (see below), words represented with word embeddings
+* Sequence Classifiers: multiclass task for Person Name labels and Occupation label in Taxonomy, words represented with word embeddings
+* Document Classifiers: multilabel task for Stereotype and Omission labels in Taxonomy, each document is a description represented with TFIDF
 
 ### Table of Contents
 * [Data](#Data)
 * [Annotation Taxonomy](#Annotation-Taxonomy)
-* [Index of Files](#Index-of-Files)
+* [Overview of Directories](#Overview-of-Directories)
 * [Related Repos](#Related-Repos)
 
 ## Data
@@ -49,16 +43,12 @@ Gendered and Gender Biased Language
 ```
 **Annotators did not find descriptions on which to apply these labels*
 
-## Index of Files
-* `clf_data/`
-  * The `_docs.txt` files contain documents (individual metadata descriptions) separated by one newline, one pipe, and one newline: `"\n|\n"`
-  * The `_labels.txt` files contain comma-separated labels for each document, separated by one newline: `"\n"`
-  * The `train_` files contain 60% of the data *from each type of metadata field*, randomly selected (`random_state=7`), for training classification models
-  * The `validate_` files contain 20% of the data *from each type of metadata field*, randomly selected (`random_state=7`), for developing classification models
-  * The `blindtest_` files contain 20% of the data *from each type of metadata field*, randomly selected (`random_state=7`), for evaluating the final classification models
-
-* `SplitData.ipynb` - Splitting the aggregated annotated dataset into training, validation, and blind test sets
-* `DocumentClassifiers.ipynb` - Baseline document classification models using Multinomial Naive Bayes, Logistic Regression, and Random Forest algorithms
+## Overview of Directories
+* `analysis` - analysis of model predictions (outputs)
+* `document_classification` - experiments with document classifiers for targets as all labels, Person Name labels, and Stereotype and Omission labels
+* `statistical_significance` - paired bootstrap test on models (stat. sign. testing isn't really suited to NLP tasks, though)
+* `token_classification` - experiments with multilabel token classifiers, multiclass sequence classifiers, and cascades of classifiers (token+sequence+document)
+* word_embeddings - evaluating relevance of SpaCy's sense2vec (contextual word embeddings) and of GloVe embeddings for the classification task, and training custom fastText embeddings
 
 ## Related Resources
 * GitHub repos: 

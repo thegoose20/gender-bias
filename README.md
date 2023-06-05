@@ -48,7 +48,7 @@ Gendered and Gender Biased Language
 * `document_classification` - experiments with document classifiers for targets as all labels, Person Name labels, and Stereotype and Omission labels
 * `statistical_significance` - paired bootstrap test on models (stat. sign. testing isn't really suited to NLP tasks, though)
 * `token_classification` - experiments with multilabel token classifiers, multiclass sequence classifiers, and cascades of classifiers (token+sequence+document)
-* word_embeddings - evaluating relevance of SpaCy's sense2vec (contextual word embeddings) and of GloVe embeddings for the classification task, and training custom fastText embeddings
+* `word_embeddings` - evaluating relevance of SpaCy's sense2vec (contextual word embeddings) and of GloVe embeddings for the classification task, and training custom fastText embeddings
 
 ## Related Resources
 * GitHub repos: 

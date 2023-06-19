@@ -49,6 +49,17 @@ def getColumnValuesAsLists(df, col_name):
 # Preprocessing for Model 1 (Multilabel Classifier for Linguistic Labels)
 # --------------------------------------------------------------------------
 
+# Get labels for tokens from B & I tags
+def getLabelColFromTagCol(df, col):
+    col_list = list(df[col])
+    new_col = []
+    for value in col_list:
+        if value != "O":
+            new_col += [value[2:]]
+        else:
+            new_col += [value]
+    assert len(new_col) == len(col_list)
+    return new_col
 
 # Load data
 # ------------------------
@@ -57,7 +68,6 @@ def loadData(df):
     df = df.drop_duplicates()
     # Remove Non-binary labels as these were mistaken labels identified early on that were meant to be excluded, 
     # and because only one token has this label, it prevents the data from being input into the models with cross-validation
-    df = df.loc[~df.tag.isin(["B-Nonbinary", "I-Nonbinary"])]
     df = df.drop(columns=["field", "subset", "token_offsets"])
     df = utils.implodeDataFrame(df, ["description_id", "sentence_id", "token_id", "token", "pos"])
     return df.reset_index()

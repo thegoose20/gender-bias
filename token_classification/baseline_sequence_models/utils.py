@@ -486,6 +486,11 @@ def makeEvaluationDataFrame(exp_df, pred_df, left_on_cols, right_on_cols, final_
         indicator=True
     )
     exp_pred_df = exp_pred_df[final_cols]
+    
+    # Replace any NaN values with "O" to indicate to predicted label/tag
+    exp_pred_df[exp_col] = exp_pred_df[exp_col].fillna("O")
+    exp_pred_df[pred_col] = exp_pred_df[pred_col].fillna("O")
+    
     # Find true negatives based on the expected and predicted tags
     sub_exp_pred_df = exp_pred_df.loc[exp_pred_df[exp_col] == no_tag_value]
     sub_exp_pred_df = sub_exp_pred_df.loc[sub_exp_pred_df[pred_col] == no_tag_value]

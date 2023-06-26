@@ -1,4 +1,3 @@
-import config
 import pandas as pd
 import numpy as np
 import re
@@ -500,35 +499,35 @@ def makeEvaluationDataFrame(exp_df, pred_df, left_on_cols, right_on_cols, final_
     return eval_df
 
 
-def getScoresByTags(df, eval_col, tags, exp_col="expected_tag", pred_col="predicted_tag"):
-    subdf1 = df.loc[df[pred_col].isin(tags)]
-    subdf2 = df.loc[df[exp_col].isin(tags)]
-    subdf = pd.concat([subdf1, subdf2])
-    tp = subdf.loc[subdf[eval_col] == "true positive"].shape[0]
-#     tn = subdf.loc[subdf[eval_col] == "true negative"].shape[0]
-    fp = subdf.loc[subdf[eval_col] == "false positive"].shape[0]
-    fn = subdf.loc[subdf[eval_col] == "false negative"].shape[0]
-    # Precision Score: ability of classifier not to label a sample that should be negative as positive; best possible = 1, worst possible = 0
-    if (tp+fp) > 0:
-        prec = tp/(tp+fp)
-    else:
-        prec = 0
-    # Recall Score: ability of classifier to find all positive samples; best possible = 1, worst possible = 0
-    if (tp+fn) > 0:
-        rec = tp/(tp+fn)
-    else:
-        rec = 0
-    # F1 Score: harmonic mean of precision and recall; best possible = 1, worst possible = 0
-    if (prec+rec) > 0:
-        f1 = (2*(prec*rec))/(prec+rec)
-    else:
-        f1 = 0
-    if len(tags) > 1:
-        tags = ", ".join(tags)
-    return pd.DataFrame.from_dict({
-        "tag(s)":tags, "false negative":[fn], "false positive":[fp], #"true negative":[tn], 
-         "true positive":tp, "precision":[prec], "recall":[rec], "f1":[f1]
-    })
+# def getScoresByTags(df, eval_col, tags, exp_col="expected_tag", pred_col="predicted_tag"):
+#     subdf1 = df.loc[df[pred_col].isin(tags)]
+#     subdf2 = df.loc[df[exp_col].isin(tags)]
+#     subdf = pd.concat([subdf1, subdf2])
+#     tp = subdf.loc[subdf[eval_col] == "true positive"].shape[0]
+# #     tn = subdf.loc[subdf[eval_col] == "true negative"].shape[0]
+#     fp = subdf.loc[subdf[eval_col] == "false positive"].shape[0]
+#     fn = subdf.loc[subdf[eval_col] == "false negative"].shape[0]
+#     # Precision Score: ability of classifier not to label a sample that should be negative as positive; best possible = 1, worst possible = 0
+#     if (tp+fp) > 0:
+#         prec = tp/(tp+fp)
+#     else:
+#         prec = 0
+#     # Recall Score: ability of classifier to find all positive samples; best possible = 1, worst possible = 0
+#     if (tp+fn) > 0:
+#         rec = tp/(tp+fn)
+#     else:
+#         rec = 0
+#     # F1 Score: harmonic mean of precision and recall; best possible = 1, worst possible = 0
+#     if (prec+rec) > 0:
+#         f1 = (2*(prec*rec))/(prec+rec)
+#     else:
+#         f1 = 0
+#     if len(tags) > 1:
+#         tags = ", ".join(tags)
+#     return pd.DataFrame.from_dict({
+#         "tag(s)":tags, "false negative":[fn], "false positive":[fp], #"true negative":[tn], 
+#          "true positive":tp, "precision":[prec], "recall":[rec], "f1":[f1]
+#     })
 
 
 def compareExpectedPredicted(loose_eval_df, agmt_col_name, no_tag_value):

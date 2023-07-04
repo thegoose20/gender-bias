@@ -85,31 +85,6 @@ def addAssociatedGenders(df, fem=fem_patterns,mas=mas_patterns):
     df.insert(len(df.columns), "associated_genders", genders)
     return df
 
-
-# Compare each manually annotated person name to all spaCy-labeled person names
-def getAnnotFuzzyMatches(score_method, min_score):
-    all_fuzzy_matches = []
-    no_fuzzy_match = 0
-    for n in unique_ppl:
-        fuzzy_matches = process.extractBests(n, unique_persons, scorer=score_method, score_cutoff=min_score)
-        if len(fuzzy_matches) == 0:
-            no_fuzzy_match += 1
-        else:
-            all_fuzzy_matches = all_fuzzy_matches + fuzzy_matches
-    return no_fuzzy_match, all_fuzzy_matches
-
-# Compare each spaCy-labeled person name to all manually annotated person names
-def getSpacyFuzzyMatches(score_method, min_score):
-    all_fuzzy_matches = []
-    no_fuzzy_match = 0
-    for n in unique_persons:
-        fuzzy_matches = process.extractBests(n, unique_ppl, scorer=score_method, score_cutoff=min_score)
-        if len(fuzzy_matches) == 0:
-            no_fuzzy_match += 1
-        else:
-            all_fuzzy_matches = all_fuzzy_matches + fuzzy_matches
-    return no_fuzzy_match, all_fuzzy_matches
-
 def getWordsSents(corpus_list):
     all_words, lower_words, all_sents = [], [], []
     for f in corpus_list.fileids():

@@ -494,10 +494,10 @@ def makeEvaluationDataFrame(exp_df, pred_df, left_on_cols, right_on_cols, final_
     # Find true negatives based on the expected and predicted tags
     sub_exp_pred_df = exp_pred_df.loc[exp_pred_df[exp_col] == no_tag_value]
     sub_exp_pred_df = sub_exp_pred_df.loc[sub_exp_pred_df[pred_col] == no_tag_value]
-    sub_exp_pred_df.replace(to_replace="both", value="true negative", inplace=True)
-    tn_tokens = list(sub_exp_pred_df["token_id"])
+    sub_exp_pred_df = sub_exp_pred_df.drop(columns=["_merge"])
+    sub_exp_pred_df.insert( len(sub_exp_pred_df.columns), "_merge", ( ["true negative"]*(sub_exp_pred_df.shape[0]) ) )
     # Record false negatives, false positives, and true positives based on the merge values
-    sub_exp_pred_df2 = exp_pred_df.loc[~exp_pred_df["token_id"].isin(tn_tokens)]
+    sub_exp_pred_df2 = exp_pred_df.loc[~exp_pred_df.index.isin(sub_exp_pred_df.index)]
     sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="left_only", value="false negative")
     sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="right_only", value="false positive")
     sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="both", value="true positive")

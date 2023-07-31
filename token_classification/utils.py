@@ -475,26 +475,35 @@ def makePredictionDF(predictions, dev_data, exp_col_name, pred_col_name, no_tag_
     return pred_df
 
 
-# Input pred_df excluding its rows with "O" tags!
-def makeEvaluationDataFrame(exp_df, pred_df, left_on_cols, right_on_cols, final_cols, exp_col, pred_col, id_col, no_tag_value):
+def makeEvaluationDataFrame(exp_df, pred_df, left_on_cols, right_on_cols, final_cols, exp_col, pred_col, no_tag_value):
     # Add the predicted tags to the DataFrame with expected tags
     exp_pred_df = pd.merge(
-        left=exp_df, right=pred_df, how="outer",
+        left=exp_df, 
+        right=pred_df, 
+        how="outer",
         left_on=left_on_cols,
         right_on=right_on_cols,
         suffixes=["", "_pred"],
         indicator=True
     )
     exp_pred_df = exp_pred_df[final_cols]
+   
+    # Replace any NaN values with "O" to indicate to predicted label/tag
+    exp_pred_df[exp_col] = exp_pred_df[exp_col].fillna(no_tag_value)
+    exp_pred_df[pred_col] = exp_pred_df[pred_col].fillna(no_tag_value)
+    
     # Find true negatives based on the expected and predicted tags
     sub_exp_pred_df = exp_pred_df.loc[exp_pred_df[exp_col] == no_tag_value]
-    sub_exp_pred_df = sub_exp_pred_df.loc[sub_exp_pred_df[pred_col].isna()]
-    tn_tokens = list(sub_exp_pred_df["token_id"])
+    sub_exp_pred_df = sub_exp_pred_df.loc[sub_exp_pred_df[pred_col] == no_tag_value]
+    sub_exp_pred_df = sub_exp_pred_df.drop(columns=["_merge"])
+    sub_exp_pred_df.insert( len(sub_exp_pred_df.columns), "_merge", ( ["true negative"]*(sub_exp_pred_df.shape[0]) ) )
     # Record false negatives, false positives, and true positives based on the merge values
-    eval_df = exp_pred_df.loc[~exp_pred_df["token_id"].isin(tn_tokens)]
-    eval_df = eval_df.replace(to_replace="left_only", value="false negative")
-    eval_df = eval_df.replace(to_replace="right_only", value="false positive")
-    eval_df = eval_df.replace(to_replace="both", value="true positive")
+    sub_exp_pred_df2 = exp_pred_df.loc[~exp_pred_df.index.isin(sub_exp_pred_df.index)]
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="left_only", value="false negative")
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="right_only", value="false positive")
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="both", value="true positive")
+    # Combine the DataFrames to include all agreement types and sort the DataFrame
+    eval_df = pd.concat([sub_exp_pred_df,sub_exp_pred_df2])
     eval_df = eval_df.sort_index()
     return eval_df
 

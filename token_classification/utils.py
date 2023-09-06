@@ -160,7 +160,9 @@ def getShuffledSplitData(df, field_names=metadata_fields):
 def getColumnValuesAsLists(df, col_name):
     col_values = list(df[col_name])
     col_list_values = [value[2:-2].split("', '") for value in col_values]
-    df[col_name] = col_list_values
+    col_i = list(df.columns).index(col_name)
+    df = df.drop(columns=[col_name])
+    df.insert(col_i, col_name, col_list_values)
     return df
 
 

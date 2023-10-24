@@ -1,3 +1,0 @@
-,labels,true_neg,false_neg,true_pos,false_pos,precision,recall,f_1
-0,Omission,4709,799,5,1,0.8333333333333334,0.006218905472636816,0.01234567901234568
-1,Stereotype,5199,315,0,0,0.0,0.0,0.0

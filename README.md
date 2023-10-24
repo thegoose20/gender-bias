@@ -41,13 +41,11 @@ Gendered and Gender Biased Language
     ├── Omission
     └── Stereotype
 ```
-**Annotators did not find descriptions on which to apply these labels*
+**Annotators did not find descriptions on which to apply these labels according to the annotation instructions*
 
 ## Overview of Directories
-* `analysis` - analysis of model predictions (outputs)
 * `document_classification` - experiments with document classifiers for targets as all labels, Person Name labels, and Stereotype and Omission labels
-* `statistical_significance` - paired bootstrap test on models (stat. sign. testing isn't really suited to NLP tasks, though)
-* `token_classification` - experiments with multilabel token classifiers, multiclass sequence classifiers, and cascades of classifiers (token+sequence+document)
+* `token_classification` - experiments with multilabel token classifiers, multiclass sequence classifiers, and cascades of classifiers (meaning sequential combinations of token, sequence, and document classifiers)
 * `word_embeddings` - evaluating relevance of SpaCy's sense2vec (contextual word embeddings) and of GloVe embeddings for the classification task, and training custom fastText embeddings
 
 ## Related Resources
@@ -58,4 +56,3 @@ Gendered and Gender Biased Language
   * [Confusion Matrices of Annotated Archival Metadata Descriptions](https://observablehq.com/@thegoose20/confusion-matrices)
   * [Exploratory Analysis of Archival Metadata](https://observablehq.com/d/0091bad1ddecc57f)
   * [Exploratory Analysis of Annotated Data](https://observablehq.com/d/b61080669b52aa93)
-  * [Document Classification Error Analysis](https://observablehq.com/@thegoose20/lr-doc-classification-error-analysis)

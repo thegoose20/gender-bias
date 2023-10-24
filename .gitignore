@@ -13,6 +13,7 @@ env/
 env/*
 env/*/*
 analysis/*
+analysis/Clustering/*
 document_classification/BaselineDocumentClassifiers_PersonName.ipynb
 document_classification/so_baseline_performance_metrics/*
 document_classification/pn_baseline_performance_metrics/*

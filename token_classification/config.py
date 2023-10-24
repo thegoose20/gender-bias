@@ -1,4 +1,4 @@
-inf_data_path = "../data/" #"../../../../../../group/project/s1545703/gender-bias/data/"
+inf_data_path = "../data/"
 tokc_path = inf_data_path+"token_clf_data/"
 docc_path = inf_data_path+"doc_clf_data/"
 crc_meta_path = inf_data_path+"crc_metadata/"

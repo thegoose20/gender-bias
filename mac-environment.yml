@@ -1,0 +1,33 @@
+name: gender-bias-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - conda=22.9.0
+  - gensim=4.3.0
+  - intervaltree=3.1.0
+  - ipykernel=6.21.2
+  - ipython=8.10.0
+  - jupyter_client=8.0.3
+  - jupyter_core=5.2.0
+  - nltk=3.8.1
+  - numpy=1.23.5
+  - pandas=1.5.3
+  - pip=23.0.1
+  - python=3.9
+  - python-crfsuite=0.9.9
+  - python-dateutil=2.8.2
+  - python_abi=3.9
+  - scipy=1.10.0
+  - scikit-learn=1.2.1
+  - sense2vec=2.0.0
+  - sklearn-crfsuite=0.3.6
+  - spacy=3.5.0
+  - pip:
+    - huggingface-hub==0.12.0
+    - scikit-multilearn==0.2.0
+    - spacy-alignments==0.9.0
+    - spacy-transformers==1.2.1
+    - tokenizers==0.13.2
+    - torch==1.13.1
+    - transformers==4.26.0

@@ -12,6 +12,8 @@ data/crc_metadata/descriptions_annotated/*
 env/
 env/*
 env/*/*
+final_models/models/embeddings/*
+label_catalogue/*
 nohup.out
 .__afs20B4
 word_embeddings/GloVe/

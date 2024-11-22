@@ -14,7 +14,7 @@ where `X` is a feature matrix (preprocessed text), `y` is a binarized representa
 
 ## embeddings/
 This directory contains word embedding models for creating features to input into multilabel token classifiers.
-* `custom_fasttext/fasttext_cbow_100d.model`: a custom word embedding model, specifically 100-dimension FastText embeddings trained with Continous Bag-of-Words (CBOW) architecture on metadata descriptions from the Heritage Collections' Archives' catalogue found in directory `data/descriptions_by_fonds/`
+* `custom_fasttext/fasttext_cbow_100d.model`: a custom word embedding model, specifically 100-dimension FastText embeddings trained with Continous Bag-of-Words (CBOW) architecture on metadata descriptions from the Heritage Collections' Archives' catalogue found in directory `data/descriptions_by_fonds/`, where all tokens are lowercased
 
 
 ## multilabel_document/

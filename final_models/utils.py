@@ -43,6 +43,53 @@ PREPROCESSING FUNCTIONS
 '''
 
 '''
+Preprocess data for the multilabel token classifier, inputting a DataFrame, the name
+of a column in that DataFrame, and a list of labels that may appear in that column that 
+will be the tags the classifier assigns (a.k.a. predictions assigned to input text).  
+Output a DataFrame that has one token per row and a unique list of tags associated with
+each token.
+'''
+def preprocessTokenData(df, col, label_list):
+    initial_shape = df.shape
+    # Change any tags not in label_list to "O"
+    df_l = df.loc[df[col].isin(label_list)]
+    df_o = df.loc[~df[col].isin(label_list)]
+    df_o = df_o.drop(columns=[col])
+    df_o.insert(len(df_o.columns), col, (["O"]*(df_o.shape[0])))
+    df = pd.concat([df_l, df_o])
+    df = df.sort_values(by="token_id")
+    assert initial_shape == df.shape, "The DataFrame should have the same number of rows and columns after changing select column values."
+    df = df.drop_duplicates()
+
+    # Replace tags with labels, removing "B-" and "I-" from the start of the tags
+    old_col = df[col]
+    new_col = [tag[2:] if tag != "O" else tag for tag in old_col]
+    df = df.drop(columns=[col])
+    df.insert((len(df.columns)-2), col, new_col)
+    
+    # Group by token, so there's one row per token and lists of tags for each token
+    df = implodeDataFrame(df, [
+        "description_id", "sentence_id", "token_id", "token", "pos", "field", "token_offsets", "fold"
+    ])
+    df = df.reset_index()
+    
+    # Deduplicate tag lists and remove any "O" tags from lists with other values
+    old_col = list(df[col])
+    dedup_col = [list(set(value_list)) for value_list in old_col]
+    assert len(old_col) == len(dedup_col), "The column should have the same number of rows."
+    new_col = []
+    for col_list in dedup_col:
+        if ("O" in col_list) and (len(col_list) > 1):
+            col_list.remove("O")
+        col_list.sort()
+        new_col += [col_list]
+    assert len(new_col) == len(old_col), "The column should have the same number of rows."
+    df = df.drop(columns=[col])
+    df.insert((len(df.columns)-2), col, new_col)
+    
+    return df
+
+'''
 Load a data file in comma-separated values format as a pandas DataFrame.
 - Function inputs: the file path (as a string) and a boolean value (True or False)
 indicating whether or not each row in the data file has a unique identifier.
@@ -155,27 +202,19 @@ FEATURE EXTRACTION FUNCTIONS
 '''
 
 '''
-Encode features as 0s and 1s with a pre-fit multilabel binarizer.
-- Function inputs: pre-fit MultiLabelBinarizer (already loaded using joblib, not the 
-filepath), a DataFrame, and the name of the column containing the text (features)
-to encode.
-- Function output: a feature matrix.
+Get features for the multilabel token classifier given an input DataFrame with one 
+token per row and, optionally, an embedding model and feature columns (the defaults are the
+100-dimension FastText embedding model and the columns 'token_id' and 'token', respectively).
+Output a feature matrix as a numpy array.
 '''
-def binarizeFeatures(mlb, df, feature_col):
-    features = mlb.transform(df[feature_col])
-    return features
-
-'''
-Represent tokens with word embeddings.
-- Function inputs: embedding model (already loaded using joblib, not the filepath), DataFrame
-with one row per token and columns for tokens and token identifiers, the name of the token
-identifier column, and the name of the token column.
-- Function outputs: a feature matrix (as a numpy array).
-'''
-def tokensToEmbeddings(embedding_model, df, id_col, text_col):
-    feature_data = list(zip(df[id_col], df[text_col]))
+def getFeatures(df, embedding_model=ft_model, feature_cols=["token_id", "token"]):
+    # Zip the features
+    feature_data = list(zip(df[feature_cols[0]], df[feature_cols[1]]))
+    
+    # Make FastText feature matrix
     feature_list = [embedding_model.wv[token.lower()] for token_id,token in feature_data]
     return np.array(feature_list)
+
 
 '''
 Represent text with a TFIDF matrix.
@@ -199,14 +238,14 @@ def docToTfidf(df, cols, count_vectorizer=cvectorizer, tfidf_transformer=tfidf):
     docs = tfidf.transform(vectorized)
     return docs
 
-'''
-Combine text represented as a TFIDF matrix with additional features.
-- Function inputs: a TFIDF matrix and a feature matrix.
-- Function outputs: a feature matrix (as a sparse SciPy matrix).
-'''
-def combineDocFeatures(docs, features):
-    X = scipy.sparse.hstack([docs, features])
-    return X
+# '''
+# Combine text represented as a TFIDF matrix with additional features.
+# - Function inputs: a TFIDF matrix and a feature matrix.
+# - Function outputs: a feature matrix (as a sparse SciPy matrix).
+# '''
+# def combineDocFeatures(docs, features):
+#     X = scipy.sparse.hstack([docs, features])
+#     return X
 
 
 
@@ -221,7 +260,7 @@ Implode a DataFrame (opposite of df.explode()).
 - Function inputs: a DataFrame and a non-empty list of columns by which to group the
 rest of the data.
 - Function output: a DataFrame where the values in all columns except those included as 
-function inputs are aggregated (as a list per row).
+function inputs are aggregated as a list per row (so a cell may have repeated values).
 '''
 def implodeDataFrame(df, cols_to_groupby):
     cols_to_agg = list(df.columns)
@@ -229,6 +268,21 @@ def implodeDataFrame(df, cols_to_groupby):
         cols_to_agg.remove(col)
     agg_dict = dict.fromkeys(cols_to_agg, lambda x: x.tolist())
     return df.groupby(cols_to_groupby).agg(agg_dict).reset_index().set_index(cols_to_groupby)
+
+'''
+Implode a DataFrame (opposite of df.explode()).
+- Function inputs: a DataFrame and a non-empty list of columns by which to group the
+rest of the data.
+- Function output: a DataFrame where the values in all columns except those included as 
+function inputs are aggregated as a set per row (so there are NO repeated values in a cell).
+'''
+def implodeDataFrameUnique(df, cols_to_groupby):
+    cols_to_agg = list(df.columns)
+    for col in cols_to_groupby:
+        cols_to_agg.remove(col)
+    agg_dict = dict.fromkeys(cols_to_agg, lambda x: list(set(x)))
+    return df.groupby(cols_to_groupby).agg(agg_dict).reset_index().set_index(cols_to_groupby)
+
 
 '''
 Export the classified data.
@@ -260,3 +314,94 @@ def exportClassifiedData(df, y, mlb, filepath, filename, id_col="record_id"):
     df.to_csv(filepath+filename)
     
     return df
+
+
+'''
+********************************
+EVALUATION FUNCTIONS
+********************************
+'''
+
+'''
+Using the expected and predicted DataFrames, create an evaluation DataFrame with a column
+recording whether the prediction was a true positive, false positive, false negative, or
+true negative.
+'''
+def getTpTnFpFn(exp_df, pred_df, pred_col, exp_col, no_tag_value, left_on_cols, right_on_cols):
+    # Add the predicted tags to the DataFrame with expected tags
+    exp_pred_df = pd.merge(
+        left=exp_df, 
+        right=pred_df, 
+        how="outer",
+        left_on=left_on_cols,
+        right_on=right_on_cols,
+        suffixes=["", "_pred"],
+        indicator=True
+    )
+
+    # Replace any NaN values with "O" to indicate no predicted tag
+    exp_pred_df[exp_col] = exp_pred_df[exp_col].fillna(no_tag_value)
+    exp_pred_df[pred_col] = exp_pred_df[pred_col].fillna(no_tag_value)
+
+    # Find true negatives based on the expected and predicted tags
+    sub_exp_pred_df = exp_pred_df.loc[exp_pred_df[exp_col] == no_tag_value]
+    sub_exp_pred_df = sub_exp_pred_df.loc[sub_exp_pred_df[pred_col] == no_tag_value]
+    sub_exp_pred_df = sub_exp_pred_df.drop(columns=["_merge"])
+    sub_exp_pred_df.insert( len(sub_exp_pred_df.columns), "_merge", ( ["true negative"]*(sub_exp_pred_df.shape[0]) ) )
+    # Record false negatives, false positives, and true positives based on the merge values
+    sub_exp_pred_df2 = exp_pred_df.loc[~exp_pred_df.index.isin(sub_exp_pred_df.index)]
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="left_only", value="false negative")
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="right_only", value="false positive")
+    sub_exp_pred_df2 = sub_exp_pred_df2.replace(to_replace="both", value="true positive")
+    # Combine the DataFrames to include all agreement types and sort the DataFrame
+    eval_df = pd.concat([sub_exp_pred_df,sub_exp_pred_df2])
+    eval_df = eval_df.sort_index()
+    
+    return eval_df
+
+
+'''
+Calculate precision, recall, and F1 score based on the input
+true positive count, false positive count, and false negative count.
+'''
+def precisionRecallF1(tp_count, fp_count, fn_count):
+    # Precision Score: ability of classifier not to label a sample that should be negative as positive; best possible = 1, worst possible = 0
+    if tp_count+fp_count == 0:
+        precision = 0
+    else:
+        precision = (tp_count/(tp_count+fp_count))
+    # Recall Score: ability of classifier to find all positive samples; best possible = 1, worst possible = 0
+    if tp_count+fn_count == 0:
+        recall = 0
+    else:
+        recall = (tp_count/(tp_count+fn_count))
+    # F1 Score: harmonic mean of precision and recall; best possible = 1, worst possible = 0
+    if (precision+recall == 0):
+        f_1 = 0
+    else:
+        f_1 = (2*precision*recall)/(precision+recall)
+    return precision, recall, f_1
+
+'''
+Calculate the precision, recall, and F1 scores per label and return a DataFrame
+with those scores and the true positive, false positive, and false negative counts
+per label.
+'''
+def getPerformanceScores(eval_df, exp_col, pred_col, labels):
+    agmt_scores = pd.DataFrame.from_dict({
+            "label":[], "false negative":[], "false positive":[],
+            "true positive":[], "precision":[], "recall":[], "f1":[]
+        })
+    for label in labels:
+        agmt_df = pd.concat([eval_df.loc[eval_df[exp_col] == label], eval_df.loc[eval_df[pred_col] == label]])
+        agmt_df = agmt_df.drop_duplicates() # True positives will have been duplicated in line above
+        tp = agmt_df.loc[agmt_df._merge == "true positive"].shape[0]
+        fp = agmt_df.loc[agmt_df._merge == "false positive"].shape[0]
+        fn = agmt_df.loc[agmt_df._merge == "false negative"].shape[0]
+        prec, rec, f1 = precisionRecallF1(tp, fp, fn)
+        label_agmt = pd.DataFrame.from_dict({
+                "label":[label], "false negative":[fn], "false positive":[fp],
+                "true positive":[tp], "precision":[prec], "recall":[rec], "f1":[f1]
+            })
+        agmt_scores = pd.concat([agmt_scores, label_agmt])
+    return agmt_scores

@@ -1,3 +1,4 @@
+viz/*
 .DS_Store
 .ipynb_checkpoints
 *.html
@@ -9,13 +10,12 @@ data/annotator_data/*
 data/aggregated_data/.__afs0F96
 data/crc_metadata/descriptions_brat/*
 data/crc_metadata/descriptions_annotated/*
-final_models/data/
-env/
+final_models/data/*
 env/*
 env/*/*
 final_models/models/embeddings/*
 label_catalogue/*
 nohup.out
 .__afs20B4
-word_embeddings/GloVe/
-word_embeddings/fastText/
+word_embeddings/GloVe/*
+word_embeddings/fastText/*

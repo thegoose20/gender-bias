@@ -9,6 +9,7 @@ data/annotator_data/*
 data/aggregated_data/.__afs0F96
 data/crc_metadata/descriptions_brat/*
 data/crc_metadata/descriptions_annotated/*
+final_models/data/
 env/
 env/*
 env/*/*

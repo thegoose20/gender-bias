@@ -26,14 +26,14 @@ TRAINED/FIT MODELS
 Models for extracting features for classifying tokens with Linguistic (Gendered Pronoun, Gendered Role, and Generalization) labels
 '''
 ft_model = FastText.load(config.fasttext_path+"fasttext_cbow_100d.model")             # Custom FastText word embeddings of 100 dimensions for lowercased tokens
-mlb_ling = joblib.load(config.models_path+"multilabel_token/mlb_linglabels.joblib")   # Binary encoding for Gendered Pronoun, Gendered Role, and Generalization labels
+mlb_ling = joblib.load(config.models_path+"multilabel_token/mlb_targets_ling.joblib")   # Binary encoding for Gendered Pronoun, Gendered Role, and Generalization labels
 
 '''
 Models for extracting features for classifying documents with Stereotype and Omission labels
 '''
 cvectorizer = joblib.load(config.models_path+"multilabel_document/count_vectorizer.joblib")
 tfidf = joblib.load(config.models_path+"multilabel_document/tfidf_transformer.joblib")
-mlb_so = joblib.load(config.models_path+"multilabel_document/mlb_targets_so.joblib")  # Binary encoding for Stereotype and Omission labels
+mlb_so = joblib.load(config.models_path+"multilabel_document/mlb_targets_os.joblib")  # Binary encoding for Stereotype and Omission labels
 
 
 '''

@@ -48,6 +48,22 @@ Gendered and Gender Biased Language
 * `token_classification` - experiments with multilabel token classifiers, multiclass sequence classifiers, and cascades of classifiers (meaning sequential combinations of token, sequence, and document classifiers)
 * `word_embeddings` - evaluating relevance of SpaCy's sense2vec (contextual word embeddings) and of GloVe embeddings for the classification task, and training custom fastText embeddings
 
+## Associated Paper
+If referencing this 
+```
+@inproceedings{Havens_Bach_Terras_Alex_2025, 
+  author={Havens, Lucy and Bach, Benjamin and Terras, Melissa and Alex, Beatrice},
+  title={{Investigating the Capabilities and Limitations of Machine Learning for Identifying Bias in English Language Data with Information and Heritage Professionals}}, 
+  booktitle={CHI ’25: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems}, 
+  publisher={ACM},
+  address={New York}
+  location={Yokohama, Japan},
+  DOI={https://doi.org/10.1145/3706598.3713217}, 
+  year={2025}, 
+  pages={22} 
+}
+```
+
 ## Related Resources
 * GitHub repos: 
   * [annot-prep](https://github.com/thegoose20/annot-prep)
@@ -56,3 +72,7 @@ Gendered and Gender Biased Language
   * [Confusion Matrices of Annotated Archival Metadata Descriptions](https://observablehq.com/@thegoose20/confusion-matrices)
   * [Exploratory Analysis of Archival Metadata](https://observablehq.com/d/0091bad1ddecc57f)
   * [Exploratory Analysis of Annotated Data](https://observablehq.com/d/b61080669b52aa93)
+* Publications:
+  * On the research methodology: [Situated Data, Situated Systems (Havens et al., 2020)](https://aclanthology.org/2020.gebnlp-1.10.pdf)
+  * On the coding taxonomy and training data: [Uncertainty and Inclusivity in Gender Bias Annotation (Havens et al., 2022)](https://aclanthology.org/2022.gebnlp-1.4v2.pdf)
+  * On the classification experiments and model performance analysis: [Recalibrating Machine Learning for Social Biases (Havens, 2024)](https://era.ed.ac.uk/handle/1842/41420)

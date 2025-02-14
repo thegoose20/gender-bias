@@ -16,13 +16,11 @@ from sklearn.metrics import precision_recall_fscore_support, f1_score, precision
 from intervaltree import Interval, IntervalTree
 
 
-#################################################################
-#################################################################
-#################################################################
+# -----------------------------------
+# -----------------------------------
 # Split Data for Token Classification
-#################################################################
-#################################################################
-#################################################################
+# -----------------------------------
+# -----------------------------------
 
 # INPUT: list of strings (descriptions), list of ids for those strings, list of start offsets for those strings, 
 #        list of end offsets for those strings (offsets in the brat rapid annotation tool's standoff format)

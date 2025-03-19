@@ -17,6 +17,7 @@ data/crc_metadata/descriptions_annotated/*
 experiments/ForConfusionMatrices.ipynb
 final_models/data/*
 final_models/data/multilabel_token_predictions/*
+final_models/data/multilabel_token_predictions/ccrf_ftcbow100lower/*
 env/*
 env/*/*
 final_models/models/embeddings/*

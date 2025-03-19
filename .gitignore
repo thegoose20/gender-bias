@@ -9,6 +9,7 @@ __pycache__/
 __pycache__/*
 __pycache__/*/*
 experiments/token_classification/__pycache__
+experiments/analysis/classified_descriptions.txt
 data/*
 data/annotator_data/*
 data/aggregated_data/.__afs0F96

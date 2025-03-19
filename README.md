@@ -2,31 +2,33 @@
 
 This repository contains text classification models, as well as the experiments undertaken to create them, to identify gendered and gender biased language.  The models were trained on a corpus of British English text extracted from an archival catalog's metadata descriptions, which consists of both historical and contemporary language (see [Data]((#Data))).
 
-### Classification Model Overview
-* Token Classifiers: multilabel task for Linguistic labels in the [taxonomy](#Annotation-Taxonomy), where words represented with word embeddings
-* Sequence Classifiers: multiclass task for Person Name labels and Occupation label in the [taxonomy](#Annotation-Taxonomy), where words are represented with word embeddings
-* Document Classifiers: multilabel task for Stereotype and Omission labels in the [taxonomy](#Annotation-Taxonomy), where each document is a description represented with TFIDF
-
-### Table of Contents
+## Table of Contents
+* [Classification Model Overview](#Classification-Model-Overview)
 * [Data](#Data)
-* [Annotation Taxonomy](#Annotation-Taxonomy)
+* [Model Classes and Labels](#Model-Classes-and-Labels)
 * [Overview of Directories](#Overview-of-Directories)
 * [Related Resources](#Related-Resources)
 
+## Classification Model Overview
+* Token Classifiers: multilabel task for Linguistic labels in the [Taxonomy of Gendered and Gender Biased Language](#Model-Classes-and-Labels), where words represented with word embeddings
+* Sequence Classifiers: multiclass task for Person Name labels and Occupation label in the [Taxonomy of Gendered and Gender Biased Language](#Model-Classes-and-Labels), where words are represented with word embeddings
+* Document Classifiers: multilabel task for Stereotype and Omission labels in the [Taxonomy of Gendered and Gender Biased Language](#Model-Classes-and-Labels), where each document is a description represented with TFIDF
+
 ## Data
-* Descriptions from four metadata fields in the [University of Edinburgh Heritage Collections Archives catalog](archives.collections.ed.ac.uk/)
+Training data for all classification models can be downloaded from the [University of Edinburgh's DataShare platform](https://doi.org/10.7488/ds/7539).  The models' training data was created from an aggregated, annotated dataset of descriptions from four metadata fields in the [University of Edinburgh Heritage Collections' Archives catalog](https://archives.collections.ed.ac.uk):
     1. **Title**: title of collection ("fonds"), subcollection, series, subseries, or item
     2. **Scope and Contents**: descriptions of the type of material (i.e. photos, journals, letters)
     3. **Biographical / Historical**: descriptions of the people, places, and events associated with the archival items being described
     4. **Processing Information**: usually empty, but for the ~30% of the collections it's provided and contains names who wrote the description and the year they wrote it
+This dataset can also be downloaded from [DataShare](https://doi.org/10.7488/ds/7540) and consists of:
 * 11,888 descriptions from over 1,000 archival collections (the first 20% of the Archives' catalog as of October 2020)
 * 24,474 sentences and 399,957 words 
 * 55,260 annotations (a.k.a. codes, labels) in the training dataset
 
-## Annotation Taxonomy
-Definitions and examples of each category and subcategory (the subcategories being the codes, or labels, applied during the manual annotation process) of the taxonomy listed below are available in [this paper](https://aclanthology.org/2022.gebnlp-1.4/).
+## Model Classes and Labels
+Models were trained to classify text with the subcategories, or codes, of the *Taxonomy of Gendered and Gender Biased Language* in a multiclass or multilabel classification task.  Definitions and examples of the Taxonomy's categories and subcategories, which are listed below, are available in [this paper](https://aclanthology.org/2022.gebnlp-1.4/).
 ```
-Gendered and Gender Biased Language
+Taxonomy of Gendered and Gender Biased Language
 ├── Person Name
 │   ├── Unknown
 │   ├── Non-binary*
@@ -42,12 +44,14 @@ Gendered and Gender Biased Language
     ├── Omission
     └── Stereotype
 ```
-**Annotators did not find descriptions on which to apply these labels according to the annotation instructions*
+**Note that annotators did not find descriptions on which to apply these labels according to the annotation instructions.*
 
 ## Overview of Directories
-* `document_classification` - experiments with document classifiers for targets as all labels, Person Name labels, and Stereotype and Omission labels
-* `token_classification` - experiments with multilabel token classifiers, multiclass sequence classifiers, and cascades of classifiers (meaning sequential combinations of token, sequence, and document classifiers); the experiments in this directory correspond to the cascades in the associated paper (see next section), *i.e.*, Experiment1 = Cascade 1
-* `word_embeddings` - evaluating relevance of SpaCy's sense2vec (contextual word embeddings) and of GloVe embeddings for the classification task, and training custom fastText embeddings
+* `experiments\`
+  * `analysis\` - analysis of the manually annotated data and classified data
+  * `document_classification\` - experiments with document classifiers for targets as all labels, Person Name labels, and Stereotype and Omission labels
+  * `token_classification\` - experiments with multilabel token classifiers, multiclass sequence classifiers, and cascades of classifiers (meaning sequential combinations of token, sequence, and document classifiers); the experiments in this directory correspond to the cascades in the associated paper (see next section), *i.e.*, Experiment1 = Cascade 1
+  * `word_embeddings\` - evaluating relevance of SpaCy's sense2vec (contextual word embeddings) and of GloVe embeddings for the classification task, and training custom fastText embeddings
 
 ## Associated Paper
 ```

@@ -10,6 +10,7 @@ __pycache__/*
 __pycache__/*/*
 experiments/token_classification/__pycache__
 experiments/analysis/classified_descriptions.txt
+experiments/word_embeddings/__pycache__
 data/*
 data/annotator_data/*
 data/aggregated_data/.__afs0F96
@@ -17,9 +18,10 @@ data/crc_metadata/descriptions_brat/*
 data/crc_metadata/descriptions_annotated/*
 experiments/ForConfusionMatrices.ipynb
 final_models/data/*
+final_models/__pycache__
 env/*
 env/*/*
-final_models/models/embeddings/*
+final_models/models/embeddings
 label_catalogue/*
 viz/*
 nohup.out

@@ -115,7 +115,7 @@ mkdir model_input
 
 **Step 10:** Move the downloaded `token_train.csv` and `token_validate.csv` files under the newly created `data/token_clf_data/model_input` directory.
 
-**Step 11:** Create Plain Text (TXT) files of the latest catalog metadata from the University of Edinburgh's Archives using [OAI-PMH](https://www.openarchives.org/pmh/) using the code in this repo and save them under `data/descriptions_by_fonds/`.
+**Step 11:** Create Plain Text (TXT) files of the latest catalog metadata from the University of Edinburgh's Archives using [OAI-PMH](https://www.openarchives.org/pmh/) by following the steps in the first two sections, "Harvesting" and "Transforming," of [this Jupyter Notebook](https://github.com/thegoose20/annot-prep/blob/main/PreparationForAnnotation.ipynb).  Save the files under `data/descriptions_by_fonds/`.
 
 **Step 12:** Run the code for section 3 in the `Word_Embeddings` Jupyter Notebook in the `final_models/word_embeddings` directory.
 

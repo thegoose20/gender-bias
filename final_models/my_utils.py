@@ -183,7 +183,7 @@ Function output: the DataFrame of documents to be classified with a new
 column containing non-repeating lists of labels that each document's tokens
 were classified with.
 '''
-def preprocessClassifiedDocs(doc_df, feature_df, row_id="record_id", pred_col="document_prediction"):
+def preprocessClassifiedDocs(doc_df, feature_df, pred_col, row_id="record_id"):
     imploded_df = implodeDataFrame(feature_df, [row_id]).reset_index()
     flattened_df = flattenFeatureColumn(imploded_df)
     to_join = imploded_df[[row_id, pred_col]]
@@ -294,7 +294,7 @@ identifiers (default provided).
 - Function output: the DataFrame with all features input into the classifier with a
 new column for the classifier's labels, with one row per token.
 '''
-def exportClassifiedData(df, y, mlb, filepath, filename, id_col="record_id"):
+def exportClassifiedData(df, y, mlb, filepath, filename, pred_col_name, id_col="record_id"):
     predictions = mlb.inverse_transform(y)
     
     # Transform each prediction into a 1D list of strings
@@ -308,7 +308,7 @@ def exportClassifiedData(df, y, mlb, filepath, filename, id_col="record_id"):
                     if label not in preds:
                         preds += [label]
         pred_col += [preds]
-    df.insert(len(df.columns), "prediction", pred_col)
+    df.insert(len(df.columns), pred_col_name, pred_col)
     
     Path(filepath).mkdir(parents=True, exist_ok=True)  # Create any directories in the filepath that don't exist
     df.to_csv(filepath+filename)

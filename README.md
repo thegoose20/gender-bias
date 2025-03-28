@@ -115,7 +115,9 @@ mkdir model_input
 
 **Step 10:** Move the downloaded `token_train.csv` and `token_validate.csv` files under the newly created `data/token_clf_data/model_input` directory.
 
-**Step 11:** Create Plain Text (TXT) files of the latest catalog metadata from the University of Edinburgh's Archives using [OAI-PMH](https://www.openarchives.org/pmh/) using the code in this repo.   `descriptions_by_fonds/` DATA FILES IN `word_embeddings/WordEmbeddings.ipynb` CODE B/C NOT AVAILABLE ONLINE!  BY CREATING FILES (OR WORD EMBEDDINGS?) FROM TWO FILES IN STEP 10?  IGNORING PIPES SEPARATING EACH DESCRIPTION???
+**Step 11:** Create Plain Text (TXT) files of the latest catalog metadata from the University of Edinburgh's Archives using [OAI-PMH](https://www.openarchives.org/pmh/) using the code in this repo and save them under `data/descriptions_by_fonds/`.
+
+**Step 12:** Run the code for section 3 in the `Word_Embeddings` Jupyter Notebook in the `final_models/word_embeddings` directory.
 
 Now you're ready to start running the text classifiers in the `final_models` directory!  
 

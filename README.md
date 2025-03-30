@@ -3,13 +3,13 @@
 This repository contains text classification models, as well as the experiments undertaken to create them, to identify gendered and gender biased language.  The models were trained on a corpus of British English text extracted from an archival catalog's metadata descriptions, which consists of both historical and contemporary language (see [Data]((#Data))).
 
 ## Table of Contents
-1. [Classification Model Overview](#Classification-Model-Overview)
-2. [Data](#Data)
-3. [Model Classes and Labels](#Model-Classes-and-Labels)
-4. [Repo Overview](#Repo-Overview)
-5. [Setup](#setup)
-6. [Associated Paper](#Associated-Paper)
-7. [Related Resources](#Related-Resources)
+1. [Classification Model Overview](#1-classification-model-overview)
+2. [Data](#2-data)
+3. [Model Classes and Labels](#3-model-classes-and-labels)
+4. [Repo Overview](#4-repo-overview)
+5. [Setup](#5-setup)
+6. [Associated Paper](#6-associated-paper)
+7. [Related Resources](#7-related-resources)
 
 ## 1. Classification Model Overview
 * Token Classifiers: multilabel task for Linguistic labels in the [Taxonomy of Gendered and Gender Biased Language](#Model-Classes-and-Labels), where words are represented with custom word embeddings

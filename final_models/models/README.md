@@ -12,9 +12,9 @@ predicted_labels = mlb.inverse_transform(y)
 ```
 where `X` is a feature matrix (preprocessed text), `y` is a binarized representation of the classifier's predictions (e.g., `[0, 0, 1], [1, 0, 0], [0, 0, 0], ...`), and `predicted_labels` has the classifier's predictions represented as text (e.g., `[['Generalization'], ['Gendered-Pronoun'], [], ...`).
 
-<!-- ## embeddings/
-This directory contains word embedding models for creating features to input into multilabel token classifiers.
-* `custom_fasttext/fasttext_cbow_100d.model`: a custom word embedding model, specifically 100-dimension FastText embeddings trained with Continous Bag-of-Words (CBOW) architecture on metadata descriptions from the Heritage Collections' Archives' catalogue found in directory `data/descriptions_by_fonds/`, where all tokens are lowercased -->
+## embeddings/
+After running `WordEmbeddings.ipynb`, this directory will contain your custom fastText word embedding model for creating features to input into multilabel token classifiers.
+* `fasttext/fasttext_cbow_100d.model`: a custom word embedding model, specifically 100-dimension FastText embeddings trained with Continous Bag-of-Words (CBOW) architecture on metadata descriptions from the Heritage Collections' Archives' catalog, where tokens are not lowercased
 
 
 ## multilabel_document/

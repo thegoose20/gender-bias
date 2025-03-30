@@ -94,7 +94,7 @@ conda activate gender-bias
 git init
 ```
 
-**Step 6:** Download the classification model's training data from [Edinburgh DataShare](#https://doi.org/10.7488/ds/7539).
+**Step 6:** Download the classification model's training data from [Edinburgh DataShare](https://doi.org/10.7488/ds/7539).
 
 **Step 7:** Create a directory in the gender-bias repo called `data`.
 ```
@@ -113,11 +113,23 @@ cd token_clf_data
 mkdir model_input
 ```
 
-**Step 10:** Move the downloaded `token_train.csv` and `token_validate.csv` files under the newly created `data/token_clf_data/model_input` directory.
+**Step 10:** Move the downloaded `token_train.csv`, `token_validate.csv`, and `token_test.csv` files under the newly created `data/token_clf_data/model_input` directory.
 
-**Step 11:** Create Plain Text (TXT) files of the latest catalog metadata from the University of Edinburgh's Archives using [OAI-PMH](https://www.openarchives.org/pmh/) by following the steps in the first two sections, "Harvesting" and "Transforming," of [this Jupyter Notebook](https://github.com/thegoose20/annot-prep/blob/main/PreparationForAnnotation.ipynb).  Save the files under `data/descriptions_by_fonds/`.
+**Step 11:** Create a sub-directory called `doc_clf_data`.
+```
+cd ..
+mkdir doc_clf_data
+```
 
-**Step 12:** Run the code for section 3 in the `Word_Embeddings` Jupyter Notebook in the `final_models/word_embeddings` directory.
+**Step 12:** Create a sub-sub-directory called `model_input`.
+```
+cd doc_clf_data
+mkdir model_input
+```
+
+**Step 13:** Move the downloaded `train_docs.txt`, `validate_docs.txt`, and `test_docs.txt` under the newly created `data/doc_clf_data/model_input` directory.
+
+**Step 14:** Run the code in the `Word_Embeddings` Jupyter Notebook (in the `final_models/word_embeddings` directory).
 
 Now you're ready to start running the text classifiers in the `final_models` directory!  
 

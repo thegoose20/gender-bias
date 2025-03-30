@@ -131,7 +131,7 @@ mkdir model_input
 
 **Step 14:** Run the code in the `Word_Embeddings` Jupyter Notebook (in the `final_models/word_embeddings` directory).
 
-Now you're ready to start running the text classifiers in the `final_models` directory!  
+Now you're ready to start running the text classifiers in the `final_models` directory!  For guidance, see the `ApplyTrainedModels` Jupyter Notebook in that directory.
 
 When you're done, shut down your virtual environment by entering the following in the command line:
 ```
@@ -141,7 +141,7 @@ Re-activate the environment by running the command in step 4.
 
 ### 5.2 To re-run the experiments
 
-If you'd like to run the code in the `experiments` directory, you'll need use additional files in the downloaded data and organize them into directories according to the `experiments/token_classification/config.py` file.
+If you'd like to run the Jupyter Notebooks in the `final_models` directory, as well as the `experiments` directory, you'll need use additional files in the downloaded data and organize them into directories according to the `experiments/token_classification/config.py` file:
 
 **Step 1:** Create a directory in your gender-bias repo called `data`.
 ```
@@ -160,21 +160,7 @@ cd token_clf_data
 mkdir experiment_input
 ```
 
-**Step 4:** Create a sub-directory called `doc_clf_data`.
-```
-cd ..
-mkdir doc_clf_data
-```
-
-**Step 5:** Create a sub-sub-directory called `model_input`.
-```
-cd doc_clf_data
-mkdir model_input
-```
-
-**Step 6:** Move the downloaded `token_5fold.csv` and `document_5fold.csv` files under `data/token_clf_data/experiment_input/`.
-
-**Step 7:** Move the `train_docs.txt`, `train_labels.txt`, `validate_docs.txt`, `validate_labels.txt`, `blindtest_docs.txt`, and `blindtest_labels.txt` files under `data/doc_clf_data/model_input/`.
+**Step 4:** Move the downloaded `token_5fold.csv` and `document_5fold.csv` files under `data/token_clf_data/experiment_input/`.
 
 The remaining downloaded data files are informative and not needed to run the code in the `experiments` directory.
 
